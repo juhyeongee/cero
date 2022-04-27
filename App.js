@@ -7,6 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Asset } from "expo-asset";
 import { NavigationContainer } from "@react-navigation/native";
 import Tabs from "./navigation/Tabs";
+import styled from "styled-components/native";
 
 export default function App() {
   const [로딩상태, set로딩상태] = useState(false);
