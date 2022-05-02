@@ -28,13 +28,28 @@ const TodayMission = (props) => {
   );
 };
 
+const HowToDo = (props) => {
+  return (
+    <View
+      style={{
+        padding: 20,
+        flex: 0.4,
+        backgroundColor: "tomato",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Text style={{ fontSize: 13 }}>
+        How to do. {props.missionArray[0].contents}
+      </Text>
     </View>
   );
 };
 
 const Header = styled.View`
   flex-direction: row;
-  flex: 0.2;
+  flex: 0.3;
   display: flex;
   justify-content: center;
   align-items: center;
