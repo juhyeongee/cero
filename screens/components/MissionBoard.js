@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import styled from "styled-components/native";
 import Icon from "react-native-vector-icons/Ionicons";
+import missionArray from "./Missions";
 
 const TodayMission = (props) => {
   return (
@@ -22,7 +23,11 @@ const TodayMission = (props) => {
         alignItems: "center",
       }}
     >
-      <Text style={{ fontSize: 16 }}>Q. {props.todayMission}</Text>
+      <Text style={{ fontSize: 16 }}>Q. {props.missionArray[0].subTitle}</Text>
+    </View>
+  );
+};
+
     </View>
   );
 };
@@ -37,16 +42,15 @@ const Header = styled.View`
 
 const MissionBoard = (props) => {
   const [text, setText] = useState("Write your action");
-  const [todayMission, setTodayMission] = useState(
-    "Write about your last Love"
-  );
+  const [todayMission, setTodayMission] = useState(missionArray[0].subTitle);
 
   return (
     <View style={styles.board}>
       <Header>
         <Text style={styles.title}>Today's mission </Text>
       </Header>
-      <TodayMission todayMission={todayMission} />
+      <TodayMission missionArray={missionArray} />
+      <HowToDo missionArray={missionArray} />
       <TextInput
         style={{ flex: 1, padding: 20 }}
         onChangeText={setText}
