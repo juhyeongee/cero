@@ -7,13 +7,13 @@ import {
   StyleSheet,
   TextInput,
 } from "react-native";
-import splash from "../";
+import splash from "..";
 import styled from "styled-components/native";
 import MissionBoard from "./components/MissionBoard";
 import Icon from "react-native-vector-icons/Ionicons";
 
-const Width = Dimensions.get("window").width; //스크린 너비 초기화
-const Height = Dimensions.get("window").height; //스크린 높이 초기화
+const Width = Dimensions.get("window").width; //스크린 너비 초기화 => WINDOW_WIDTH
+const Height = Dimensions.get("window").height; //스크린 높이 초기화=> WINDOW_HEIGHT 로 property라는 파일이나 폴더로 많이 쓴다.
 const MissionBtn = styled.TouchableOpacity`
   position: absolute;
   right: 100;
@@ -36,24 +36,15 @@ const Back = styled.TouchableOpacity`
 
 const MyRooms = () => {
   const [mission, setMission] = useState(false);
+  //visibleMissionScreen 으로 boolean은 변수명을 보자마자 알 수있게 해주는게 좋습니다. 카멜케이스로 씁시다~ is has visible hidden을 사용한다.
+  //근본있게 docs로 공부하기.
   const onPress = () => {
     setMission(!mission);
   };
-  if (mission == false) {
+
+  if (mission) {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ImageBackground
-          style={styles.mainImage}
-          source={require("../title.png")}
-        />
-        <MissionBtn onPress={onPress}>
-          <Text style={{ fontSize: 20 }}>Mission</Text>
-        </MissionBtn>
-      </View>
-    );
-  }
-  if (mission == true) {
-    return (
+      //접어서 옮기기~~ 그러면 개꿀
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <ImageBackground
           style={styles.mainImage}
@@ -64,6 +55,18 @@ const MyRooms = () => {
             <Icon name="chevron-back-circle-outline" size={50} />
           </Back>
         </ImageBackground>
+      </View>
+    );
+  } else {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ImageBackground
+          style={styles.mainImage}
+          source={require("../title.png")}
+        />
+        <MissionBtn onPress={onPress}>
+          <Text style={{ fontSize: 20 }}>Mission</Text>
+        </MissionBtn>
       </View>
     );
   }
