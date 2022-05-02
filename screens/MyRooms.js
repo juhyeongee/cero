@@ -11,9 +11,13 @@ import splash from "..";
 import styled from "styled-components/native";
 import MissionBoard from "./components/MissionBoard";
 import Icon from "react-native-vector-icons/Ionicons";
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from "./property";
 
-const Width = Dimensions.get("window").width; //스크린 너비 초기화 => WINDOW_WIDTH
-const Height = Dimensions.get("window").height; //스크린 높이 초기화=> WINDOW_HEIGHT 로 property라는 파일이나 폴더로 많이 쓴다.
+const Width = Dimensions.get("window").width;
+//스크린 너비 초기화 => WINDOW_WIDTH
+const Height = Dimensions.get("window").height;
+//스크린 높이 초기화=> WINDOW_HEIGHT 로 property라는 파일이나 폴더로 많이 쓴다.
+
 const MissionBtn = styled.TouchableOpacity`
   position: absolute;
   right: 100;
@@ -78,8 +82,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flex: 1,
-    width: Width,
-    height: Height,
+    width: WINDOW_WIDTH,
+    height: WINDOW_HEIGHT,
     resizeMode: "repeat",
   },
 });
