@@ -35,14 +35,14 @@ const Back = styled.TouchableOpacity`
 `;
 
 const MyRooms = () => {
-  const [mission, setMission] = useState(false);
+  const [isMissionPage, setIsMissionPage] = useState(false);
   //visibleMissionScreen 으로 boolean은 변수명을 보자마자 알 수있게 해주는게 좋습니다. 카멜케이스로 씁시다~ is has visible hidden을 사용한다.
   //근본있게 docs로 공부하기.
   const onPress = () => {
-    setMission(!mission);
+    setIsMissionPage(!isMissionPage);
   };
 
-  if (mission) {
+  if (isMissionPage) {
     return (
       //접어서 옮기기~~ 그러면 개꿀
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
