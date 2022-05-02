@@ -47,14 +47,6 @@ const HowToDo = (props) => {
   );
 };
 
-const Header = styled.View`
-  flex-direction: row;
-  flex: 0.3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const MissionBoard = (props) => {
   const [text, setText] = useState("Write your action");
   const [todayMission, setTodayMission] = useState(missionArray[0].subTitle);
@@ -74,6 +66,14 @@ const MissionBoard = (props) => {
     </View>
   );
 };
+
+const Header = styled.View`
+  flex-direction: row;
+  flex: 0.3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const styles = StyleSheet.create({
   board: {
