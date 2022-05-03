@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Drawer from "../screens/Drawer";
-import MyRooms from "../screens/MyRooms";
+import MyRoom from "../screens/MyRoom";
 import Setting from "../screens/Setting";
 import styled from "styled-components/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -31,8 +31,8 @@ const Tabs = () => (
       }}
     />
     <Tab.Screen
-      name="MyRooms"
-      component={MyRooms}
+      name="MyRoom"
+      component={MyRoom}
       options={{
         tabBarLabel: "My room",
         tabBarIcon: ({ color, size }) => (
