@@ -13,7 +13,7 @@ import MissionBoard from "./components/MissionBoard";
 import Icon from "react-native-vector-icons/Ionicons";
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from "./property";
 
-const MyRooms = () => {
+const MyRoom = () => {
   const [isMissionPage, setIsMissionPage] = useState(false);
   //visibleMissionScreen 으로 boolean은 변수명을 보자마자 알 수있게 해주는게 좋습니다. 카멜케이스로 씁시다~ is has visible hidden을 사용한다.
   //근본있게 docs로 공부하기.
@@ -83,4 +83,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MyRooms;
+export default MyRoom;
