@@ -9,11 +9,13 @@ import { NavigationContainer } from "@react-navigation/native";
 import Tabs from "./navigation/Tabs";
 import styled from "styled-components/native";
 import auth from "@react-native-firebase/auth";
-import LoginScreen from "./screens/LoginScreen";
+import Join from "./screens/Join";
+import Intro from "./screens/Intro";
+import OutNav from "./navigation/OutNav";
 
 export default function App() {
   const [로딩상태, set로딩상태] = useState(false);
-  const [isLoginScreen, setIsLoginScreen] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const loadingComplete = () => set로딩상태(true);
   const startLoading = async () => {
     await Font.loadAsync(Ionicons.font);
@@ -21,7 +23,13 @@ export default function App() {
     //웹 이미지 가져오는 법: await Image.prefetch ("https://..")
   };
   useEffect(() => {
-    console.log(auth().currentUser);
+    auth().onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
   }, []);
 
   if (로딩상태 === false) {
@@ -36,17 +44,13 @@ export default function App() {
         </View>
       </AppLoading>
     );
+  } else {
+    return (
+      <NavigationContainer>
+        {isLoggedIn ? <Tabs /> : <OutNav />}
+      </NavigationContainer>
+    );
   }
-
-  if (isLoginScreen) {
-    <LoginScreen />;
-  }
-
-  return (
-    <NavigationContainer>
-      <Tabs />
-    </NavigationContainer>
-  );
 }
 
 const styles = StyleSheet.create({

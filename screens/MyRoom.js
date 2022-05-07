@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Dimensions,
-  ImageBackground,
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-} from "react-native";
-import splash from "..";
+import { ImageBackground, View, Text, StyleSheet } from "react-native";
 import styled from "styled-components/native";
 import MissionBoard from "./components/MissionBoard";
 import Icon from "react-native-vector-icons/Ionicons";
