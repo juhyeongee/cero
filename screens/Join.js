@@ -6,10 +6,10 @@ import {
   Text,
   TextInput,
   ActivityIndicator,
+  Alert,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import auth from "@react-native-firebase/auth";
-import { Alert } from "react-native-web";
 
 const Join = () => {
   const passwordInput = useRef();
@@ -53,6 +53,7 @@ const Join = () => {
         placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
       />
       <TextInput
+        autoCapitalize="none"
         ref={passwordInput}
         placeholder="Password"
         secureTextEntry

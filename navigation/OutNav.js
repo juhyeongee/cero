@@ -9,6 +9,7 @@ const OutNav = () => {
   return (
     <Nav.Navigator
       screenOptions={{
+        headerShown: false,
         presentation: "modal",
         headerTintColor: "red",
       }}

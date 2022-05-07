@@ -9,8 +9,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Tabs from "./navigation/Tabs";
 import styled from "styled-components/native";
 import auth from "@react-native-firebase/auth";
-import Join from "./screens/Join";
-import Intro from "./screens/Intro";
+
 import OutNav from "./navigation/OutNav";
 
 export default function App() {
