@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-
+import styled from "styled-components";
 import {
   KeyboardAvoidingView,
   View,
@@ -51,8 +51,8 @@ const Join = () => {
   };
 
   return (
-    <View>
-      <TextInput
+    <JoinBG>
+      <EmailInput
         placeholder="Email"
         autoCapitalize="none"
         autoCorrect={false}
@@ -63,7 +63,7 @@ const Join = () => {
         onSubmitEditing={onSubmitEmailEditing}
         placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
       />
-      <TextInput
+      <PWInput
         autoCapitalize="none"
         ref={passwordInput}
         placeholder="Password"
@@ -74,11 +74,44 @@ const Join = () => {
         placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
         onSubmitEditing={onSubmitPasswordEditing}
       />
-      <TouchableOpacity onPress={onSubmitPasswordEditing}>
-        <Text>Create Account</Text>
-      </TouchableOpacity>
-    </View>
+      <PWInput />
+      <CreateBtn onPress={onSubmitPasswordEditing}>
+        <Text style={{ fontSize: 17 }}>Create Account</Text>
+      </CreateBtn>
+    </JoinBG>
   );
 };
 
+const JoinBG = styled.View`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dfdbd6;
+  flex: 1;
+`;
+
+const EmailInput = styled.TextInput`
+  background-color: whitesmoke;
+  padding: 10px;
+  width: 80%;
+  height: 40px;
+  border: 1px solid grey;
+  border-radius: 15px;
+  margin: 20px;
+`;
+
+const PWInput = styled.TextInput`
+  background-color: whitesmoke;
+  padding: 10px;
+  width: 80%;
+  height: 40px;
+  border: 1px solid grey;
+  border-radius: 15px;
+  margin: 2px;
+`;
+
+const CreateBtn = styled.TouchableOpacity`
+  margin: 50px;
+  //여기에 sass쓸  수 있다면 참 편할 텐데요.
+`;
 export default Join;
