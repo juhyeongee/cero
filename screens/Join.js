@@ -41,7 +41,7 @@ const Join = () => {
           Alert.alert("이메일이 뭔가 이상하네요!");
         }
         if (error.code === "auth/operation-not-allowed") {
-          Alert.alert("뭔가 이상해요.\n 이메일과 비밀번호를 다시 작성해주세요");
+          Alert.alert("뭔가 이상해요. 이메일과 비밀번호를 다시 작성해주세요");
         }
         if (error.code === "auth/weak-password") {
           Alert.alert("비밀번호가 약합니다!");

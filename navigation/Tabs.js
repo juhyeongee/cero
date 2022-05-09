@@ -5,6 +5,7 @@ import MyRoom from "../screens/MyRoom";
 import Setting from "../screens/Setting";
 import styled from "styled-components/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import MindTest from "../screens/MindTest";
 
 const Tab = createBottomTabNavigator();
 
@@ -45,6 +46,16 @@ const Tabs = () => (
       component={Setting}
       options={{
         tabBarLabel: "setting",
+        tabBarIcon: ({ color, size }) => (
+          <MaterialCommunityIcons name="circle" color={color} size={size} />
+        ),
+      }}
+    />
+    <Tab.Screen
+      name="Test"
+      component={MindTest}
+      options={{
+        tabBarLabel: "temp_Test",
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons name="circle" color={color} size={size} />
         ),
