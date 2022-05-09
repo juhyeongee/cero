@@ -28,15 +28,26 @@ const Join = () => {
       return;
     }
     setLoading(true);
-    try {
-      await auth().createUserWithEmailAndPassword(email, password);
-    } catch (e) {
-      switch (e.code) {
-        case "auth/weak-password": {
-          Alert.alert("Write a stronger password");
+    await auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        console.log("로그인 완료!");
+      })
+      .catch((error) => {
+        if (error.code === "auth/email-already-in-use") {
+          Alert.alert("이미 사용하고 있는 이메일입니다");
         }
-      }
-    }
+        if (error.code === "auth/invalid-email") {
+          Alert.alert("이메일이 뭔가 이상하네요!");
+        }
+        if (error.code === "auth/operation-not-allowed") {
+          Alert.alert("뭔가 이상해요.\n 이메일과 비밀번호를 다시 작성해주세요");
+        }
+        if (error.code === "auth/weak-password") {
+          Alert.alert("비밀번호가 약합니다!");
+        }
+        console.log(error.code);
+      });
   };
 
   return (

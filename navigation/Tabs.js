@@ -10,7 +10,7 @@ const Tab = createBottomTabNavigator();
 
 const Tabs = () => (
   <Tab.Navigator
-    initialRouteName="MyRooms"
+    initialRouteName="MyRoom"
     screenOptions={{
       headerShown: false,
       tabBarStyle: {
@@ -41,7 +41,6 @@ const Tabs = () => (
       }}
     />
     <Tab.Screen
-      screenOptions={{ headerShown: false }}
       name="Setting"
       component={Setting}
       options={{

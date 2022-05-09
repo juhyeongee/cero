@@ -30,14 +30,20 @@ const Intro = ({ navigation: { navigate } }) => {
         console.log("로그인 완료!");
       })
       .catch((error) => {
-        if (error.code === "auth/email-already-in-use") {
-          console.log("That email address is already in use!");
+        if (error.code === "auth/invalid-email") {
+          Alert.alert("이메일을 다시 작성해주세요");
+        }
+        if (error.code === "auth/user-disabled") {
+          Alert.alert("뭔가 에러가..!");
+        }
+        if (error.code === "auth/user-not-found") {
+          Alert.alert("없는 이메일입니다!ㅠ");
+        }
+        if (error.code === "auth/wrong-password") {
+          Alert.alert("비밀번호가 틀렸습니다");
         }
 
-        if (error.code === "auth/invalid-email") {
-          console.log("That email address is invalid!");
-        }
-        console.log(error);
+        console.log(error.code);
       });
   };
 
