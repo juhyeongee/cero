@@ -20,7 +20,7 @@ const Intro = ({ navigation: { navigate } }) => {
     passwordInput.current.focus(); //나중에 확인
   };
 
-  const onSubmitPasswordEditing = async () => {
+  const onSubmitPasswordEditing = () => {
     if (email === "" || password === "") {
       Alert.alert("폼을 다시 작성해주세요~ ");
     }
@@ -42,7 +42,7 @@ const Intro = ({ navigation: { navigate } }) => {
         if (error.code === "auth/wrong-password") {
           Alert.alert("비밀번호가 틀렸습니다");
         }
-
+        //await가 있고 없고  차이:
         console.log(error.code);
       });
   };

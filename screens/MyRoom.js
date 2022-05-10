@@ -31,8 +31,7 @@ const MyRoom = () => {
       console.log(e);
     }
   };
-  save();
-  load();
+
   if (isMissionPage) {
     return (
       //접어서 옮기기~~ 그러면 개꿀

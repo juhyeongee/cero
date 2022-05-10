@@ -16,20 +16,15 @@ const Join = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checkPW, setCheckPW] = useState("");
-  const [loading, setLoading] = useState(false);
   const onSubmitEmailEditing = () => {
     passwordInput.current.focus(); //나중에 확인
   };
 
-  const onSubmitPasswordEditing = async () => {
+  const onSubmitPasswordEditing = () => {
     if (email === "" || password === "") {
       return Alert.alert("칸 채워주세요");
     }
-    if (loading) {
-      return;
-    }
-    setLoading(true);
-    await auth()
+    auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
         console.log("로그인 완료!");
