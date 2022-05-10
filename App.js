@@ -10,6 +10,8 @@ import Tabs from "./navigation/Tabs";
 import styled from "styled-components/native";
 import auth from "@react-native-firebase/auth";
 import OutNav from "./navigation/OutNav";
+import { ThemeProvider } from "styled-components";
+import { mainTheme, darkTheme } from "./screens/components/theme";
 
 export default function App() {
   const [로딩상태, set로딩상태] = useState(false);
@@ -44,9 +46,11 @@ export default function App() {
     );
   } else {
     return (
-      <NavigationContainer>
-        {isLoggedIn ? <Tabs /> : <OutNav />}
-      </NavigationContainer>
+      <ThemeProvider theme={mainTheme}>
+        <NavigationContainer>
+          {isLoggedIn ? <Tabs /> : <OutNav />}
+        </NavigationContainer>
+      </ThemeProvider>
     );
   }
 }
