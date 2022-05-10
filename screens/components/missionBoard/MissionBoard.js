@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import styled from "styled-components/native";
-import missionObj from "./Missions";
+import missionObj from "../Missions";
 
 const TodayMission = (props) => {
   return (

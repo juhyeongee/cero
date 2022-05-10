@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import Swiper from "react-native-swiper";
 import styled from "styled-components";
-import TITLE_BACKGROUND_COLOR_1 from "../screens/property";
 import auth from "@react-native-firebase/auth";
 
 const Intro = ({ navigation: { navigate } }) => {

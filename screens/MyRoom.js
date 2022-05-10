@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { ImageBackground, View, Text, StyleSheet } from "react-native";
 import styled from "styled-components/native";
-import MissionBoard from "./components/MissionBoard";
+import MissionBoard from "./components/missionBoard/MissionBoard";
 import Icon from "react-native-vector-icons/Ionicons";
-import { WINDOW_WIDTH, WINDOW_HEIGHT } from "./property";
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from "./components/property";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const MyRoom = () => {
