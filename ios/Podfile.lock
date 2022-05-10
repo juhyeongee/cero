@@ -346,6 +346,8 @@ PODS:
     - React-RCTText
   - RNAppleAuthentication (2.1.5):
     - React-Core
+  - RNCAsyncStorage (1.15.17):
+    - React-Core
   - RNFBApp (14.9.1):
     - Firebase/CoreOnly (= 8.15.0)
     - React-Core
@@ -403,6 +405,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
   - "RNAppleAuthentication (from `../node_modules/@invertase/react-native-apple-authentication`)"
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
@@ -501,6 +504,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-navigation"
   RNAppleAuthentication:
     :path: "../node_modules/@invertase/react-native-apple-authentication"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBAuth:
@@ -564,6 +569,7 @@ SPEC CHECKSUMS:
   ReactCommon: 8fea6422328e2fc093e25c9fac67adbcf0f04fb4
   ReactNativeNavigation: 94979dd1572a3f093fc85d4599360530a1bed8c8
   RNAppleAuthentication: 63c2127ace11985b94f852fc480eb84145653712
+  RNCAsyncStorage: 6bd5a7ba3dde1c3facba418aa273f449bdc5437a
   RNFBApp: fd23737680ed2bdde41ca27d8bfb171b6d668c6b
   RNFBAuth: 4cfeb48367f81b135aced4bb9800df5488bc9660
   RNGestureHandler: 61628a2c859172551aa2100d3e73d1e57878392f
@@ -571,6 +577,6 @@ SPEC CHECKSUMS:
   RNVectorIcons: 7923e585eaeb139b9f4531d25a125a1500162a0b
   Yoga: e6ecf3fa25af9d4c87e94ad7d5d292eedef49749
 
-PODFILE CHECKSUM: 97f023f5594c7c490a908a38ec63c52a10a87c48
+PODFILE CHECKSUM: a78290b9dea282a3d8c7b937c20d289138e865fc
 
 COCOAPODS: 1.11.2
