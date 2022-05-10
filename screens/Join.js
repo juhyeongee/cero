@@ -15,6 +15,7 @@ const Join = () => {
   const passwordInput = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [checkPW, setCheckPW] = useState("");
   const [loading, setLoading] = useState(false);
   const onSubmitEmailEditing = () => {
     passwordInput.current.focus(); //나중에 확인
@@ -74,10 +75,26 @@ const Join = () => {
         placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
         onSubmitEditing={onSubmitPasswordEditing}
       />
-      <PWInput />
-      <CreateBtn onPress={onSubmitPasswordEditing}>
-        <Text style={{ fontSize: 17 }}>Create Account</Text>
-      </CreateBtn>
+      <PWInput
+        secureTextEntry
+        placeholder="Password"
+        onChangeText={(text) => setCheckPW(text)}
+      />
+      {password !== checkPW && (
+        <View>
+          <Text>비밀번호가 일치하지 않습니다.</Text>
+        </View>
+      )}
+      {/* 여기서 checkPW와 password가 같으면 아래에 빨간줄로 경고뜨게 하고 싶은데요.그리고 createAccount 버튼을 비활성화한다. */}
+      {password !== checkPW ? (
+        <CreateBtn>
+          <Text style={{ fontSize: 17 }}>Create Account</Text>
+        </CreateBtn>
+      ) : (
+        <CreateBtn onPress={onSubmitPasswordEditing}>
+          <Text style={{ fontSize: 17 }}>Create Account</Text>
+        </CreateBtn>
+      )}
     </JoinBG>
   );
 };
