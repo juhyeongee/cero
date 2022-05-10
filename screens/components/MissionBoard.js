@@ -1,16 +1,7 @@
 import React, { useState } from "react";
-import {
-  Dimensions,
-  ImageBackground,
-  TouchableOpacity,
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-} from "react-native";
+import { View, Text, StyleSheet, TextInput } from "react-native";
 import styled from "styled-components/native";
-import Icon from "react-native-vector-icons/Ionicons";
-import missionArray from "./Missions";
+import missionObj from "./Missions";
 
 const TodayMission = (props) => {
   return (
@@ -23,7 +14,9 @@ const TodayMission = (props) => {
         alignItems: "center",
       }}
     >
-      <Text style={{ fontSize: 16 }}>Q. {props.missionArray[0].subTitle}</Text>
+      <Text style={{ fontSize: 16 }}>
+        Q.{props.missionObj.day1.version1.subtitle}
+      </Text>
     </View>
   );
 };
@@ -41,7 +34,7 @@ const HowToDo = (props) => {
       }}
     >
       <Text style={{ fontSize: 13 }}>
-        How to do. {props.missionArray[0].contents}
+        How to do. {props.missionObj.day1.version1.contents}
       </Text>
     </View>
   );
@@ -49,15 +42,15 @@ const HowToDo = (props) => {
 
 const MissionBoard = (props) => {
   const [text, setText] = useState("Write your action");
-  const [todayMission, setTodayMission] = useState(missionArray[0].subTitle);
+  const [todayMission, setTodayMission] = useState();
 
   return (
     <View style={styles.board}>
       <Header>
         <Text style={styles.title}>Today's mission </Text>
       </Header>
-      <TodayMission missionArray={missionArray} />
-      <HowToDo missionArray={missionArray} />
+      <TodayMission missionObj={missionObj} />
+      <HowToDo missionObj={missionObj} />
       <TextInput
         style={{ flex: 1, padding: 20 }}
         onChangeText={setText}

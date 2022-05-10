@@ -61,16 +61,16 @@ const Body = (props) => {
     <BodyBG>
       <Question>{questionObj[props.pageNumber]}</Question>
       <AnswerButton>
-        <AnswerButtonText>매우 그렇다</AnswerButtonText>
+        <AnswerButtonText>극히 드물게</AnswerButtonText>
       </AnswerButton>
       <AnswerButton>
-        <AnswerButtonText>조금 그렇다</AnswerButtonText>
+        <AnswerButtonText>가끔 (1~2일)</AnswerButtonText>
       </AnswerButton>
       <AnswerButton>
-        <AnswerButtonText>그렇지 않다</AnswerButtonText>
+        <AnswerButtonText>자주 (3~4일)</AnswerButtonText>
       </AnswerButton>
       <AnswerButton>
-        <AnswerButtonText>매우 그렇지 않다</AnswerButtonText>
+        <AnswerButtonText>거의 대부분 (5~7일)</AnswerButtonText>
       </AnswerButton>
     </BodyBG>
   );

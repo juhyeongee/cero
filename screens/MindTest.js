@@ -8,8 +8,8 @@ import MindTestPage from "../screens/components/MindTestPage";
 const MindTest = () => {
   return (
     <Swiper loop={false}>
-      {Object.keys(questionObj).map((item) => (
-        <MindTestPage pageNumber={item} />
+      {Object.keys(questionObj).map((item, index) => (
+        <MindTestPage pageNumber={item} key={index} />
       ))}
     </Swiper>
   );
