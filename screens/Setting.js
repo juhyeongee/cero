@@ -2,6 +2,9 @@ import React from "react";
 import { View, Text, Button } from "react-native";
 import auth from "@react-native-firebase/auth";
 import styled from "styled-components/native";
+import firestore from "@react-native-firebase/firestore";
+
+const userCollection = firestore().collection("Users");
 
 const LogoutBtn = styled.Button`
   border: 1px solid black;
