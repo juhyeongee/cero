@@ -10,6 +10,7 @@ import {
 import Swiper from "react-native-swiper";
 import styled from "styled-components";
 import auth from "@react-native-firebase/auth";
+import firestore from "@react-native-firebase/firestore";
 
 const Intro = ({ navigation: { navigate } }) => {
   const passwordInput = useRef();

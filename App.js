@@ -8,10 +8,11 @@ import { Asset } from "expo-asset";
 import { NavigationContainer } from "@react-navigation/native";
 import Tabs from "./navigation/Tabs";
 import styled from "styled-components/native";
-import auth from "@react-native-firebase/auth";
 import OutNav from "./navigation/OutNav";
 import { ThemeProvider } from "styled-components";
 import { mainTheme, darkTheme } from "./screens/components/theme";
+import firestore from "@react-native-firebase/firestore";
+import auth from "@react-native-firebase/auth";
 
 export default function App() {
   const [로딩상태, set로딩상태] = useState(false);
@@ -22,8 +23,24 @@ export default function App() {
     await Asset.loadAsync(require("./title.png"));
     //웹 이미지 가져오는 법: await Image.prefetch ("https://..")
   };
+  console.log(auth().currentUser.email);
+  console.log(
+    firestore()
+      .collection("User")
+      .get()
+      .then((reuslt) => console.log(result.data()))
+  );
+  // firestore()
+  //   .collection("Users")
+  //   .doc(user)
+  //   .get()
+  //   .then((결과) => {
+  //     console.log(결과.data());
+  //   });
+
   useEffect(() => {
     auth().onAuthStateChanged((user) => {
+      //if (firestore().collection("user").)
       if (user) {
         setIsLoggedIn(true);
       } else {

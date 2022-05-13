@@ -1,7 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 import styled from "styled-components";
+import firestore from "@react-native-firebase/firestore";
+import auth from "@react-native-firebase/auth";
 
+const submitUserInfo = () => {
+  firestore().collection("Users").add({ submitMindTest: true });
+};
 const Tail = (props) => {
   const LastSubmitBtn = styled.TouchableOpacity`
     width: 60%;
@@ -47,7 +52,7 @@ const Tail = (props) => {
   } else {
     return (
       <TailBG>
-        <LastSubmitBtn>
+        <LastSubmitBtn onPress={submitUserInfo}>
           <Text style={{ color: "#faf8f4", fontSize: 17 }}>제출하기</Text>
         </LastSubmitBtn>
       </TailBG>
