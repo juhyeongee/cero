@@ -12,6 +12,7 @@ import styled from "styled-components";
 import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
 
+//navigation :{navigate} naviagtion이라는 이름으로 가져온다 아님?
 const Intro = ({ navigation: { navigate } }) => {
   const passwordInput = useRef();
   const [email, setEmail] = useState("");
@@ -28,6 +29,7 @@ const Intro = ({ navigation: { navigate } }) => {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         console.log("로그인 완료!");
+        navigate("TakeUserInfo");
       })
       .catch((error) => {
         if (error.code === "auth/invalid-email") {

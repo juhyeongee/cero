@@ -4,7 +4,6 @@ import styled from "styled-components/native";
 import MissionBoard from "./components/missionBoard/MissionBoard";
 import Icon from "react-native-vector-icons/Ionicons";
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from "./components/property";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const MyRoom = () => {
   const [isMissionPage, setIsMissionPage] = useState(false);
@@ -14,13 +13,6 @@ const MyRoom = () => {
     setIsMissionPage(!isMissionPage);
   };
 
-  const save = async () => {
-    try {
-      await AsyncStorage.setItem("button1", "Yos");
-    } catch (e) {
-      console.log(e);
-    }
-  };
   // 비동기:  오래걸리는거 나중에 처리해줘. 약속해저. (서버 다녀올때 많이 )
   //2~3초 걸리는 api호출 하고, 다른 작업들을 폰에서 처리해줌.
   const load = async () => {

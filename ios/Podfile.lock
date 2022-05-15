@@ -944,6 +944,8 @@ PODS:
     - React-jsi (= 0.64.3)
     - React-perflogger (= 0.64.3)
   - React-jsinspector (0.64.3)
+  - react-native-date-picker (4.2.1):
+    - React-Core
   - react-native-safe-area-context (3.3.2):
     - React-Core
   - React-perflogger (0.64.3)
@@ -1021,18 +1023,18 @@ PODS:
     - React-Core
     - React-RCTImage
     - React-RCTText
-  - RNAppleAuthentication (2.1.5):
+  - RNAppleAuthentication (2.2.0):
     - React-Core
   - RNCAsyncStorage (1.15.17):
     - React-Core
-  - RNFBApp (14.9.1):
+  - RNFBApp (14.9.4):
     - Firebase/CoreOnly (= 8.15.0)
     - React-Core
-  - RNFBAuth (14.9.1):
+  - RNFBAuth (14.9.4):
     - Firebase/Auth (= 8.15.0)
     - React-Core
     - RNFBApp
-  - RNFBFirestore (14.9.3):
+  - RNFBFirestore (14.9.4):
     - Firebase/Firestore (= 8.15.0)
     - React-Core
     - RNFBApp
@@ -1071,6 +1073,7 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-date-picker (from `../node_modules/react-native-date-picker`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -1163,6 +1166,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-date-picker:
+    :path: "../node_modules/react-native-date-picker"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-perflogger:
@@ -1252,6 +1257,7 @@ SPEC CHECKSUMS:
   React-jsi: a8b09c29521c798f1783348b37b511ba7b3dbeb3
   React-jsiexecutor: df6abc9fafbecb8e5b7a5fbc5e6d4bd017d594d5
   React-jsinspector: 34e23860273a23695342f58eed3ffd3ba10c31e0
+  react-native-date-picker: 211dead8aeaecab3904a07b967f580e6ea3dee88
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
   React-perflogger: cc76a4254d19640f1d8ad1c66fdee800414b805c
   React-RCTActionSheet: 7448f049318d8d7e8a9a1ebb742ada721757eea8
@@ -1266,11 +1272,11 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 493d9abb8b23c3f84e19ae221eeba92cadcb70dc
   ReactCommon: 8fea6422328e2fc093e25c9fac67adbcf0f04fb4
   ReactNativeNavigation: 94979dd1572a3f093fc85d4599360530a1bed8c8
-  RNAppleAuthentication: 63c2127ace11985b94f852fc480eb84145653712
+  RNAppleAuthentication: cbe1ab5c0f398ce07a215e6b247048092bf4feb3
   RNCAsyncStorage: 6bd5a7ba3dde1c3facba418aa273f449bdc5437a
-  RNFBApp: fd23737680ed2bdde41ca27d8bfb171b6d668c6b
-  RNFBAuth: 4cfeb48367f81b135aced4bb9800df5488bc9660
-  RNFBFirestore: a760c82871d98daf2009a882b38436a446d95f17
+  RNFBApp: bef4ec5a6d31a3da9bf285379d0c4857c6b7313e
+  RNFBAuth: 8694f1f043c75424455726b9b246a9ce12fb5518
+  RNFBFirestore: 841f319bfba0fbf3bd48fae80145301941219dd6
   RNGestureHandler: 61628a2c859172551aa2100d3e73d1e57878392f
   RNScreens: d6da2b9e29cf523832c2542f47bf1287318b1868
   RNVectorIcons: 7923e585eaeb139b9f4531d25a125a1500162a0b

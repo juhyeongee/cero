@@ -4,8 +4,6 @@ import auth from "@react-native-firebase/auth";
 import styled from "styled-components/native";
 import firestore from "@react-native-firebase/firestore";
 
-const userCollection = firestore().collection("Users");
-
 const FirebaseBtn = styled.Button`
   border: 1px solid black;
   width: 50%;
