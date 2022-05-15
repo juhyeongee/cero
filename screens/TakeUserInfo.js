@@ -9,7 +9,7 @@ import Confirm from "./components/takeUserInfo/Confirm";
 
 const TakeUserInfo = () => {
   return (
-    <Swiper>
+    <Swiper loop={false}>
       <Birthday />
       <Gender />
       <Nickname />

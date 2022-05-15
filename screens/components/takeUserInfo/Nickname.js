@@ -7,7 +7,8 @@ const Nickname = () => {
   const [nickname, setNickname] = useState();
 
   const sendInfo = () => {
-    AsyncStorage.setItem("gender", gender);
+    AsyncStorage.setItem("nickname", nickname);
+    AsyncStorage.getItem("nickname").then((text) => console.log(text));
   };
 
   return (

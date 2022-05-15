@@ -4,10 +4,12 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
 
 const Confirm = () => {
-  const birthday = AsyncStorage.getItem("birthday");
+  const birthday = async () => {
+    await AsyncStorage.getItem("birthday").then((text) => text);
+  };
   const gender = AsyncStorage.getItem("gender");
   const nickname = AsyncStorage.getItem("nickname");
-
+  console.log(birthday);
   return (
     <BG>
       <Text>당신의 현재 정보가 이게 맞을까요? </Text>
