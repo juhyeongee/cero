@@ -7,18 +7,16 @@ import DatePicker from "react-native-date-picker";
 const Birthday = () => {
   const [birthday, setBirthday] = useState(new Date());
 
-  const sendInfo = () => {
-    console.log(birthday);
-    console.log(typeof birthday);
-    AsyncStorage.setItem("birthday", JSON.stringify(birthday));
-    AsyncStorage.getItem("birthday").then((yes) => console.log(yes));
+  const saveBirthdayToAsyncStorage = () => {
+    AsyncStorage.setItem("birthday", birthday.toString());
+    //JSON말고 그냥 string으로바꾸면요
   };
 
   return (
     <BG>
       <Text>OO님께서 태어나신 날은 언제입니까?</Text>
       <DatePicker date={birthday} onDateChange={setBirthday} />
-      <TouchableOpacity onPress={sendInfo}>
+      <TouchableOpacity onPress={saveBirthdayToAsyncStorage}>
         <Text>다음</Text>
       </TouchableOpacity>
     </BG>

@@ -6,9 +6,8 @@ import styled from "styled-components";
 const Gender = () => {
   const [gender, setGender] = useState("");
 
-  const sendInfo = () => {
+  const saveGenderToAsyncStorage = () => {
     AsyncStorage.setItem("gender", gender);
-    AsyncStorage.getItem("gender").then((text) => console.log(text));
   };
 
   return (
@@ -22,7 +21,7 @@ const Gender = () => {
           <Text>남자</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity onPress={sendInfo}>
+      <TouchableOpacity onPress={saveGenderToAsyncStorage}>
         <Text>다음</Text>
       </TouchableOpacity>
     </BG>

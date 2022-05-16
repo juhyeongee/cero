@@ -7,13 +7,13 @@ import Gender from "./components/takeUserInfo/Gender";
 import Nickname from "./components/takeUserInfo/Nickname";
 import Confirm from "./components/takeUserInfo/Confirm";
 
-const TakeUserInfo = () => {
+const TakeUserInfo = (props) => {
   return (
     <Swiper loop={false}>
       <Birthday />
       <Gender />
       <Nickname />
-      <Confirm />
+      <Confirm finishMindTest={props.finishMindTest} />
     </Swiper>
   );
 };

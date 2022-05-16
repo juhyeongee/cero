@@ -15,27 +15,33 @@ import firestore from "@react-native-firebase/firestore";
 import auth from "@react-native-firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import TakeUserInfo from "./screens/TakeUserInfo";
+import LoadingAnimation from "./screens/components/LoadingAnimation";
 
 // const userCollection = firestore().collection("Users");
 // const thisUserDocument = userCollection.doc("cIFcYGaaGxAOZ8HgIC8r");
 // thisUserDocument.get().then((result) => console.log(result.data()));
 
-const save = async () => {
-  try {
-    await AsyncStorage.setItem("button1", "Yos");
-  } catch (e) {
-    console.log(e);
-  }
-};
+// const save = async () => {
+//   try {
+//     await AsyncStorage.setItem("button1", "Yos");
+//   } catch (e) {
+//     console.log(e);
+//   }
+// };
 
 //console.log(await AsyncStorage.getItem("button1"));
 
 export default function App() {
-  const [로딩상태, set로딩상태] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isfinishedMindTest, setIsFinishedMindeTest] = useState(false);
+  const [finishedMindTest, setFinishedMindTest] = useState(false);
 
-  const loadingComplete = () => set로딩상태(true);
+  const finishMindTest = () => {
+    setFinishedMindTest(true);
+  };
+  //좋은 습관이다. 변수 많아지면 헷갈리니까. 파라미터 없다는거 얘기하는거임 -> takeuserinfo.js -> confirm.js
+
+  const loadingComplete = () => setLoaded(true);
   const startLoading = async () => {
     await Font.loadAsync(Ionicons.font);
     await Asset.loadAsync(require("./title.png"));
@@ -70,7 +76,7 @@ export default function App() {
     });
   }, []);
 
-  if (로딩상태 === false) {
+  if (loaded === false) {
     return (
       <AppLoading
         startAsync={startLoading}
@@ -82,7 +88,11 @@ export default function App() {
         </View>
       </AppLoading>
     );
-  } else if (!isLoggedIn) {
+  }
+  // else if (!isfinishedMindTest) {
+  //   return <LoadingAnimation />;
+  // }
+  else if (!isLoggedIn) {
     return (
       <ThemeProvider theme={mainTheme}>
         <NavigationContainer>
@@ -90,8 +100,8 @@ export default function App() {
         </NavigationContainer>
       </ThemeProvider>
     );
-  } else if (!isfinishedMindTest) {
-    return <TakeUserInfo />;
+  } else if (!finishedMindTest) {
+    return <TakeUserInfo finishMindTest={finishMindTest} />;
   } else {
     return (
       <ThemeProvider theme={mainTheme}>

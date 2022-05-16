@@ -6,9 +6,8 @@ import styled from "styled-components";
 const Nickname = () => {
   const [nickname, setNickname] = useState();
 
-  const sendInfo = () => {
+  const saveNicknameToAsyncStorage = () => {
     AsyncStorage.setItem("nickname", nickname);
-    AsyncStorage.getItem("nickname").then((text) => console.log(text));
   };
 
   return (
@@ -19,7 +18,7 @@ const Nickname = () => {
         onChangeText={(text) => setNickname(text)}
       ></TextInput>
 
-      <TouchableOpacity onPress={sendInfo}>
+      <TouchableOpacity onPress={saveNicknameToAsyncStorage}>
         <Text>다음</Text>
       </TouchableOpacity>
     </BG>
