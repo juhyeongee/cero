@@ -17,29 +17,30 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import TakeUserInfo from "./screens/TakeUserInfo";
 import LoadingAnimation from "./screens/components/LoadingAnimation";
 
-// const userCollection = firestore().collection("Users");
-// const thisUserDocument = userCollection.doc("cIFcYGaaGxAOZ8HgIC8r");
-// thisUserDocument.get().then((result) => console.log(result.data()));
-
-// const save = async () => {
-//   try {
-//     await AsyncStorage.setItem("button1", "Yos");
-//   } catch (e) {
-//     console.log(e);
-//   }
-// };
-
-//console.log(await AsyncStorage.getItem("button1"));
-
 export default function App() {
   const [loaded, setLoaded] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [finishedMindTest, setFinishedMindTest] = useState(false);
+  const [isUserInfoInAsyncStorage, setIsUserInfoInAsyncStorage] =
+    useState(false);
 
-  const finishMindTest = () => {
-    setFinishedMindTest(true);
+  const finishTakeUserInfo = () => {
+    setIsUserInfoInAsyncStorage(true);
+    AsyncStorage.setItem("checkfinished", "finished");
   };
   //좋은 습관이다. 변수 많아지면 헷갈리니까. 파라미터 없다는거 얘기하는거임 -> takeuserinfo.js -> confirm.js
+  const checkUserInfoInAsyncStorage = () => {
+    AsyncStorage.getItem("checkfinished").then((text) => {
+      console.log(text);
+      if (text === "finished") {
+        setIsUserInfoInAsyncStorage(true);
+      } else if (text === null) {
+        console.log("입력 유저데이타가 아직없음");
+      } else {
+        console.log("유저 데이터 AsyncStorage에서 확인했습니다");
+        setIsUserInfoInAsyncStorage(false);
+      }
+    });
+  };
 
   const loadingComplete = () => setLoaded(true);
   const startLoading = async () => {
@@ -47,23 +48,7 @@ export default function App() {
     await Asset.loadAsync(require("./title.png"));
     //웹 이미지 가져오는 법: await Image.prefetch ("https://..")
   };
-  // uid를  받아서, async storage에  저장할까?
 
-  // console.log(
-  //   firestore()
-  //     .collection("User")
-  //     .get()
-  //     .then((reuslt) => console.log(result.data()))
-  // );
-  // firestore()
-  //   .collection("Users")
-  //   .doc(user)
-  //   .get()
-  //   .then((결과) => {
-  //     console.log(결과.data());
-  //   });
-
-  //이거 useEffect로 검사할 항목이 이걸로만 되나?
   useEffect(() => {
     auth().onAuthStateChanged((user) => {
       if (user) {
@@ -74,8 +59,10 @@ export default function App() {
         setIsLoggedIn(false);
       }
     });
+    checkUserInfoInAsyncStorage();
   }, []);
 
+  // AsyncStorage.getItem("birthday").then((text) => console.log(text));
   if (loaded === false) {
     return (
       <AppLoading
@@ -89,7 +76,7 @@ export default function App() {
       </AppLoading>
     );
   }
-  // else if (!isfinishedMindTest) {
+  // else if (!isfinishedTakeUserInfo) {
   //   return <LoadingAnimation />;
   // }
   else if (!isLoggedIn) {
@@ -100,8 +87,8 @@ export default function App() {
         </NavigationContainer>
       </ThemeProvider>
     );
-  } else if (!finishedMindTest) {
-    return <TakeUserInfo finishMindTest={finishMindTest} />;
+  } else if (!isUserInfoInAsyncStorage) {
+    return <TakeUserInfo finishTakeUserInfo={finishTakeUserInfo} />;
   } else {
     return (
       <ThemeProvider theme={mainTheme}>

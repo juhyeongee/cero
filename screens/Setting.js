@@ -3,6 +3,7 @@ import { View, Text, Button } from "react-native";
 import auth from "@react-native-firebase/auth";
 import styled from "styled-components/native";
 import firestore from "@react-native-firebase/firestore";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const FirebaseBtn = styled.Button`
   border: 1px solid black;
@@ -14,7 +15,9 @@ const LogoutBtn = styled.Button`
   width: 50%;
   height: 10%;
 `;
-
+const clearAsyncStorageBtn = () => {
+  AsyncStorage.clear();
+};
 const addUser = () => {
   firestore()
     .collection("Users")
@@ -39,6 +42,13 @@ const Setting = () => {
               .then(() => console.log("로그아웃 되었습니다"))
           }
         ></LogoutBtn>
+        <Button
+          title="AsyncStorage비우기"
+          onPress={() => {
+            clearAsyncStorageBtn();
+            console.log("🥡 asyncStorge 비우기 완료 ");
+          }}
+        />
       </View>
     </View>
   );
