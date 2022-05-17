@@ -5,31 +5,31 @@ import styled from "styled-components/native";
 import firestore from "@react-native-firebase/firestore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const FirebaseBtn = styled.Button`
-  border: 1px solid black;
-  width: 50%;
-  height: 10%;
-`;
-const LogoutBtn = styled.Button`
-  border: 1px solid black;
-  width: 50%;
-  height: 10%;
-`;
-const clearAsyncStorageBtn = () => {
-  AsyncStorage.clear();
-};
-const addUser = () => {
-  firestore()
-    .collection("Users")
-    .add({
-      name: "Ada Lovelace",
-      age: 30,
-    })
-    .then(() => {
-      console.log("User added!");
-    });
-};
 const Setting = () => {
+  const FirebaseBtn = styled.Button`
+    border: 1px solid black;
+    width: 50%;
+    height: 10%;
+  `;
+  const LogoutBtn = styled.Button`
+    border: 1px solid black;
+    width: 50%;
+    height: 10%;
+  `;
+  const clearAsyncStorageBtn = () => {
+    AsyncStorage.clear();
+  };
+  const addUser = () => {
+    firestore()
+      .collection("Users")
+      .add({
+        name: "Ada Lovelace",
+        age: 30,
+      })
+      .then(() => {
+        console.log("User added!");
+      });
+  };
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <View style={{ flex: 0.5 }}>

@@ -26,18 +26,16 @@ export default function App() {
   const finishTakeUserInfo = () => {
     setIsUserInfoInAsyncStorage(true);
     AsyncStorage.setItem("checkfinished", "finished");
+    console.log("유저 정보 체크끝!");
   };
   //좋은 습관이다. 변수 많아지면 헷갈리니까. 파라미터 없다는거 얘기하는거임 -> takeuserinfo.js -> confirm.js
   const checkUserInfoInAsyncStorage = () => {
     AsyncStorage.getItem("checkfinished").then((text) => {
-      console.log(text);
       if (text === "finished") {
         setIsUserInfoInAsyncStorage(true);
+        console.log("Finished");
       } else if (text === null) {
         console.log("입력 유저데이타가 아직없음");
-      } else {
-        console.log("유저 데이터 AsyncStorage에서 확인했습니다");
-        setIsUserInfoInAsyncStorage(false);
       }
     });
   };
@@ -60,8 +58,9 @@ export default function App() {
       }
     });
     checkUserInfoInAsyncStorage();
+    console.log(isUserInfoInAsyncStorage);
   }, []);
-
+  checkUserInfoInAsyncStorage();
   // AsyncStorage.getItem("birthday").then((text) => console.log(text));
   if (loaded === false) {
     return (

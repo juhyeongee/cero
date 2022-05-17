@@ -12,42 +12,32 @@ const TakeUserInfo = (props) => {
   const [gender, setGender] = useState();
   const [nickname, setNickname] = useState();
 
-  useEffect(() => {
-    getBirthday();
-  }, [birthday]);
-
-  useEffect(() => {
-    getGender();
-  }, [gender]);
-
-  useEffect(() => {
-    getNickname();
-  }, [nickname]);
-
   const getBirthday = async () => {
-    const birthday = await AsyncStorage.getItem("birthday");
-    // const parsedBirthday = JSON.parse(birthday);
-    setBirthday(birthday);
+    const getBirthday = await AsyncStorage.getItem("birthday");
+    setBirthday(getBirthday);
   };
   const getGender = async () => {
-    const gender = await AsyncStorage.getItem("gender");
-    setGender(gender);
+    const getGender = await AsyncStorage.getItem("gender");
+    setGender(getGender);
   };
   const getNickname = async () => {
-    const nickname = await AsyncStorage.getItem("nickname");
-    setNickname(nickname);
+    const getNickname = await AsyncStorage.getItem("nickname");
+    setNickname(getNickname);
   };
 
   const saveGenderToAsyncStorage = (params) => {
     AsyncStorage.setItem("gender", params).then(console.log("젠더 저장완료"));
+    getGender();
   };
   const saveBirthdayToAsyncStorage = (params) => {
     AsyncStorage.setItem("birthday", params).then(console.log("생일 저장완료"));
+    getBirthday();
   };
   const saveNicknameToAsyncStorage = (params) => {
     AsyncStorage.setItem("nickname", params).then(
       console.log("닉네임 저장완료")
     );
+    getNickname();
   };
 
   return (
