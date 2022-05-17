@@ -3,12 +3,8 @@ import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
 
-const Gender = () => {
+const Gender = (props) => {
   const [gender, setGender] = useState("");
-
-  const saveGenderToAsyncStorage = () => {
-    AsyncStorage.setItem("gender", gender);
-  };
 
   return (
     <BG>
@@ -21,7 +17,7 @@ const Gender = () => {
           <Text>남자</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity onPress={saveGenderToAsyncStorage}>
+      <TouchableOpacity onPress={() => props.saveGenderToAsyncStorage(gender)}>
         <Text>다음</Text>
       </TouchableOpacity>
     </BG>

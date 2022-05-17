@@ -3,12 +3,8 @@ import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
 
-const Nickname = () => {
+const Nickname = (props) => {
   const [nickname, setNickname] = useState();
-
-  const saveNicknameToAsyncStorage = () => {
-    AsyncStorage.setItem("nickname", nickname);
-  };
 
   return (
     <BG>
@@ -17,8 +13,9 @@ const Nickname = () => {
         placeholder="8글자까지 입력하실 수 있어요"
         onChangeText={(text) => setNickname(text)}
       ></TextInput>
-
-      <TouchableOpacity onPress={saveNicknameToAsyncStorage}>
+      <TouchableOpacity
+        onPress={() => props.saveNicknameToAsyncStorage(nickname)}
+      >
         <Text>다음</Text>
       </TouchableOpacity>
     </BG>

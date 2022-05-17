@@ -29,7 +29,6 @@ const Intro = ({ navigation: { navigate } }) => {
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         console.log("로그인 완료!");
-        navigate("TakeUserInfo");
       })
       .catch((error) => {
         if (error.code === "auth/invalid-email") {

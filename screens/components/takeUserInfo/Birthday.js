@@ -4,19 +4,16 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
 import DatePicker from "react-native-date-picker";
 
-const Birthday = () => {
+const Birthday = (props) => {
   const [birthday, setBirthday] = useState(new Date());
-
-  const saveBirthdayToAsyncStorage = () => {
-    AsyncStorage.setItem("birthday", birthday.toString());
-    //JSON말고 그냥 string으로바꾸면요
-  };
 
   return (
     <BG>
       <Text>OO님께서 태어나신 날은 언제입니까?</Text>
       <DatePicker date={birthday} onDateChange={setBirthday} />
-      <TouchableOpacity onPress={saveBirthdayToAsyncStorage}>
+      <TouchableOpacity
+        onPress={() => props.saveBirthdayToAsyncStorage(birthday.toString())}
+      >
         <Text>다음</Text>
       </TouchableOpacity>
     </BG>
