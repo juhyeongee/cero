@@ -29,6 +29,7 @@ const Birthday = (props) => {
           props.setBirthdayYear(birthdayYear);
           props.setBirthdayMonth(birthdayMonth);
           props.setBirthdayDay(birthdayDay);
+          this._swiper.scrollBy(1);
         }}
       >
         <Text>다음</Text>

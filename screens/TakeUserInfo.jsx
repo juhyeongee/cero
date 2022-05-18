@@ -45,7 +45,12 @@ const TakeUserInfo = (props) => {
   };
 
   return (
-    <Swiper loop={false}>
+    <Swiper
+      loop={false}
+      ref={(swiper) => {
+        this._swiper = swiper;
+      }}
+    >
       <Birthday
         setBirthdayDay={setBirthdayDay}
         setBirthdayMonth={setBirthdayMonth}

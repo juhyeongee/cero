@@ -13,7 +13,12 @@ const MindTest = (props) => {
     return <MindTestIntroduce setIntroduceBtn={setIntroduceBtn} />;
   } else {
     return (
-      <Swiper loop={false}>
+      <Swiper
+        loop={false}
+        ref={(swiper) => {
+          this._swiper = swiper;
+        }}
+      >
         {Object.keys(questionObj).map((item, index) => (
           <MindTestPage
             finishMindTest={props.finishMindTest}

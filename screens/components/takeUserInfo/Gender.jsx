@@ -16,7 +16,12 @@ const Gender = (props) => {
           <Text>남자</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity onPress={() => props.saveGenderToAsyncStorage(gender)}>
+      <TouchableOpacity
+        onPress={() => {
+          props.saveGenderToAsyncStorage(gender);
+          this._swiper.scrollBy(1);
+        }}
+      >
         <Text>다음</Text>
       </TouchableOpacity>
     </BG>

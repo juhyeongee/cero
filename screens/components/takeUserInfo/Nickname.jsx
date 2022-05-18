@@ -14,7 +14,10 @@ const Nickname = (props) => {
         onChangeText={(text) => setNickname(text)}
       ></TextInput>
       <TouchableOpacity
-        onPress={() => props.saveNicknameToAsyncStorage(nickname)}
+        onPress={() => {
+          props.saveNicknameToAsyncStorage(nickname);
+          this._swiper.scrollBy(1);
+        }}
       >
         <Text>다음</Text>
       </TouchableOpacity>
