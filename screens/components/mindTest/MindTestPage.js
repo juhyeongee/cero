@@ -17,7 +17,10 @@ const MindTestPage = (props) => {
     <Background>
       <Header />
       <Body pageNumber={props.pageNumber} />
-      <Tail pageNumber={props.pageNumber} />
+      <Tail
+        finishMindTest={props.finishMindTest}
+        pageNumber={props.pageNumber}
+      />
     </Background>
   );
 };

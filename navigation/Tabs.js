@@ -51,16 +51,6 @@ const Tabs = () => (
         ),
       }}
     />
-    <Tab.Screen
-      name="Test"
-      component={MindTest}
-      options={{
-        tabBarLabel: "temp_Test",
-        tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="circle" color={color} size={size} />
-        ),
-      }}
-    />
   </Tab.Navigator>
 );
 

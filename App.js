@@ -16,26 +16,46 @@ import auth from "@react-native-firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import TakeUserInfo from "./screens/TakeUserInfo";
 import LoadingAnimation from "./screens/components/LoadingAnimation";
+import MindTest from "./screens/MindTest";
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isUserInfoInAsyncStorage, setIsUserInfoInAsyncStorage] =
     useState(false);
+  const [isMindTestOverInAsyncStorage, setIsMindTestOverInAsyncStorage] =
+    useState(false);
 
   const finishTakeUserInfo = () => {
     setIsUserInfoInAsyncStorage(true);
-    AsyncStorage.setItem("checkfinished", "finished");
+    AsyncStorage.setItem("checkUserInfofinished", "finished");
     console.log("유저 정보 체크끝!");
+  };
+
+  const finishMindTest = () => {
+    setIsMindTestOverInAsyncStorage(true);
+    AsyncStorage.setItem("checkMindTestOver", "finished");
+    console.log("1차 심리검사 끝!");
   };
   //좋은 습관이다. 변수 많아지면 헷갈리니까. 파라미터 없다는거 얘기하는거임 -> takeuserinfo.js -> confirm.js
   const checkUserInfoInAsyncStorage = () => {
-    AsyncStorage.getItem("checkfinished").then((text) => {
+    AsyncStorage.getItem("checkUserInfofinished").then((text) => {
       if (text === "finished") {
         setIsUserInfoInAsyncStorage(true);
         console.log("Finished");
       } else if (text === null) {
-        console.log("입력 유저데이타가 아직없음");
+        console.log("유저가 입력하는 유저 정보가 아직없음");
+      }
+    });
+  };
+
+  const checkMindTestFinishedInAsyncStorage = () => {
+    AsyncStorage.getItem("checkMindTestOver").then((text) => {
+      if (text === "finished") {
+        setIsMindTestOverInAsyncStorage(true);
+        console.log("Finished");
+      } else if (text === null) {
+        console.log("입력 심리테스트 정보가 아직없음");
       }
     });
   };
@@ -58,9 +78,8 @@ export default function App() {
       }
     });
     checkUserInfoInAsyncStorage();
-    console.log(isUserInfoInAsyncStorage);
+    checkMindTestFinishedInAsyncStorage();
   }, []);
-  checkUserInfoInAsyncStorage();
   // AsyncStorage.getItem("birthday").then((text) => console.log(text));
   if (loaded === false) {
     return (
@@ -74,11 +93,7 @@ export default function App() {
         </View>
       </AppLoading>
     );
-  }
-  // else if (!isfinishedTakeUserInfo) {
-  //   return <LoadingAnimation />;
-  // }
-  else if (!isLoggedIn) {
+  } else if (!isLoggedIn) {
     return (
       <ThemeProvider theme={mainTheme}>
         <NavigationContainer>
@@ -87,16 +102,25 @@ export default function App() {
       </ThemeProvider>
     );
   } else if (!isUserInfoInAsyncStorage) {
-    return <TakeUserInfo finishTakeUserInfo={finishTakeUserInfo} />;
-  } else {
     return (
       <ThemeProvider theme={mainTheme}>
-        <NavigationContainer>
-          <Tabs />
-        </NavigationContainer>
+        <TakeUserInfo finishTakeUserInfo={finishTakeUserInfo} />
+      </ThemeProvider>
+    );
+  } else if (!isMindTestOverInAsyncStorage) {
+    return (
+      <ThemeProvider theme={mainTheme}>
+        <MindTest finishMindTest={finishMindTest} />
       </ThemeProvider>
     );
   }
+  return (
+    <ThemeProvider theme={mainTheme}>
+      <NavigationContainer>
+        <Tabs />
+      </NavigationContainer>
+    </ThemeProvider>
+  );
 }
 
 const styles = StyleSheet.create({

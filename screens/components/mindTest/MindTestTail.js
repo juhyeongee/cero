@@ -52,7 +52,12 @@ const Tail = (props) => {
   } else {
     return (
       <TailBG>
-        <LastSubmitBtn onPress={submitUserInfo}>
+        <LastSubmitBtn
+          onPress={() => {
+            submitUserInfo();
+            props.finishMindTest(true);
+          }}
+        >
           <Text style={{ color: "#faf8f4", fontSize: 17 }}>제출하기</Text>
         </LastSubmitBtn>
       </TailBG>
