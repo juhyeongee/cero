@@ -6,24 +6,29 @@ import DatePicker from "react-native-date-picker";
 
 const Birthday = (props) => {
   const [birthday, setBirthday] = useState(new Date());
-  const todayDateYear = new Date().getFullYear();
-  const todayDateMonth = new Date().getMonth();
-  const todayDateDay = new Date().getDay();
 
-  let date = new Date(todayDateYear, todayDateMonth, todayDateDay);
-  console.log(date);
+  const age = new Date().getFullYear() - birthday.getFullYear();
+
+  const birthdayYear = birthday.getFullYear();
+  const birthdayMonth = birthday.getMonth() + 1;
+  const birthdayDay = birthday.getDate();
+
   return (
     <BG>
       <Text>OO님께서 태어나신 날은 언제입니까?</Text>
       <DatePicker
-        maximumDate={new Date()}
+        maximumDate={new Date("2022-12-31")}
         mode="date"
         date={birthday}
         onDateChange={setBirthday}
-        format="YYYY-MM-DD"
       />
       <TouchableOpacity
-        onPress={() => {props.saveBirthdayToAsyncStorage(birthday.toString());
+        onPress={() => {
+          props.saveBirthdayToAsyncStorage(birthday.toString());
+          props.setAge(age);
+          props.setBirthdayYear(birthdayYear);
+          props.setBirthdayMonth(birthdayMonth);
+          props.setBirthdayDay(birthdayDay);
         }}
       >
         <Text>다음</Text>

@@ -11,6 +11,10 @@ const TakeUserInfo = (props) => {
   const [birthday, setBirthday] = useState();
   const [gender, setGender] = useState();
   const [nickname, setNickname] = useState();
+  const [age, setAge] = useState();
+  const [birthdayDay, setBirthdayDay] = useState();
+  const [birthdayMonth, setBirthdayMonth] = useState();
+  const [birthdayYear, setBirthdayYear] = useState();
 
   const getBirthday = async () => {
     const getBirthday = await AsyncStorage.getItem("birthday");
@@ -42,11 +46,20 @@ const TakeUserInfo = (props) => {
 
   return (
     <Swiper loop={false}>
-      <Birthday saveBirthdayToAsyncStorage={saveBirthdayToAsyncStorage} />
+      <Birthday
+        setBirthdayDay={setBirthdayDay}
+        setBirthdayMonth={setBirthdayMonth}
+        setBirthdayYear={setBirthdayYear}
+        setAge={setAge}
+        saveBirthdayToAsyncStorage={saveBirthdayToAsyncStorage}
+      />
       <Gender saveGenderToAsyncStorage={saveGenderToAsyncStorage} />
       <Nickname saveNicknameToAsyncStorage={saveNicknameToAsyncStorage} />
       <Confirm
-        birthday={birthday}
+        age={age}
+        birthdayDay={birthdayDay}
+        birthdayMonth={birthdayMonth}
+        birthdayYear={birthdayYear}
         gender={gender}
         nickname={nickname}
         finishTakeUserInfo={props.finishTakeUserInfo}
