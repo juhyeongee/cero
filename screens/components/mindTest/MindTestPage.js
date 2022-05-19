@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View } from "react-native";
+
 import styled from "styled-components";
 import Body from "./MindTestBody";
 import Tail from "./MindTestTail";
@@ -18,7 +19,7 @@ const MindTestPage = (props) => {
       <Header />
       <Body pageNumber={props.pageNumber} />
       <Tail
-        finishMindTest={props.finishMindTest}
+        submitMindtest={props.submitMindtest}
         pageNumber={props.pageNumber}
       />
     </Background>

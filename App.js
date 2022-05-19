@@ -42,7 +42,7 @@ export default function App() {
     AsyncStorage.getItem("checkUserInfofinished").then((text) => {
       if (text === "finished") {
         setIsUserInfoInAsyncStorage(true);
-        console.log("Finished");
+        console.log("유저가 입력하는 유저정보 단계 Finished");
       } else if (text === null) {
         console.log("유저가 입력하는 유저 정보가 아직없음");
       }

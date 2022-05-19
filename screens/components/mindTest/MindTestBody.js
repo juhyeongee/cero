@@ -7,12 +7,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const Body = (props) => {
   const recordAnswer = (params) => {
     AsyncStorage.setItem(`answer${props.pageNumber}`, `${params}`);
-    AsyncStorage.getItem(`answer${props.pageNumber}`).then((text) =>
-      console.log(text)
-    );
-    AsyncStorage.getAllKeys().then((text) => {
-      console.log(text);
-    });
   };
 
   return (
