@@ -9,7 +9,7 @@ import MindTest from "../screens/MindTest";
 
 const Tab = createBottomTabNavigator();
 
-const Tabs = () => (
+const Tabs = (props) => (
   <Tab.Navigator
     initialRouteName="MyRoom"
     screenOptions={{
@@ -23,7 +23,7 @@ const Tabs = () => (
   >
     <Tab.Screen
       name="Drawer"
-      component={Drawer}
+      children={() => <Drawer day={props.day} />}
       options={{
         tabBarLabel: "drawer",
         tabBarIcon: ({ color, size }) => (
@@ -33,7 +33,7 @@ const Tabs = () => (
     />
     <Tab.Screen
       name="MyRoom"
-      component={MyRoom}
+      children={() => <MyRoom day={props.day} />}
       options={{
         tabBarLabel: "My room",
         tabBarIcon: ({ color, size }) => (
