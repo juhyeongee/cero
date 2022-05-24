@@ -3,31 +3,34 @@ import { View, Text, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import missionObj from "../Missions";
 
-const SelectMission = (props) => {
+const SelectMission = ({ navigation, day }) => {
+  console.log(navigation);
+  console.log(day);
   const [selectedMission, setSelectedMission] = useState();
-  const day = "day" + props.day;
+  const days = "day" + day;
   return (
     <Container>
       <Text>미션 고르지</Text>
       <SelectOption>
         <SelectOptionTitle>
-          미션 1: {missionObj[day].version1.subtitle}
+          미션 1: {missionObj[days].version1.subtitle}
         </SelectOptionTitle>
       </SelectOption>
       <SelectOption>
         <SelectOptionTitle>
-          미션 2: {missionObj[day].version2.subtitle}
+          미션 2: {missionObj[days].version2.subtitle}
         </SelectOptionTitle>
       </SelectOption>
-      {missionObj[day].version3 && (
+      {missionObj[days].version3 && (
         <SelectOption>
           <SelectOptionTitle>
-            미션 3: {missionObj[day].version3.subtitle}
+            미션 3: {missionObj[days].version3.subtitle}
           </SelectOptionTitle>
         </SelectOption>
       )}
       {/* && 연산자도 사용했다 삼항아니고 + [day]쓴것도 확인 */}
-      <SelectConfirmBtn>
+      {/* <SelectConfirmBtn onPress={props.navigation.navigate("MissionBoard")}> */}
+      <SelectConfirmBtn onPress={() => navigation.navigate("MissionBoard")}>
         <SelectConfirmBtnText>선택 완료, 미션하러 가기</SelectConfirmBtnText>
       </SelectConfirmBtn>
     </Container>

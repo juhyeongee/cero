@@ -4,87 +4,49 @@ import styled from "styled-components/native";
 import MissionBoard from "./components/missionBoard/MissionBoard";
 import Icon from "react-native-vector-icons/Ionicons";
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from "./components/property";
-import SelectMission from "./components/missionBoard/SelectMission";
+import missionObj from "../screens/components/Missions";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const MyRoom = (props) => {
   const [isMissionPage, setIsMissionPage] = useState(false);
   //visibleMissionScreen 으로 boolean은 변수명을 보자마자 알 수있게 해주는게 좋습니다. 카멜케이스로 씁시다~ is has visible hidden을 사용한다.
   //근본있게 docs로 공부하기.
-  const onPress = () => {
-    setIsMissionPage(!isMissionPage);
-  };
-
   // 비동기:  오래걸리는거 나중에 처리해줘. 약속해저. (서버 다녀올때 많이 )
   //2~3초 걸리는 api호출 하고, 다른 작업들을 폰에서 처리해줌.
-  const load = async () => {
-    try {
-      const A = await AsyncStorage.getItem("button1");
-      console.log(A);
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
-  if (isMissionPage) {
-    return (
-      //접어서 옮기기~~ 그러면 개꿀
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ImageBackground
-          style={styles.mainImage}
-          source={require("../title.png")}
-        >
-          <SelectMission day={props.day} />
-          <Back onPress={onPress}>
-            <Icon name="chevron-back-circle-outline" size={50} />
-          </Back>
-        </ImageBackground>
-      </View>
-    );
-  } else {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ImageBackground
-          style={styles.mainImage}
-          source={require("../title.png")}
-        />
-        <MissionBtn onPress={onPress}>
-          <Text style={{ fontSize: 20 }}>Mission</Text>
-        </MissionBtn>
-      </View>
-    );
-  }
+  const days = "day" + props.day;
+  return (
+    <Container>
+      <SafeAreaView style={{ flex: 1 }}>
+        <TodaysDate>
+          <Text>{days}</Text>
+        </TodaysDate>
+        <MissionTitle>
+          <Text>미션 1: {missionObj[days].version1.subtitle}</Text>
+        </MissionTitle>
+        <MissionBoard day={props.day} />
+      </SafeAreaView>
+    </Container>
+  );
 };
 
-const MissionBtn = styled.TouchableOpacity`
-  position: absolute;
-  right: 100;
-  top: 300;
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
-  background-color: greenyellow;
-  display: flex;
+const TodaysDate = styled.View`
   justify-content: center;
   align-items: center;
+  flex: 1;
+  background-color: aquamarine;
 `;
-const Back = styled.TouchableOpacity`
-  position: absolute;
-  left: 20;
-  top: 60;
-  height: 50;
-  width: 50;
-`;
+const MissionTitle = styled.View`
+  justify-content: center;
+  align-items: center;
 
-const styles = StyleSheet.create({
-  mainImage: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flex: 1,
-    width: WINDOW_WIDTH,
-    height: WINDOW_HEIGHT,
-    resizeMode: "repeat",
-  },
-});
+  background-color: antiquewhite;
+  flex: 1;
+`;
+const Container = styled.View`
+  align-items: center;
+  background-color: darkgoldenrod;
+  flex: 0.91;
+`;
 
 export default MyRoom;

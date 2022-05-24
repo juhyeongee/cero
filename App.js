@@ -17,7 +17,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import TakeUserInfo from "./screens/TakeUserInfo";
 import LoadingAnimation from "./screens/components/LoadingAnimation";
 import MindTest from "./screens/MindTest";
-import SelectMission from "./screens/components/missionBoard/SelectMission";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
@@ -27,7 +27,7 @@ export default function App() {
   const [isMindTestOverInAsyncStorage, setIsMindTestOverInAsyncStorage] =
     useState(false);
 
-  const [day, setDay] = useState(2);
+  const [day, setDay] = useState(1);
 
   const finishTakeUserInfo = () => {
     setIsUserInfoInAsyncStorage(true);
@@ -120,7 +120,6 @@ export default function App() {
   return (
     <ThemeProvider theme={mainTheme}>
       <NavigationContainer>
-        {/* <SelectMission /> */}
         <Tabs day={day} />
       </NavigationContainer>
     </ThemeProvider>

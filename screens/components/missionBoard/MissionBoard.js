@@ -16,9 +16,9 @@ const MissionBoard = (props) => {
   const [showPrecautious, setShowPrecautious] = useState(false);
 
   return (
-    <View style={styles.board}>
+    <Container>
       <Header>
-        <Text style={styles.title}>Today's mission </Text>
+        <Text>Today's mission </Text>
       </Header>
       {!showPrecautious ? (
         <PrecautiousBtn
@@ -59,7 +59,7 @@ const MissionBoard = (props) => {
       >
         <CompleteBtnText>완료 버튼</CompleteBtnText>
       </CompleteBtn>
-    </View>
+    </Container>
   );
 };
 
@@ -116,18 +116,15 @@ const Header = styled.View`
   align-items: center;
 `;
 
-const styles = StyleSheet.create({
-  board: {
-    alignItems: "center",
-    justifyContent: "center",
-    flex: 1,
-    backgroundColor: "bisque",
-    borderRadius: 30,
-  },
-  title: {
-    fontSize: 20,
-  },
-});
+const Container = styled.View`
+  flex: 4;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 50%;
+  background-color: wheat;
+  border-radius: 10px;
+`;
 
 /* flex: 0.8;
   display: flex;
