@@ -1,17 +1,22 @@
 import React, { useState, useRef } from "react";
 import {
+  Modal,
   View,
   Text,
   TouchableOpacity,
-  TextInput,
   Button,
   Alert,
   Image,
+  SafeAreaView,
 } from "react-native";
 import styled from "styled-components";
 import auth from "@react-native-firebase/auth";
+import EmailJoin from "./EmailJoin";
+import Join from "./Join";
+import JoinNav from "../navigation/JoinNav";
 
 const Login = ({ navigation: { navigate } }) => {
+  const [joinModalVisible, setJoinModalVisible] = useState(false);
   const passwordInput = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,6 +53,18 @@ const Login = ({ navigation: { navigate } }) => {
 
   return (
     <LoginPage>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={joinModalVisible}
+      >
+        <Container>
+          <TransparentView></TransparentView>
+          <ContentBox>
+            <Join />
+          </ContentBox>
+        </Container>
+      </Modal>
       <Text>Login</Text>
       <LoginInput
         autoCapitalize="none"
@@ -74,7 +91,7 @@ const Login = ({ navigation: { navigate } }) => {
       />
       <Button title="로그인 하기" onPress={onSubmitPasswordEditing} />
       <Text>Don't have an account? </Text>
-      <TouchableOpacity onPress={() => navigate("Join")}>
+      <TouchableOpacity onPress={() => setJoinModalVisible(!joinModalVisible)}>
         <Text> 회원가입하기 </Text>
       </TouchableOpacity>
     </LoginPage>
@@ -99,6 +116,21 @@ const PasswordInput = styled.TextInput`
   border: 1px solid black;
   padding: 10px 20px;
   margin: 10px;
+`;
+
+const Container = styled.View`
+  width: 100%;
+  height: 100%;
+`;
+
+const TransparentView = styled.View`
+  flex: 1;
+`;
+
+const ContentBox = styled.View`
+  justify-content: center;
+  flex: 1;
+  background-color: bisque;
 `;
 
 export default Login;

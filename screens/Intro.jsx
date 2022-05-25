@@ -14,7 +14,14 @@ import { useNavigation } from "@react-navigation/native";
 
 const Intro = () => {
   return (
-    <Swiper loop={false} dotColor={"gray"} activeDotColor={"brown"}>
+    <Swiper
+      ref={(swiper) => {
+        this._swiper = swiper;
+      }}
+      loop={false}
+      dotColor={"gray"}
+      activeDotColor={"brown"}
+    >
       <FirstIntroBG>
         <IntroMessage>이제 괜찮아질 거예요</IntroMessage>
       </FirstIntroBG>
@@ -30,6 +37,7 @@ const Intro = () => {
 const ThirdIntroLogo = () => {
   const navigation = useNavigation();
   const navigateToLogin = () => {
+    //console.log(this._swiper.scrollBy(-1));
     setTimeout(() => navigation.navigate("Login"), 1500);
   };
 
@@ -53,7 +61,7 @@ const ThirdIntroLogo = () => {
         <Text> 더 나은 당신으로</Text>
         <Text> 매일 새로웁게</Text>
         <TouchableOpacity onPress={navigateToLogin}>
-          <Text>전환</Text>
+          <Text>전환 어떻게 자동으로하지...</Text>
         </TouchableOpacity>
       </View>
     </View>

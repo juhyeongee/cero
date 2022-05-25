@@ -11,7 +11,7 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 import auth from "@react-native-firebase/auth";
 
-const Join = () => {
+const EmailJoin = () => {
   const passwordInput = useRef();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,7 +47,7 @@ const Join = () => {
   };
 
   return (
-    <JoinBG>
+    <EmailJoinBG>
       <EmailInput
         placeholder="Email"
         autoCapitalize="none"
@@ -90,11 +90,12 @@ const Join = () => {
           <Text style={{ fontSize: 17 }}>Create Account</Text>
         </CreateBtn>
       )}
-    </JoinBG>
+    </EmailJoinBG>
   );
 };
 
-const JoinBG = styled.View`
+const EmailJoinBG = styled.View`
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,4 +127,4 @@ const CreateBtn = styled.TouchableOpacity`
   margin: 50px;
   //여기에 sass쓸  수 있다면 참 편할 텐데요.
 `;
-export default Join;
+export default EmailJoin;
