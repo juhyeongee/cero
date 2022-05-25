@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
 import styled from "styled-components";
-import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../property";
 
 const HeaderIconCircle = styled.View`
   background-color: ${(props) => props.theme.mainBlackColor};
