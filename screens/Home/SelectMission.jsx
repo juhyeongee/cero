@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styled from "styled-components";
-import missionObj from "../Missions";
+import missionObj from "../../constants/Missions";
 
 const SelectMission = ({ navigation, day }) => {
   console.log(navigation);

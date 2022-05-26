@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import styled from "styled-components/native";
-import missionObj from "../Missions";
-import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../property";
+import missionObj from "../../constants/Missions";
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../../constants/property";
 
 const MissionBoard = (props) => {
   const [text, setText] = useState("");

@@ -6,11 +6,11 @@ import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { Asset } from "expo-asset";
 import { NavigationContainer } from "@react-navigation/native";
-import Tabs from "./navigation/Tabs";
+import BottomTabNav from "./navigation/BottomTabNav";
 import styled from "styled-components/native";
 import OutNav from "./navigation/OutNav";
 import { ThemeProvider } from "styled-components";
-import { mainTheme, darkTheme } from "./screens/components/theme";
+import { mainTheme, darkTheme } from "./constants/theme";
 import firestore from "@react-native-firebase/firestore";
 import auth from "@react-native-firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -120,7 +120,7 @@ export default function App() {
   return (
     <ThemeProvider theme={mainTheme}>
       <NavigationContainer>
-        <Tabs day={day} />
+        <BottomTabNav day={day} />
       </NavigationContainer>
     </ThemeProvider>
   );

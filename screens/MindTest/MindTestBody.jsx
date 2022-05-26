@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styled from "styled-components";
-import questionObj from "../Qustions";
+import questionObj from "../../constants/Qustions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Body = (props) => {

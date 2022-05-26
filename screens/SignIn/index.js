@@ -13,9 +13,8 @@ import styled from "styled-components";
 import auth from "@react-native-firebase/auth";
 import EmailJoin from "./EmailJoin";
 import Join from "./Join";
-import JoinNav from "../navigation/JoinNav";
 
-const Login = ({ navigation: { navigate } }) => {
+const SignIn = ({ navigation: { navigate } }) => {
   const [joinModalVisible, setJoinModalVisible] = useState(false);
   const passwordInput = useRef();
   const [email, setEmail] = useState("");
@@ -133,4 +132,4 @@ const ContentBox = styled.View`
   background-color: bisque;
 `;
 
-export default Login;
+export default SignIn;

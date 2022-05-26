@@ -1,4 +1,4 @@
-import { WINDOW_WIDTH, WINDOW_HEIGHT } from "./property";
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../constants/property";
 
 export const mainTheme = {
   mainBlackColor: "#555555",

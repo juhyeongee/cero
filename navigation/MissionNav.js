@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import MissionBoard from "../screens/components/missionBoard/MissionBoard";
-import SelectMission from "../screens/components/missionBoard/SelectMission";
+import MissionBoard from "../screens/Home/MissionBoard";
+import SelectMission from "../screens/components/MissionBoard/SelectMission";
 
 const Nav = createStackNavigator();
 

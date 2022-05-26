@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import Swiper from "react-native-swiper";
 import styled from "styled-components";
-import MindTestIntroduce from "./components/mindTest/MindTestIntroduce";
-import questionObj from "../screens/components/Qustions";
-import MindTestPage from "./components/mindTest/MindTestPage";
+import MindTestIntroduce from "./MindTestIntroduce";
+import questionObj from "../../constants/Qustions";
+import MindTestPage from "./MindTestPage";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const MindTest = (props) => {

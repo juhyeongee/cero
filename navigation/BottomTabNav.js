@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Drawer from "../screens/Drawer";
-import MyRoom from "../screens/MyRoom";
+import Home from "../screens/Home";
 import Setting from "../screens/Setting";
 import styled from "styled-components/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -9,9 +9,9 @@ import MindTest from "../screens/MindTest";
 
 const Tab = createBottomTabNavigator();
 
-const Tabs = (props) => (
+const BottomTabNav = (props) => (
   <Tab.Navigator
-    initialRouteName="MyRoom"
+    initialRouteName="Home"
     screenOptions={{
       headerShown: false,
       tabBarStyle: {
@@ -32,8 +32,8 @@ const Tabs = (props) => (
       }}
     />
     <Tab.Screen
-      name="MyRoom"
-      children={() => <MyRoom day={props.day} />}
+      name="Home"
+      children={() => <Home day={props.day} />}
       options={{
         tabBarLabel: "My room",
         tabBarIcon: ({ color, size }) => (
@@ -54,4 +54,4 @@ const Tabs = (props) => (
   </Tab.Navigator>
 );
 
-export default Tabs;
+export default BottomTabNav;
