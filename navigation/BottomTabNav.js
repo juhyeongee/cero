@@ -5,7 +5,7 @@ import Home from "../screens/Home";
 import Setting from "../screens/Setting";
 import styled from "styled-components/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import MindTest from "../screens/MindTest";
+import MissionNav from "./MissionNav";
 
 const Tab = createBottomTabNavigator();
 
@@ -33,7 +33,7 @@ const BottomTabNav = (props) => (
     />
     <Tab.Screen
       name="Home"
-      children={() => <Home day={props.day} />}
+      children={() => <MissionNav day={props.day} />}
       options={{
         tabBarLabel: "My room",
         tabBarIcon: ({ color, size }) => (

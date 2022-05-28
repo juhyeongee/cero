@@ -18,6 +18,7 @@ import TakeUserInfo from "./screens/TakeUserInfo";
 import LoadingAnimation from "./screens/components/LoadingAnimation";
 import MindTest from "./screens/MindTest";
 import { SafeAreaView } from "react-native-safe-area-context";
+import HomeNav from "./navigation/MissionNav";
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);

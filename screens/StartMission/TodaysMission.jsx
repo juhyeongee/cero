@@ -10,7 +10,7 @@ import styled from "styled-components/native";
 import missionObj from "../../constants/Missions";
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../../constants/property";
 
-const MissionBoard = (props) => {
+const TodaysMission = (props) => {
   const [text, setText] = useState("");
   const [todayMission, setTodayMission] = useState();
   const [showPrecautious, setShowPrecautious] = useState(false);
@@ -135,4 +135,4 @@ const Container = styled.View`
   background-color: bisque;
   border-radius: 10px; */
 
-export default MissionBoard;
+export default TodaysMission;
