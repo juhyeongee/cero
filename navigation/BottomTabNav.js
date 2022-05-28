@@ -9,49 +9,51 @@ import MissionNav from "./MissionNav";
 
 const Tab = createBottomTabNavigator();
 
-const BottomTabNav = (props) => (
-  <Tab.Navigator
-    initialRouteName="Home"
-    screenOptions={{
-      headerShown: false,
-      tabBarStyle: {
-        position: "absolute",
-        backgroundColor: "black",
-        borderTopWidth: 0,
-      },
-    }}
-  >
-    <Tab.Screen
-      name="Drawer"
-      children={() => <Drawer day={props.day} />}
-      options={{
-        tabBarLabel: "drawer",
-        tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="wallet" color={color} size={size} />
-        ),
+const BottomTabNav = (props) => {
+  return (
+    <Tab.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: {
+          position: "absolute",
+          backgroundColor: "black",
+          borderTopWidth: 0,
+        },
       }}
-    />
-    <Tab.Screen
-      name="Home"
-      children={() => <MissionNav day={props.day} />}
-      options={{
-        tabBarLabel: "My room",
-        tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="home" color={color} size={size} />
-        ),
-      }}
-    />
-    <Tab.Screen
-      name="Setting"
-      component={Setting}
-      options={{
-        tabBarLabel: "setting",
-        tabBarIcon: ({ color, size }) => (
-          <MaterialCommunityIcons name="circle" color={color} size={size} />
-        ),
-      }}
-    />
-  </Tab.Navigator>
-);
+    >
+      <Tab.Screen
+        name="Drawer"
+        children={() => <Drawer day={props.day} />}
+        options={{
+          tabBarLabel: "drawer",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="wallet" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Home"
+        children={() => <MissionNav day={props.day} />}
+        options={{
+          tabBarLabel: "My room",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Setting"
+        component={Setting}
+        options={{
+          tabBarLabel: "setting",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="circle" color={color} size={size} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
 
 export default BottomTabNav;

@@ -19,6 +19,15 @@ import LoadingAnimation from "./screens/components/LoadingAnimation";
 import MindTest from "./screens/MindTest";
 import { SafeAreaView } from "react-native-safe-area-context";
 import HomeNav from "./navigation/MissionNav";
+import { useFonts } from "@expo-google-fonts/inter";
+import {
+  NotoSansKR_100Thin,
+  NotoSansKR_300Light,
+  NotoSansKR_400Regular,
+  NotoSansKR_500Medium,
+  NotoSansKR_700Bold,
+  NotoSansKR_900Black,
+} from "@expo-google-fonts/noto-sans-kr";
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
@@ -27,6 +36,14 @@ export default function App() {
     useState(false);
   const [isMindTestOverInAsyncStorage, setIsMindTestOverInAsyncStorage] =
     useState(false);
+  let [fontsLoaded] = useFonts({
+    NotoSansKR_100Thin,
+    NotoSansKR_300Light,
+    NotoSansKR_400Regular,
+    NotoSansKR_500Medium,
+    NotoSansKR_700Bold,
+    NotoSansKR_900Black,
+  });
 
   const [day, setDay] = useState(1);
 
@@ -85,7 +102,8 @@ export default function App() {
     checkMindTestFinishedInAsyncStorage();
   }, []);
   // AsyncStorage.getItem("birthday").then((text) => console.log(text));
-  if (loaded === false) {
+  if (loaded === false && fontsLoaded) {
+    // check
     return (
       <AppLoading
         startAsync={startLoading}

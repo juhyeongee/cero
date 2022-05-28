@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 const Plant = (props) => {
   return (
     <View>
-      <Text>Plant</Text>
+      <Text>Plant Image Component</Text>
     </View>
   );
 };

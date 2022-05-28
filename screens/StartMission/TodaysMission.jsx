@@ -14,7 +14,6 @@ const TodaysMission = (props) => {
   const [text, setText] = useState("");
   const [todayMission, setTodayMission] = useState();
   const [showPrecautious, setShowPrecautious] = useState(false);
-
   return (
     <Container>
       <Header>

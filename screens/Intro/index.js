@@ -23,11 +23,11 @@ const Intro = () => {
       activeDotColor={"brown"}
     >
       <FirstIntroBG>
-        <IntroMessage>이제 괜찮아질 거예요</IntroMessage>
+        <IntroText>이제 괜찮아질 거예요</IntroText>
       </FirstIntroBG>
       <SecondIntroBG>
-        <IntroMessage>어서오세요</IntroMessage>
-        <IntroMessage>지금은 새로 시작할 시간입니다</IntroMessage>
+        <IntroText>어서오세요</IntroText>
+        <IntroText>지금은 새로 시작할 시간입니다</IntroText>
       </SecondIntroBG>
       <ThirdIntroLogo></ThirdIntroLogo>
     </Swiper>
@@ -49,15 +49,9 @@ const ThirdIntroLogo = () => {
         alignItems: "center",
       }}
     >
-      <View
-        style={{
-          flex: 5,
-          justifyContent: "center",
-        }}
-      >
-        <Image source={require("/Users/a12/teamCero/cero/logo.png")}></Image>
-      </View>
-      <View style={{ flex: 2, alignItems: "center" }}>
+      <Image source={require("/Users/a12/teamCero/cero/logo.png")}></Image>
+      <View style={{ alignItems: "center" }}>
+        <ServiceTitle>새로</ServiceTitle>
         <Text> 더 나은 당신으로</Text>
         <Text> 매일 새로웁게</Text>
         <TouchableOpacity onPress={navigateToLogin}>
@@ -70,22 +64,29 @@ const ThirdIntroLogo = () => {
 
 const FirstIntroBG = styled.View`
   color: white;
-  background-color: #313131;
+  background-color: ${(props) => props.theme.n900};
   flex: 1;
   justify-content: center;
   align-items: center;
 `;
 const SecondIntroBG = styled.View`
   color: white;
-  background-color: #555555;
+  background-color: ${(props) => props.theme.n800};
   flex: 1;
   justify-content: center;
   align-items: center;
 `;
-const IntroMessage = styled.Text`
+const IntroText = styled.Text`
+  font-family: ${(props) => props.theme.mainFont};
   color: white;
   font-size: 20px;
   margin: 5px;
+`;
+
+const ServiceTitle = styled.Text`
+  font-family: ${(props) => props.theme.thickFont};
+  font-size: 30px;
+  margin-top: 15px;
 `;
 
 export default Intro;

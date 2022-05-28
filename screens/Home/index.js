@@ -5,10 +5,14 @@ import Plant from "./Plant";
 import { useNavigation } from "@react-navigation/native";
 
 const Home = (props) => {
+  console.log("Home :" + props.day);
   const navigation = useNavigation();
   return (
     <Container>
-      <StartMissionBtn onPress={() => navigation.navigate("StartMission")} />
+      <StartMissionBtn
+        day={props.day}
+        onPress={() => navigation.navigate("StartMission")}
+      />
       <Text>Home</Text>
       <Plant></Plant>
     </Container>

@@ -11,7 +11,6 @@ const StartMission = (props) => {
   //근본있게 docs로 공부하기.
   // 비동기:  오래걸리는거 나중에 처리해줘. 약속해저. (서버 다녀올때 많이 )
   //2~3초 걸리는 api호출 하고, 다른 작업들을 폰에서 처리해줌.
-
   const days = "day" + props.day;
   return (
     <Container>

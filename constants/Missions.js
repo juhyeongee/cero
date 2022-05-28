@@ -1,5 +1,3 @@
-import react, { useState } from "react";
-
 const missionObj = {
   day1: {
     version1: {

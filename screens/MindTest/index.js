@@ -11,13 +11,11 @@ const MindTest = (props) => {
   const [introduceBtn, setIntroduceBtn] = useState(false);
   const submitMindtest = async () => {
     const number = await findNotAnsweredQuestion();
-    console.log(number);
     if (number < 0) {
       props.finishMindTest();
     } else {
       // 액션을 취한다.
       // 이동한다.
-      console.log(-(20 - number));
       if (number !== 20) {
         this._swiper.scrollBy(-(20 - number));
       } else {
@@ -35,8 +33,6 @@ const MindTest = (props) => {
     AsyncStorage.getAllKeys().then((text) => console.log(text));
     const arr = await AsyncStorage.getAllKeys();
     for (let i = 1; i < Object.keys(questionObj).length + 1; i++) {
-      console.log("인덱스:" + i);
-      console.log(!arr.includes(`answer${i}`));
       if (!arr.includes(`answer${i}`)) {
         return i;
       }

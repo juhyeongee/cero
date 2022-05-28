@@ -2,6 +2,14 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import Intro from "../screens/Intro";
 import Login from "../screens/SignIn";
+import {
+  NotoSansKR_100Thin,
+  NotoSansKR_300Light,
+  NotoSansKR_400Regular,
+  NotoSansKR_500Medium,
+  NotoSansKR_700Bold,
+  NotoSansKR_900Black,
+} from "@expo-google-fonts/noto-sans-kr";
 
 const Nav = createStackNavigator();
 
