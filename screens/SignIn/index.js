@@ -105,6 +105,7 @@ const SignIn = ({ navigation: { navigate } }) => {
 };
 
 const Container = styled.View`
+  width: ${(props) => props.theme.windowWidth};
   background-color: ${(props) => props.theme.n100};
   flex: 1;
   justify-content: center;

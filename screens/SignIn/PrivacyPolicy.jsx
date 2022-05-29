@@ -21,7 +21,7 @@ const PrivacyPolicy = ({ navigation: { navigate } }) => {
           />
           <CheckBoxText>{props.content}</CheckBoxText>
         </View>
-        <ArrowBtn onClick={navigateToDetail}>
+        <ArrowBtn onPress={navigateToDetail}>
           <Image
             source={require("/Users/a12/teamCero/cero/right-arrow.png")}
           ></Image>

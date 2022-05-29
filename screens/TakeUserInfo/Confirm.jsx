@@ -36,6 +36,7 @@ const Confirm = (props) => {
 };
 
 const BG = styled.View`
+  background-color: ${(props) => props.theme.n100};
   flex: 1;
   display: flex;
   align-items: center;

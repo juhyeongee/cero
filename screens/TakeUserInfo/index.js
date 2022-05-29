@@ -51,15 +51,20 @@ const TakeUserInfo = (props) => {
         this._swiper = swiper;
       }}
     >
+      <Nickname saveNicknameToAsyncStorage={saveNicknameToAsyncStorage} />
       <Birthday
+        nickname={nickname}
         setBirthdayDay={setBirthdayDay}
         setBirthdayMonth={setBirthdayMonth}
         setBirthdayYear={setBirthdayYear}
         setAge={setAge}
         saveBirthdayToAsyncStorage={saveBirthdayToAsyncStorage}
       />
-      <Gender saveGenderToAsyncStorage={saveGenderToAsyncStorage} />
-      <Nickname saveNicknameToAsyncStorage={saveNicknameToAsyncStorage} />
+      <Gender
+        nickname={nickname}
+        saveGenderToAsyncStorage={saveGenderToAsyncStorage}
+      />
+
       <Confirm
         age={age}
         birthdayDay={birthdayDay}
