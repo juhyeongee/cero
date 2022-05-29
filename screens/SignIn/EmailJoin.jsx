@@ -83,11 +83,11 @@ const EmailJoin = () => {
       {/* 여기서 checkPW와 password가 같으면 아래에 빨간줄로 경고뜨게 하고 싶은데요.그리고 createAccount 버튼을 비활성화한다. */}
       {password !== checkPW ? (
         <CreateBtn>
-          <Text style={{ fontSize: 17 }}>Create Account</Text>
+          <Text style={{ fontSize: "17px" }}>Create Account</Text>
         </CreateBtn>
       ) : (
         <CreateBtn onPress={onSubmitPasswordEditing}>
-          <Text style={{ fontSize: 17 }}>Create Account</Text>
+          <Text style={{ fontSize: "17px" }}>Create Account</Text>
         </CreateBtn>
       )}
     </EmailJoinBG>
@@ -99,12 +99,12 @@ const EmailJoinBG = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #dfdbd6;
+  background-color: ${(props) => props.theme.n100};
   flex: 1;
 `;
 
 const EmailInput = styled.TextInput`
-  background-color: whitesmoke;
+  background-color: ${(props) => props.theme.n100};
   padding: 10px;
   width: 80%;
   height: 40px;
@@ -114,7 +114,7 @@ const EmailInput = styled.TextInput`
 `;
 
 const PWInput = styled.TextInput`
-  background-color: whitesmoke;
+  background-color: ${(props) => props.theme.n100};
   padding: 10px;
   width: 80%;
   height: 40px;

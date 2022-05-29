@@ -10,7 +10,7 @@ const Background = styled.View`
   justify-content: center;
   align-items: center;
   flex: 1;
-  background-color: ${(props) => props.theme.bgColor};
+  background-color: ${(props) => props.theme.n100};
 `;
 
 const MindTestPage = (props) => {

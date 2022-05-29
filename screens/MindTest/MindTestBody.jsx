@@ -44,7 +44,7 @@ const AnswerButton = styled.TouchableOpacity`
   width: 80%;
   height: 60px;
   padding: 20px;
-  background-color: ${(props) => props.theme.mainBlackColor};
+  background-color: ${(props) => props.theme.n900};
   justify-content: center;
   border-radius: 10px;
   margin: 4px;

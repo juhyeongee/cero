@@ -64,7 +64,7 @@ const TodaysMission = (props) => {
 
 const PrecautiousPopUp = () => {
   const PopUpFrame = styled.View`
-    background-color: aliceblue;
+    background-color: ${(props) => props.theme.n400};
     border: 1px solid black;
     display: flex;
     justify-content: center;
@@ -87,7 +87,7 @@ const PrecautiousBtn = styled.TouchableOpacity`
 
 const Wall = styled.TouchableOpacity`
   position: absolute;
-  background-color: black;
+  background-color: ${(props) => props.theme.n900};
   opacity: 0.4;
   width: ${(props) => props.theme.windowWidth};
   height: ${(props) => props.theme.windowHeight};
@@ -96,12 +96,12 @@ const Wall = styled.TouchableOpacity`
 const PrecautiousText = styled.Text``;
 
 const CompleteBtn = styled.TouchableOpacity`
-  background-color: black;
+  background-color: ${(props) => props.theme.n900};
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200;
-  height: 100;
+  width: 200%;
+  height: 10%;
 `;
 const CompleteBtnText = styled.Text`
   color: white;
@@ -121,7 +121,7 @@ const Container = styled.View`
   justify-content: center;
   width: 90%;
   height: 50%;
-  background-color: wheat;
+  background-color: ${(props) => props.theme.n400};
   border-radius: 10px;
 `;
 

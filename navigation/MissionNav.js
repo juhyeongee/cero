@@ -8,7 +8,7 @@ const Nav = createStackNavigator();
 const HomeNav = (props) => {
   return (
     <Nav.Navigator
-      initialRouteName="Home"
+      initialRouteName="MissionHome"
       screenOptions={{
         headerShown: false,
       }}
@@ -24,7 +24,7 @@ const HomeNav = (props) => {
         component={StartMission}
         day={props.day}
       />
-      <Nav.Screen name="Home" component={Home} day={props.day} />
+      <Nav.Screen name="MissionHome" component={Home} day={props.day} />
     </Nav.Navigator>
   );
 };

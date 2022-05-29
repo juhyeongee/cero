@@ -23,7 +23,7 @@ const StartMissionBtn = styled.Pressable`
   border-radius: 10px;
   width: ${(props) => (props.theme.windowWidth * 80) / 100};
   height: ${(props) => (props.theme.windowHeight * 10) / 100};
-  background-color: ${(props) => props.theme.mainBlackColor};
+  background-color: ${(props) => props.theme.n900};
 `;
 
 const Container = styled.View`

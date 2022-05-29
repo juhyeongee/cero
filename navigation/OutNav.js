@@ -1,15 +1,9 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import Intro from "../screens/Intro";
-import Login from "../screens/SignIn";
-import {
-  NotoSansKR_100Thin,
-  NotoSansKR_300Light,
-  NotoSansKR_400Regular,
-  NotoSansKR_500Medium,
-  NotoSansKR_700Bold,
-  NotoSansKR_900Black,
-} from "@expo-google-fonts/noto-sans-kr";
+import SignIn from "../screens/SignIn";
+import PrivacyPolicy from "../screens/SignIn/PrivacyPolicy";
+import PolicyDetail from "../screens/SignIn/PolicyDetail";
 
 const Nav = createStackNavigator();
 
@@ -22,7 +16,9 @@ const OutNav = () => {
       }}
     >
       <Nav.Screen name="Intro" component={Intro} />
-      <Nav.Screen name="Login" component={Login} />
+      <Nav.Screen name="SignIn" component={SignIn} />
+      <Nav.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
+      <Nav.Screen name="PolicyDetail" component={PolicyDetail} />
     </Nav.Navigator>
   );
 };

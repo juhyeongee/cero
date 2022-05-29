@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import styled from "styled-components";
 
 const HeaderIconCircle = styled.View`
-  background-color: ${(props) => props.theme.mainBlackColor};
+  background-color: ${(props) => props.theme.n900};
   width: 25px;
   height: 25px;
   border-radius: 12.5px;

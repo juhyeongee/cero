@@ -53,7 +53,7 @@ const Gender = (props) => {
                 setGender("female");
                 props.saveGenderToAsyncStorage(gender);
                 setTimeout(() => this._swiper.scrollBy(1), 1000);
-              }}  
+              }}
             >
               <Text>여자</Text>
             </Pressable>
@@ -82,7 +82,7 @@ const Gender = (props) => {
 };
 
 const PressedBtn = styled.Pressable`
-  background-color: silver;
+  background-color: ${(props) => props.theme.n800};
 `;
 const UnpressedBtn = styled.Pressable``;
 

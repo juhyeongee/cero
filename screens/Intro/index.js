@@ -29,26 +29,20 @@ const Intro = () => {
         <IntroText>어서오세요</IntroText>
         <IntroText>지금은 새로 시작할 시간입니다</IntroText>
       </SecondIntroBG>
-      <ThirdIntroLogo></ThirdIntroLogo>
+      <ThirdIntro></ThirdIntro>
     </Swiper>
   );
 };
 
-const ThirdIntroLogo = () => {
+const ThirdIntro = () => {
   const navigation = useNavigation();
   const navigateToLogin = () => {
     //console.log(this._swiper.scrollBy(-1));
-    setTimeout(() => navigation.navigate("Login"), 1500);
+    setTimeout(() => navigation.navigate("SignIn"), 1500);
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <ThirdIntroBG>
       <Image source={require("/Users/a12/teamCero/cero/logo.png")}></Image>
       <View style={{ alignItems: "center" }}>
         <ServiceTitle>새로</ServiceTitle>
@@ -58,24 +52,30 @@ const ThirdIntroLogo = () => {
           <Text>전환 어떻게 자동으로하지...</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ThirdIntroBG>
   );
 };
 
 const FirstIntroBG = styled.View`
-  color: white;
   background-color: ${(props) => props.theme.n900};
   flex: 1;
   justify-content: center;
   align-items: center;
 `;
 const SecondIntroBG = styled.View`
-  color: white;
   background-color: ${(props) => props.theme.n800};
   flex: 1;
   justify-content: center;
   align-items: center;
 `;
+
+const ThirdIntroBG = styled.View`
+  background-color: ${(props) => props.theme.n100};
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
 const IntroText = styled.Text`
   font-family: ${(props) => props.theme.mainFont};
   color: white;

@@ -8,11 +8,11 @@ import {
   Alert,
   Image,
   SafeAreaView,
+  Pressable,
 } from "react-native";
 import styled from "styled-components";
 import auth from "@react-native-firebase/auth";
 import EmailJoin from "./EmailJoin";
-import Join from "./Join";
 
 const SignIn = ({ navigation: { navigate } }) => {
   const [joinModalVisible, setJoinModalVisible] = useState(false);
@@ -51,73 +51,88 @@ const SignIn = ({ navigation: { navigate } }) => {
   };
 
   return (
-    <LoginPage>
-      <Modal
+    <Container>
+      {/* <Modal
         animationType="slide"
         transparent={true}
         visible={joinModalVisible}
       >
-        <Container>
+        <ModalContainer>
           <TransparentView></TransparentView>
           <ContentBox>
             <Join />
           </ContentBox>
-        </Container>
-      </Modal>
-      <Text>Login</Text>
+        </ModalContainer>
+      </Modal> */}
+      <Image source={require("/Users/a12/teamCero/cero/logo.png")}></Image>
+      <ServiceTitle>새로</ServiceTitle>
       <LoginInput
         autoCapitalize="none"
         autoCorrect={false}
-        placeholder="Email"
+        placeholder="이메일"
         value={email} //이게 왜 필요할까?
         onSubmitEditing={onSubmitEmailEditing}
         returnKeyType="next"
-        placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
+        placeholderTextColor="#B9B6B3" //이거 왜 안됨. 왜 props로 theme에서 적용이 안됨, 폰트패밀리도 적용어케하누..
         onChangeText={(text) => {
           setEmail(text);
         }}
       />
       <PasswordInput
-        placeholder="10글자 이상, 특수문자 1개를 포함해주세요"
+        placeholder="비밀번호"
         ref={passwordInput}
         value={password}
         secureTextEntry
         returnKeyType="done"
-        placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
+        placeholderTextColor="#B9B6B3"
         onChangeText={(text) => {
           setPassword(text);
         }}
       />
-      <Button title="로그인 하기" onPress={onSubmitPasswordEditing} />
-      <Text>Don't have an account? </Text>
-      <TouchableOpacity onPress={() => setJoinModalVisible(!joinModalVisible)}>
-        <Text> 회원가입하기 </Text>
-      </TouchableOpacity>
-    </LoginPage>
+      <LoginBtn onPress={onSubmitPasswordEditing}>
+        <LoginBtnText>로그인 하기</LoginBtnText>
+      </LoginBtn>
+      <JoinView>
+        <JoinBtn onPress={() => navigate("PrivacyPolicy")}>
+          <JoinBtnText> 구글로 시작하기 </JoinBtnText>
+        </JoinBtn>
+        <JoinBtn onPress={() => navigate("PrivacyPolicy")}>
+          <JoinBtnText> 애플로 시작하기</JoinBtnText>
+        </JoinBtn>
+      </JoinView>
+    </Container>
   );
 };
 
-const LoginPage = styled.View`
+const Container = styled.View`
+  background-color: ${(props) => props.theme.n100};
   flex: 1;
   justify-content: center;
   align-items: center;
+  padding: 32px;
 `;
 
 const LoginInput = styled.TextInput`
-  width: 90%;
-  border: 1px solid black;
+  font-size: 16px;
+  width: 100%;
+  background-color: ${(props) => props.theme.n300};
+  border-radius: 10px;
+  height: 48px;
   padding: 10px 20px;
   margin: 10px;
 `;
 
 const PasswordInput = styled.TextInput`
-  width: 90%;
-  border: 1px solid black;
+  font-size: 16px;
+  width: 100%;
+  background-color: ${(props) => props.theme.n300};
+  border-radius: 10px;
+  height: 48px;
   padding: 10px 20px;
   margin: 10px;
 `;
 
-const Container = styled.View`
+const ModalContainer = styled.View`
   width: 100%;
   height: 100%;
 `;
@@ -130,6 +145,50 @@ const ContentBox = styled.View`
   justify-content: center;
   flex: 1;
   background-color: bisque;
+`;
+const ServiceTitle = styled.Text`
+  font-family: ${(props) => props.theme.thickFont};
+  font-size: 30px;
+  margin-top: 15px;
+`;
+
+const LoginBtn = styled.Pressable`
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: ${(props) => props.theme.n900};
+  border-radius: 10px;
+  height: 48px;
+  padding: 10px 20px;
+  margin: 10px;
+`;
+
+const LoginBtnText = styled.Text`
+  font-family: ${(props) => props.theme.mainFont};
+  font-size: 16px;
+  color: ${(props) => props.theme.n0};
+`;
+const JoinView = styled.View`
+  flex: 0.3;
+  padding-top: 100px;
+  width: 100%;
+`;
+const JoinBtn = styled.Pressable`
+  border: 1px solid ${(props) => props.theme.n700};
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: ${(props) => props.theme.n100};
+  border-radius: 10px;
+  height: 48px;
+  padding: 10px 20px;
+  margin-top: 10px;
+`;
+
+const JoinBtnText = styled.Text`
+  font-family: ${(props) => props.theme.mainFont};
+  font-size: 16px;
+  color: ${(props) => props.theme.n900};
 `;
 
 export default SignIn;

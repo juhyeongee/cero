@@ -17,7 +17,7 @@ const Tail = (props) => {
     width: 80%;
     height: 50px;
     border-radius: 20px;
-    background-color: #555555;
+    background-color: ${(props) => props.theme.n900};
   `;
   const TailBG = styled.View`
     display: flex;
@@ -36,7 +36,7 @@ const Tail = (props) => {
     width: 100px;
     height: 35px;
     border-radius: 20px;
-    background-color: #dfdbd6;
+    background-color: ${(props) => props.theme.n100};
   `;
 
   if (props.pageNumber !== "20") {
@@ -54,7 +54,7 @@ const Tail = (props) => {
     return (
       <TailBG>
         <LastSubmitBtn onPress={props.submitMindtest}>
-          <Text style={{ color: "#faf8f4", fontSize: 17 }}>제출하기</Text>
+          <Text style={{ color: "#faf8f4", fontSize: "17px" }}>제출하기</Text>
         </LastSubmitBtn>
       </TailBG>
     );
