@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import AppLoading from "expo-app-loading";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { Asset } from "expo-asset";
@@ -28,6 +28,7 @@ import {
   NotoSansKR_700Bold,
   NotoSansKR_900Black,
 } from "@expo-google-fonts/noto-sans-kr";
+import useStore from "./lib/store";
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
@@ -36,6 +37,7 @@ export default function App() {
     useState(false);
   const [isMindTestOverInAsyncStorage, setIsMindTestOverInAsyncStorage] =
     useState(false);
+  const [day, setDay] = useState(1);
   let [fontsLoaded] = useFonts({
     NotoSansKR_100Thin,
     NotoSansKR_300Light,
@@ -45,7 +47,8 @@ export default function App() {
     NotoSansKR_900Black,
   });
 
-  const [day, setDay] = useState(1);
+  const count = useStore((state) => state.count);
+  const { increaseCount, decreaseCount } = useStore();
 
   const finishTakeUserInfo = () => {
     setIsUserInfoInAsyncStorage(true);
@@ -115,7 +118,24 @@ export default function App() {
         </View>
       </AppLoading>
     );
-  } else if (!isLoggedIn) {
+  }
+
+  // else if (!isLoggedIn) {
+  //   return (
+  //     <ThemeProvider theme={mainTheme}>
+  //       <View style={{ flex: 1, justifyContent: "center" }}>
+  //         <Text>{count}</Text>
+  //         <TouchableOpacity onPress={increaseCount}>
+  //           <Text> increseCount Btn</Text>
+  //         </TouchableOpacity>
+  //         <TouchableOpacity onPress={decreaseCount}>
+  //           <Text> increseCount Btn</Text>
+  //         </TouchableOpacity>
+  //       </View>
+  //     </ThemeProvider>
+  //   );
+  // }
+  else if (!isLoggedIn) {
     return (
       <ThemeProvider theme={mainTheme}>
         <NavigationContainer>

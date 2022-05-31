@@ -2,10 +2,12 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Drawer from "../screens/Drawer";
 import Home from "../screens/Home";
+import { View, Image } from "react-native";
 import Setting from "../screens/Setting";
 import styled from "styled-components/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import MissionNav from "./MissionNav";
+import { mainTheme } from "../constants/theme";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +19,7 @@ const BottomTabNav = (props) => {
         headerShown: false,
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: "black",
+          backgroundColor: mainTheme.n100,
           borderTopWidth: 0,
         },
       }}
@@ -26,9 +28,14 @@ const BottomTabNav = (props) => {
         name="Drawer"
         children={() => <Drawer day={props.day} />}
         options={{
+          tabBarShowLabel: false,
           tabBarLabel: "drawer",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="wallet" color={color} size={size} />
+            <Image
+              source={require("/Users/a12/teamCero/cero/file.png")}
+              color={color}
+              size={size}
+            />
           ),
         }}
       />
@@ -37,8 +44,14 @@ const BottomTabNav = (props) => {
         children={() => <MissionNav day={props.day} />}
         options={{
           tabBarLabel: "My room",
+          tabBarShowLabel: false,
+
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <Image
+              source={require("/Users/a12/teamCero/cero/home.png")}
+              color={color}
+              size={size}
+            />
           ),
         }}
       />
@@ -47,8 +60,14 @@ const BottomTabNav = (props) => {
         component={Setting}
         options={{
           tabBarLabel: "setting",
+          tabBarShowLabel: false,
+
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="circle" color={color} size={size} />
+            <Image
+              source={require("/Users/a12/teamCero/cero/setting.png")}
+              color={color}
+              size={size}
+            />
           ),
         }}
       />
