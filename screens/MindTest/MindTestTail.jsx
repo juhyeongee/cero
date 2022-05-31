@@ -46,7 +46,7 @@ const Tail = (props) => {
           <TouchableOpacity onPress={() => this._swiper.scrollBy(1)}>
             <Text>다음</Text>
           </TouchableOpacity>
-          <Text style={{ color: "#313131" }}> {props.pageNumber} / 20</Text>
+          <Text> {props.pageNumber} / 20</Text>
         </TailPage>
       </TailBG>
     );
@@ -54,7 +54,7 @@ const Tail = (props) => {
     return (
       <TailBG>
         <LastSubmitBtn onPress={props.submitMindtest}>
-          <Text style={{ color: "#faf8f4", fontSize: "17px" }}>제출하기</Text>
+          <Text>제출하기</Text>
         </LastSubmitBtn>
       </TailBG>
     );

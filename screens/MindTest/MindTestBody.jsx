@@ -1,57 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import questionObj from "../../constants/Qustions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import AnswerBtn from "./AnswerBtn";
 const Body = (props) => {
-  const recordAnswer = (params) => {
-    AsyncStorage.setItem(`answer${props.pageNumber}`, `${params}`);
+  const [clickedBtnNumber, setClickedBtnNumber] = useState(0);
+  //clickedBtnNumber은 방금 눌린 번호가 뭔지 기록해놓는 역할
+
+  const onHandleClickBtnNumber = (btnNumber) => {
+    setClickedBtnNumber(btnNumber);
+    saveAnswer(btnNumber);
+  };
+
+  const saveAnswer = (clickedBtnNumber) => {
+    AsyncStorage.setItem(`answer${props.pageNumber}`, `${clickedBtnNumber}`);
+    console.log("저장되었습니다");
   };
 
   return (
     <BodyBG>
+      <LastWeekText>최근 일주일 동안...</LastWeekText>
       <Question>{questionObj[props.pageNumber]}</Question>
-      <AnswerButton onPress={() => recordAnswer(1)}>
-        <AnswerButtonText>극히 드물게</AnswerButtonText>
-      </AnswerButton>
-      <AnswerButton onPress={() => recordAnswer(2)}>
-        <AnswerButtonText>가끔 (1~2일)</AnswerButtonText>
-      </AnswerButton>
-      <AnswerButton onPress={() => recordAnswer(3)}>
-        <AnswerButtonText>자주 (3~4일)</AnswerButtonText>
-      </AnswerButton>
-      <AnswerButton onPress={() => recordAnswer(4)}>
-        <AnswerButtonText>거의 대부분 (5~7일)</AnswerButtonText>
-      </AnswerButton>
+      <AnswerBtn
+        clickedBtnNumber={clickedBtnNumber}
+        onHandleClickBtnNumber={() => onHandleClickBtnNumber(1)}
+        number={1}
+        content="극히 드물게"
+      />
+      <AnswerBtn
+        clickedBtnNumber={clickedBtnNumber}
+        onHandleClickBtnNumber={() => onHandleClickBtnNumber(2)}
+        number={2}
+        content="가끔 (1~2일)"
+      />
+      <AnswerBtn
+        clickedBtnNumber={clickedBtnNumber}
+        onHandleClickBtnNumber={() => onHandleClickBtnNumber(3)}
+        number={3}
+        content="자주 (3~4일)"
+      />
+      <AnswerBtn
+        clickedBtnNumber={clickedBtnNumber}
+        onHandleClickBtnNumber={() => onHandleClickBtnNumber(4)}
+        number={4}
+        content="거의 대부분 (5~7일)"
+      />
     </BodyBG>
   );
 };
 
 const BodyBG = styled.View`
   width: 100%;
-  flex: 0.6;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 const Question = styled.Text`
+  width: 100%;
   font-size: 22px;
-  margin: 20px;
-  margin-bottom: 90px; ;
+  margin-bottom: 90px;
+  font-family: ${(props) => props.theme.thickFont};
 `;
-const AnswerButton = styled.TouchableOpacity`
-  width: 80%;
-  height: 60px;
-  padding: 20px;
-  background-color: ${(props) => props.theme.n900};
-  justify-content: center;
-  border-radius: 10px;
-  margin: 4px;
-`;
-const AnswerButtonText = styled.Text`
+
+const LastWeekText = styled.Text`
+  width: 100%;
   font-size: 16px;
-  color: ${(props) => props.theme.bgColor};
+  margin-bottom: 20px;
+  font-family: ${(props) => props.theme.mainFont};
 `;
 
 export default Body;

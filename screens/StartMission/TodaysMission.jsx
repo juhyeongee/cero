@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import missionObj from "../../constants/Missions";
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../../constants/property";

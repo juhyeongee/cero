@@ -110,7 +110,7 @@ export default function App() {
         onFinish={loadingComplete}
         onError={console.error}
       >
-        <View style={styles.container}>
+        <View>
           <Text> loading......</Text>
         </View>
       </AppLoading>
@@ -144,12 +144,3 @@ export default function App() {
     </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

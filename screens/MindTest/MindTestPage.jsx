@@ -4,7 +4,6 @@ import { View } from "react-native";
 import styled from "styled-components";
 import Body from "./MindTestBody";
 import Tail from "./MindTestTail";
-import Header from "./MindTestHeader";
 
 const Background = styled.View`
   justify-content: center;
@@ -13,16 +12,24 @@ const Background = styled.View`
   background-color: ${(props) => props.theme.n100};
 `;
 
+const Container = styled.View`
+  width: ${(props) => props.theme.windowWidth};
+  background-color: ${(props) => props.theme.n100};
+  justify-content: center;
+  padding: 32px;
+  flex: 1;
+  display: flex;
+`;
+
 const MindTestPage = (props) => {
   return (
-    <Background>
-      <Header />
+    <Container>
       <Body pageNumber={props.pageNumber} />
       <Tail
         submitMindtest={props.submitMindtest}
         pageNumber={props.pageNumber}
       />
-    </Background>
+    </Container>
   );
 };
 
