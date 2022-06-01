@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { View, Text, Pressable, Image } from "react-native";
+import { View, Text, Pressable, Image, SafeAreaView } from "react-native";
 import styled from "styled-components";
 import { useNavigation } from "@react-navigation/native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import missionObj from "../../constants/Missions";
 
 const Home = (props) => {

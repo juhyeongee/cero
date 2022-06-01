@@ -3,8 +3,11 @@ import { View, Text, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components";
 import DailyBox from "./DailyBox";
+import DoneTaskModal from "./DoneTaskModal";
 
 const DoneTask = () => {
+  const [visible, setVisible] = useState(false);
+
   return (
     <Container>
       <SafeAreaView style={{ flex: 1 }}>
@@ -14,30 +17,25 @@ const DoneTask = () => {
         </View>
         <View style={{ flex: 3 }}>
           <Row>
-            <DailyBox></DailyBox>
-            <DailyBox></DailyBox>
-            <DailyBox></DailyBox>
+            <DailyBox setVisible={setVisible} />
+            <DailyBox setVisible={setVisible} />
+            <DailyBox setVisible={setVisible} />
           </Row>
           <Row>
-            <DailyBox></DailyBox>
-            <DailyBox></DailyBox>
-            <DailyBox></DailyBox>
+            <DailyBox setVisible={setVisible} />
+            <DailyBox setVisible={setVisible} />
+            <DailyBox setVisible={setVisible} />
           </Row>
           <Row>
-            <DailyBox></DailyBox>
-            <DailyBox></DailyBox>
-            <DailyBox></DailyBox>
-          </Row>
-          <Row>
-            <DailyBox></DailyBox>
-            <DailyBox></DailyBox>
-            <DailyBox></DailyBox>
-          </Row>
-          <Row>
-            <DailyBox></DailyBox>
-            <DailyBox></DailyBox>
+            <DailyBox setVisible={setVisible} />
+            <DailyBox setVisible={setVisible} />
+            <DailyBox setVisible={setVisible} />
           </Row>
         </View>
+        <DoneTaskModal
+          visible={visible}
+          setVisible={setVisible}
+        ></DoneTaskModal>
       </SafeAreaView>
     </Container>
   );
