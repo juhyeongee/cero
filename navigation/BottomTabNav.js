@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Drawer from "../screens/Drawer";
+import DoneTask from "../screens/DoneTask";
 import Home from "../screens/Home";
 import { View, Image } from "react-native";
 import Setting from "../screens/Setting";
@@ -25,8 +25,8 @@ const BottomTabNav = (props) => {
       }}
     >
       <Tab.Screen
-        name="Drawer"
-        children={() => <Drawer day={props.day} />}
+        name="DoneTask"
+        children={() => <DoneTask day={props.day} />}
         options={{
           tabBarShowLabel: false,
           tabBarLabel: "drawer",
