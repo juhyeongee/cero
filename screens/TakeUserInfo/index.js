@@ -50,6 +50,7 @@ const TakeUserInfo = (props) => {
       ref={(swiper) => {
         this._swiper = swiper;
       }}
+      showsPagination={false}
     >
       <Nickname saveNicknameToAsyncStorage={saveNicknameToAsyncStorage} />
       <Birthday

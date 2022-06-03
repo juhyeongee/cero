@@ -2,58 +2,68 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, Pressable } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
-import { OnOffButton } from "../components";
+import { OnOffButton, Layout } from "../components";
 
 const Gender = (props) => {
-  const [gender, setGender] = useState("");
+  const [checkedBtnName, setCheckedBtnName] = useState(0);
 
-  const PressAndSwipe = (gender) => {
-    setGender(gender);
+  const PressandSaveGender = (gender) => {
     props.saveGenderToAsyncStorage(gender);
     setTimeout(() => this._swiper.scrollBy(1), 500);
+    setCheckedBtnName(gender);
   };
 
   return (
-    <Container>
-      <QuestionText>{props.nickname}님의 성별을 알려주세요 </QuestionText>
-      <SubQuestionText>민감하다면 알려주지 않아도 괜찮아요</SubQuestionText>
-
-      <OnOffButton text="남자" />
-      <OnOffButton text="여자" />
-      <OnOffButton text="기타" />
-      <OnOffButton text="말하지 않을래요" />
-
-      <>
-        <Pressable
+    <Layout>
+      <ContentContainer>
+        <QuestionText>{props.nickname}님의 성별을 알려주세요 </QuestionText>
+        <SubQuestionText>민감하다면 알려주지 않아도 괜찮아요</SubQuestionText>
+      </ContentContainer>
+      <ButtonContainer>
+        <OnOffButton
+          checkedBtnName={checkedBtnName}
+          name="여성"
+          text="여자"
           onPress={() => {
-            setGender("female");
-            props.saveGenderToAsyncStorage(gender);
-            setTimeout(() => this._swiper.scrollBy(1), 500);
+            PressandSaveGender("여성");
           }}
-        >
-          <Text>여자</Text>
-        </Pressable>
-        <Pressable
+        />
+
+        <OnOffButton
+          checkedBtnName={checkedBtnName}
+          text="남자"
+          name="남성"
           onPress={() => {
-            setGender("male");
-            props.saveGenderToAsyncStorage(gender);
-            setTimeout(() => this._swiper.scrollBy(1), 500);
+            PressandSaveGender("남성");
           }}
-        >
-          <Text>남자</Text>
-        </Pressable>
-      </>
-    </Container>
+        />
+        <OnOffButton
+          checkedBtnName={checkedBtnName}
+          text="기타"
+          name="기타"
+          onPress={() => {
+            PressandSaveGender("기타");
+          }}
+        />
+        <OnOffButton
+          checkedBtnName={checkedBtnName}
+          name="비밀"
+          text="말하지 않을래요"
+          onPress={() => {
+            PressandSaveGender("비밀");
+          }}
+        />
+      </ButtonContainer>
+    </Layout>
   );
 };
 
-const Container = styled.View`
-  width: ${(props) => props.theme.windowWidth};
-  background-color: ${(props) => props.theme.n100};
+const ContentContainer = styled.View`
   justify-content: center;
-  padding: 32px;
   flex: 1;
-  display: flex;
+`;
+const ButtonContainer = styled.View`
+  flex: 2;
 `;
 
 const QuestionText = styled.Text`
