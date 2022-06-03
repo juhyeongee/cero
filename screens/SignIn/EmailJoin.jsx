@@ -11,7 +11,7 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 import auth from "@react-native-firebase/auth";
 import CheckPrivacyPolicy from "./CheckPrivacyPolicy";
-import { Container, BigBlackButton } from "../components";
+import { Container, BigBlackButton, Layout } from "../components";
 import CheckBoxes from "./CheckBoxes";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -51,53 +51,53 @@ const EmailJoin = () => {
   };
 
   return (
-    <Container>
-      <SafeAreaView style={{ flex: 1 }}>
+    <Layout>
+      <ButtonContainer>
+        <EmailInput
+          placeholder="Email"
+          autoCapitalize="none"
+          autoCorrect={false}
+          keyboardType="email-address"
+          value={email}
+          returnKeyType="next"
+          onChangeText={(text) => setEmail(text)}
+          onSubmitEditing={onSubmitEmailEditing}
+          placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
+        />
+        <PWInput
+          autoCapitalize="none"
+          ref={passwordInput}
+          placeholder="Password"
+          secureTextEntry
+          value={password}
+          returnKeyType="done"
+          onChangeText={(text) => setPassword(text)}
+          placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
+          onSubmitEditing={onSubmitPasswordEditing}
+        />
+        <PWInput
+          secureTextEntry
+          placeholder="Password"
+          onChangeText={(text) => setCheckPW(text)}
+        />
+        {password !== checkPW && (
+          <View>
+            <Text>비밀번호가 일치하지 않습니다.</Text>
+          </View>
+        )}
+        {password !== checkPW ? (
+          <BigBlackButton text="Create Account" />
+        ) : (
+          <BigBlackButton
+            text="Create Account"
+            onPress={onSubmitPasswordEditing}
+          />
+        )}
+      </ButtonContainer>
+      <ContentContainer>
         <CheckBoxes />
-        <InputContainer>
-          <EmailInput
-            placeholder="Email"
-            autoCapitalize="none"
-            autoCorrect={false}
-            keyboardType="email-address"
-            value={email}
-            returnKeyType="next"
-            onChangeText={(text) => setEmail(text)}
-            onSubmitEditing={onSubmitEmailEditing}
-            placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
-          />
-          <PWInput
-            autoCapitalize="none"
-            ref={passwordInput}
-            placeholder="Password"
-            secureTextEntry
-            value={password}
-            returnKeyType="done"
-            onChangeText={(text) => setPassword(text)}
-            placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
-            onSubmitEditing={onSubmitPasswordEditing}
-          />
-          <PWInput
-            secureTextEntry
-            placeholder="Password"
-            onChangeText={(text) => setCheckPW(text)}
-          />
-          {password !== checkPW && (
-            <View>
-              <Text>비밀번호가 일치하지 않습니다.</Text>
-            </View>
-          )}
-          {password !== checkPW ? (
-            <BigBlackButton text="Create Account" />
-          ) : (
-            <BigBlackButton
-              text="Create Account"
-              onPress={onSubmitPasswordEditing}
-            />
-          )}
-        </InputContainer>
-      </SafeAreaView>
-    </Container>
+      </ContentContainer>
+    </Layout>
   );
 };
 
@@ -117,7 +117,12 @@ const PWInput = styled.TextInput`
   border-radius: 10px;
 `;
 
-const InputContainer = styled.View`
+const ContentContainer = styled.View`
+  justify-content: center;
+  flex: 1;
+`;
+const ButtonContainer = styled.View`
+  justify-content: center;
   flex: 1;
 `;
 export default EmailJoin;

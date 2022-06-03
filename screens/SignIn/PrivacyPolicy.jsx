@@ -4,13 +4,11 @@ import styled from "styled-components";
 import Icon from "react-native-vector-icons/FontAwesome";
 import CheckPrivacyPolicy from "./CheckPrivacyPolicy";
 import CheckBoxes from "./CheckBoxes";
-import { Container } from "../components";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Layout } from "../components";
+import { Container, Layout } from "../components";
 
 const PrivacyPolicy = ({ navigation: { navigate } }) => {
   return (
-    <Layout styl>
+    <Layout>
       <LogoContainer>
         <Image source={require("/Users/a12/teamCero/cero/logo.png")}></Image>
         <ServiceTitle>새로</ServiceTitle>
