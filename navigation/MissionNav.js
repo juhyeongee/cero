@@ -19,12 +19,8 @@ const HomeNav = (props) => {
           <SelectMission navigation={data.navigation} day={props.day} />
         )}
       /> */}
-      <Nav.Screen
-        name="StartMission"
-        component={StartMission}
-        day={props.day}
-      />
-      <Nav.Screen name="MissionHome" component={Home} day={props.day} />
+      <Nav.Screen name="StartMission" component={StartMission} />
+      <Nav.Screen name="MissionHome" component={Home} />
     </Nav.Navigator>
   );
 };

@@ -26,7 +26,7 @@ const BottomTabNav = (props) => {
     >
       <Tab.Screen
         name="DoneTask"
-        children={() => <DoneTask day={props.day} />}
+        children={() => <DoneTask />}
         options={{
           tabBarShowLabel: false,
           tabBarLabel: "drawer",
@@ -41,7 +41,7 @@ const BottomTabNav = (props) => {
       />
       <Tab.Screen
         name="Home"
-        children={() => <MissionNav day={props.day} />}
+        children={() => <MissionNav />}
         options={{
           tabBarLabel: "My room",
           tabBarShowLabel: false,
