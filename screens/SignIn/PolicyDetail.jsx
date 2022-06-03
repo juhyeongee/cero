@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import styled from "styled-components";
 import { policyText } from "../../constants/PrivatePolicyText";
+import { Container } from "../components";
 
 const PolicyDetail = ({ navigation: { navigate } }) => {
   return (
@@ -30,12 +31,6 @@ const PolicyDetail = ({ navigation: { navigate } }) => {
     </Container>
   );
 };
-
-const Container = styled.View`
-  flex: 1;
-  background-color: ${(props) => props.theme.n100};
-  padding: 32px;
-`;
 
 const ArrowContainer = styled.View`
   justify-content: center;

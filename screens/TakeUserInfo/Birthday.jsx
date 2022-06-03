@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
 import DatePicker from "react-native-date-picker";
+import { Container, BigBlackButton } from "../components";
 
 const Birthday = (props) => {
   const [birthday, setBirthday] = useState(new Date());
@@ -24,7 +25,7 @@ const Birthday = (props) => {
           date={birthday}
           onDateChange={setBirthday}
         />
-        <NextBtn
+        <BigBlackButton
           onPress={() => {
             props.saveBirthdayToAsyncStorage(birthday.toString());
             props.setAge(age);
@@ -33,22 +34,12 @@ const Birthday = (props) => {
             props.setBirthdayDay(birthdayDay);
             this._swiper.scrollBy(1);
           }}
-        >
-          <NextBtnText>다음</NextBtnText>
-        </NextBtn>
+          text="다음"
+        />
       </Container>
     </>
   );
 };
-
-const Container = styled.View`
-  width: ${(props) => props.theme.windowWidth};
-  background-color: ${(props) => props.theme.n100};
-  justify-content: center;
-  padding: 32px;
-  flex: 1;
-  display: flex;
-`;
 
 const QuestionText = styled.Text`
   color: ${(props) => props.theme.n900};
@@ -62,23 +53,6 @@ const SubQuestionText = styled.Text`
   font-family: ${(props) => props.theme.thinFont};
   margin-bottom: 32px;
   font-size: 14px;
-`;
-
-const NextBtn = styled.Pressable`
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: ${(props) => props.theme.n900};
-  border-radius: 10px;
-  height: 48px;
-  padding: 10px 20px;
-  margin: 10px;
-`;
-
-const NextBtnText = styled.Text`
-  font-family: ${(props) => props.theme.mainFont};
-  font-size: 16px;
-  color: ${(props) => props.theme.n0};
 `;
 
 export default Birthday;

@@ -2,36 +2,37 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
+import { BigBlackButton } from "../components";
+import { Container } from "../components";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Nickname = (props) => {
   const [nickname, setNickname] = useState();
 
   return (
     <Container>
-      <QuestionText>앞으로 어떻게 불러드릴까요?</QuestionText>
-      <AnswerText
-        placeholder="8글자까지 입력하실 수 있어요"
-        onChangeText={(text) => setNickname(text)}
-      ></AnswerText>
-      <NextBtn
-        onPress={() => {
-          props.saveNicknameToAsyncStorage(nickname);
-          this._swiper.scrollBy(1);
-        }}
-      >
-        <NextBtnText>다음</NextBtnText>
-      </NextBtn>
+      <SafeAreaView style={{ flex: 1 }}>
+        <TextView>
+          <QuestionText>앞으로 어떻게 불러드릴까요?</QuestionText>
+          <AnswerText
+            placeholder="8글자까지 입력하실 수 있어요"
+            onChangeText={(text) => setNickname(text)}
+          ></AnswerText>
+        </TextView>
+        <TextView>
+          <NextBtn
+            onPress={() => {
+              props.saveNicknameToAsyncStorage(nickname);
+              this._swiper.scrollBy(1);
+            }}
+          >
+            <BigBlackButton text="다음" />
+          </NextBtn>
+        </TextView>
+      </SafeAreaView>
     </Container>
   );
 };
-
-const Container = styled.View`
-  background-color: ${(props) => props.theme.n100};
-  padding: 32px;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-`;
 
 const QuestionText = styled.Text`
   color: ${(props) => props.theme.n900};
@@ -53,9 +54,9 @@ const NextBtn = styled.TouchableOpacity`
   height: 32px;
 `;
 
-const NextBtnText = styled.Text`
-  color: ${(props) => props.theme.n100};
-  font-family: ${(props) => props.theme.mainFont};
+const TextView = styled.View`
+  flex: 1;
+  justify-content: center; ;
 `;
 
 export default Nickname;

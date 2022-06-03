@@ -14,7 +14,7 @@ const CheckPrivacyPolicy = (props) => {
           value={toggleCheckBox}
           onValueChange={(newValue) => setToggleCheckBox(newValue)}
         />
-        <CheckBoxText>{props.content}</CheckBoxText>
+        <CheckBoxText>{props.text}</CheckBoxText>
       </View>
       <ArrowBtn
         onPress={() => {

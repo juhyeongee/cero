@@ -38,7 +38,7 @@ const ThirdIntro = () => {
   const navigation = useNavigation();
   const navigateToLogin = () => {
     //console.log(this._swiper.scrollBy(-1));
-    setTimeout(() => navigation.navigate("SignIn"), 1500);
+    setTimeout(() => navigation.navigate("SignIn"), 100);
   };
 
   return (

@@ -12,10 +12,7 @@ const Home = (props) => {
         <ToDoContainer>
           <ToDoText>오늘의 할 일</ToDoText>
           <SubToDoText>{missionObj.day1.version1.subtitle}</SubToDoText>
-          <StartMissionBtn
-            day={props.day}
-            onPress={() => navigation.navigate("StartMission")}
-          >
+          <StartMissionBtn onPress={() => navigation.navigate("StartMission")}>
             <SubToDoText>하러가기</SubToDoText>
           </StartMissionBtn>
         </ToDoContainer>

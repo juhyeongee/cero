@@ -13,6 +13,7 @@ import {
 import styled from "styled-components";
 import auth from "@react-native-firebase/auth";
 import EmailJoin from "./EmailJoin";
+import { BigBlackButton, OutlineButton } from "../components";
 
 const SignIn = ({ navigation: { navigate } }) => {
   const [joinModalVisible, setJoinModalVisible] = useState(false);
@@ -89,16 +90,20 @@ const SignIn = ({ navigation: { navigate } }) => {
           setPassword(text);
         }}
       />
-      <LoginBtn onPress={onSubmitPasswordEditing}>
-        <LoginBtnText>로그인 하기</LoginBtnText>
-      </LoginBtn>
+      <BigBlackButton text="로그인 하기" onPress={onSubmitPasswordEditing} />
       <JoinView>
-        <JoinBtn onPress={() => navigate("PrivacyPolicy")}>
-          <JoinBtnText> 구글로 시작하기 </JoinBtnText>
-        </JoinBtn>
-        <JoinBtn onPress={() => navigate("PrivacyPolicy")}>
-          <JoinBtnText> 애플로 시작하기</JoinBtnText>
-        </JoinBtn>
+        <OutlineButton
+          text="이메일로 시작하기"
+          onPress={() => navigate("EmailJoin")}
+        />
+        <OutlineButton
+          text="구글로 시작하기"
+          onPress={() => navigate("PrivacyPolicy")}
+        />
+        <OutlineButton
+          text="애플로 시작하기"
+          onPress={() => navigate("PrivacyPolicy")}
+        />
       </JoinView>
     </Container>
   );

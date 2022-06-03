@@ -8,8 +8,8 @@ const Confirm = (props) => {
     <BG>
       <Text>당신의 현재 정보가 이게 맞을까요? </Text>
       <Text>
-        생일 : {props.birthdayYear}년 {props.birthdayMonth}월
-        {props.birthdayDay}일
+        생일 : {props.birthdayYear}년 {props.birthdayMonth}월{props.birthdayDay}
+        일
       </Text>
       <Text>나이 : {props.age}</Text>
 
