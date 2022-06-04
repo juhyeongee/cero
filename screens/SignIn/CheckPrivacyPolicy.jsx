@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { View, Text, Image, Pressable, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import CheckBox from "@react-native-community/checkbox";
+import { useNavigation } from "@react-navigation/native";
 
 const CheckPrivacyPolicy = (props) => {
+  const navigation = useNavigation();
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
   return (
     <CheckBoxContainer>
@@ -16,11 +18,7 @@ const CheckPrivacyPolicy = (props) => {
         />
         <CheckBoxText>{props.text}</CheckBoxText>
       </View>
-      <ArrowBtn
-        onPress={() => {
-          props.moveToDetail();
-        }}
-      >
+      <ArrowBtn onPress={() => navigation.navigate("PolicyDetail")}>
         <Image
           source={require("/Users/a12/teamCero/cero/right-arrow.png")}
         ></Image>

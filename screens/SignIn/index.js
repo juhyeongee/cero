@@ -55,7 +55,7 @@ const SignIn = ({ navigation: { navigate } }) => {
       <ContentContainer>
         <Image source={require("/Users/a12/teamCero/cero/logo.png")}></Image>
         <ServiceTitle>새로</ServiceTitle>
-        <Input
+        <LoginInput
           autoCapitalize="none"
           autoCorrect={false}
           placeholder="이메일"
@@ -67,7 +67,7 @@ const SignIn = ({ navigation: { navigate } }) => {
             setEmail(text);
           }}
         />
-        <Input
+        <PasswordInput
           placeholder="비밀번호"
           ref={passwordInput}
           value={password}
@@ -98,7 +98,17 @@ const SignIn = ({ navigation: { navigate } }) => {
   );
 };
 
-const Input = styled.TextInput`
+const LoginInput = styled.TextInput`
+  font-size: 16px;
+  width: 100%;
+  background-color: ${(props) => props.theme.n300};
+  border-radius: 10px;
+  height: 48px;
+  padding: 10px 20px;
+  margin-top: 10px; ;
+`;
+
+const PasswordInput = styled.TextInput`
   font-size: 16px;
   width: 100%;
   background-color: ${(props) => props.theme.n300};

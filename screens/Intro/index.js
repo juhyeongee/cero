@@ -13,6 +13,8 @@ import styled from "styled-components";
 import { useNavigation } from "@react-navigation/native";
 
 const Intro = () => {
+  const [nowPage, setNowPage] = useState();
+  console.log();
   return (
     <Swiper
       ref={(swiper) => {
