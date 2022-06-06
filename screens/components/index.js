@@ -11,9 +11,7 @@ export const Layout = (props) => {
 
   return (
     <Container>
-      <SafeArea center={props.center} style={{ flex: 1 }}>
-        {props.children}
-      </SafeArea>
+      <SafeArea center={props.center}>{props.children}</SafeArea>
     </Container>
   );
 };
