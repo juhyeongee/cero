@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import styled from "styled-components";
 import auth from "@react-native-firebase/auth";
-import EmailJoin from "./EmailJoin";
+import { Layout, BigBlackButton, OutlineButton } from "../components";
 
 const SignIn = ({ navigation: { navigate } }) => {
   const [joinModalVisible, setJoinModalVisible] = useState(false);
@@ -51,66 +51,52 @@ const SignIn = ({ navigation: { navigate } }) => {
   };
 
   return (
-    <Container>
-      {/* <Modal
-        animationType="slide"
-        transparent={true}
-        visible={joinModalVisible}
-      >
-        <ModalContainer>
-          <TransparentView></TransparentView>
-          <ContentBox>
-            <Join />
-          </ContentBox>
-        </ModalContainer>
-      </Modal> */}
-      <Image source={require("/Users/a12/teamCero/cero/logo.png")}></Image>
-      <ServiceTitle>새로</ServiceTitle>
-      <LoginInput
-        autoCapitalize="none"
-        autoCorrect={false}
-        placeholder="이메일"
-        value={email} //이게 왜 필요할까?
-        onSubmitEditing={onSubmitEmailEditing}
-        returnKeyType="next"
-        placeholderTextColor="#B9B6B3" //이거 왜 안됨. 왜 props로 theme에서 적용이 안됨, 폰트패밀리도 적용어케하누..
-        onChangeText={(text) => {
-          setEmail(text);
-        }}
-      />
-      <PasswordInput
-        placeholder="비밀번호"
-        ref={passwordInput}
-        value={password}
-        secureTextEntry
-        returnKeyType="done"
-        placeholderTextColor="#B9B6B3"
-        onChangeText={(text) => {
-          setPassword(text);
-        }}
-      />
-      <LoginBtn onPress={onSubmitPasswordEditing}>
-        <LoginBtnText>로그인 하기</LoginBtnText>
-      </LoginBtn>
-      <JoinView>
-        <JoinBtn onPress={() => navigate("PrivacyPolicy")}>
-          <JoinBtnText> 구글로 시작하기 </JoinBtnText>
-        </JoinBtn>
-        <JoinBtn onPress={() => navigate("PrivacyPolicy")}>
-          <JoinBtnText> 애플로 시작하기</JoinBtnText>
-        </JoinBtn>
-      </JoinView>
-    </Container>
+    <Layout>
+      <ContentContainer>
+        <Image source={require("/Users/a12/teamCero/cero/logo.png")}></Image>
+        <ServiceTitle>새로</ServiceTitle>
+        <LoginInput
+          autoCapitalize="none"
+          autoCorrect={false}
+          placeholder="이메일"
+          value={email} //이게 왜 필요할까?
+          onSubmitEditing={onSubmitEmailEditing}
+          returnKeyType="next"
+          placeholderTextColor="#B9B6B3" //이거 왜 안됨. 왜 props로 theme에서 적용이 안됨, 폰트패밀리도 적용어케하누..
+          onChangeText={(text) => {
+            setEmail(text);
+          }}
+        />
+        <PasswordInput
+          placeholder="비밀번호"
+          ref={passwordInput}
+          value={password}
+          secureTextEntry
+          returnKeyType="done"
+          placeholderTextColor="#B9B6B3"
+          onChangeText={(text) => {
+            setPassword(text);
+          }}
+        />
+        <BigBlackButton text="로그인 하기" onPress={onSubmitPasswordEditing} />
+      </ContentContainer>
+      <ButtonContainer>
+        <OutlineButton
+          text="이메일로 시작하기"
+          onPress={() => navigate("EmailJoin")}
+        />
+        <OutlineButton
+          text="구글로 시작하기"
+          onPress={() => navigate("PrivacyPolicy")}
+        />
+        <OutlineButton
+          text="애플로 시작하기"
+          onPress={() => navigate("PrivacyPolicy")}
+        />
+      </ButtonContainer>
+    </Layout>
   );
 };
-
-const Container = styled.View`
-  background-color: ${(props) => props.theme.n100};
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  padding: 32px;
-`;
 
 const LoginInput = styled.TextInput`
   font-size: 16px;
@@ -119,7 +105,7 @@ const LoginInput = styled.TextInput`
   border-radius: 10px;
   height: 48px;
   padding: 10px 20px;
-  margin: 10px;
+  margin-top: 10px; ;
 `;
 
 const PasswordInput = styled.TextInput`
@@ -129,66 +115,22 @@ const PasswordInput = styled.TextInput`
   border-radius: 10px;
   height: 48px;
   padding: 10px 20px;
-  margin: 10px;
+  margin-top: 10px; ;
 `;
 
-const ModalContainer = styled.View`
-  width: 100%;
-  height: 100%;
-`;
-
-const TransparentView = styled.View`
-  flex: 1;
-`;
-
-const ContentBox = styled.View`
-  justify-content: center;
-  flex: 1;
-  background-color: bisque;
-`;
 const ServiceTitle = styled.Text`
   font-family: ${(props) => props.theme.thickFont};
   font-size: 30px;
   margin-top: 15px;
 `;
 
-const LoginBtn = styled.Pressable`
+const ContentContainer = styled.View`
+  justify-content: flex-end;
+  flex: 0.5;
+`;
+const ButtonContainer = styled.View`
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: ${(props) => props.theme.n900};
-  border-radius: 10px;
-  height: 48px;
-  padding: 10px 20px;
-  margin: 10px;
-`;
-
-const LoginBtnText = styled.Text`
-  font-family: ${(props) => props.theme.mainFont};
-  font-size: 16px;
-  color: ${(props) => props.theme.n0};
-`;
-const JoinView = styled.View`
-  flex: 0.3;
-  padding-top: 100px;
-  width: 100%;
-`;
-const JoinBtn = styled.Pressable`
-  border: 1px solid ${(props) => props.theme.n700};
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: ${(props) => props.theme.n100};
-  border-radius: 10px;
-  height: 48px;
-  padding: 10px 20px;
-  margin-top: 10px;
-`;
-
-const JoinBtnText = styled.Text`
-  font-family: ${(props) => props.theme.mainFont};
-  font-size: 16px;
-  color: ${(props) => props.theme.n900};
+  flex: 0.5;
 `;
 
 export default SignIn;

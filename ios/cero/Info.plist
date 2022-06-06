@@ -51,5 +51,27 @@
 	<false/>
   <key>UIStatusBarStyle</key>
   <string>UIStatusBarStyleDefault</string>
+	<!-- Required with iOS 10 and higher -->
+	<key>NSCameraUsageDescription</key>
+	<string>Your message to user when the camera is accessed for the first time</string>
+
+	<!-- Required with iOS 11 and higher: include this only if you are planning to use the camera roll -->
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Your message to user when the photo library is accessed for the first time</string>
+
+	<!-- Include this only if you are planning to use the camera roll -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Your message to user when the photo library is accessed for the first time</string>
+
+	<!-- Include this only if you are planning to use the microphone for video recording -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Your message to user when the microphone is accessed for the first time</string>
+
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>cero would like access to your photo gallery</string>
+    <key>NSCameraUsageDescription</key>
+    <string>cero would like to use your camera</string>
+    <key>NSPhotoLibraryAppUsageDescription</key>
+    <string>cero would like to save photos to your photo gallery</string>
 </dict>
 </plist>

@@ -10,6 +10,10 @@ import {
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import auth from "@react-native-firebase/auth";
+import CheckPrivacyPolicy from "./CheckPrivacyPolicy";
+import { Container, BigBlackButton, Layout } from "../components";
+import CheckBoxes from "./CheckBoxes";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const EmailJoin = () => {
   const passwordInput = useRef();
@@ -47,84 +51,78 @@ const EmailJoin = () => {
   };
 
   return (
-    <EmailJoinBG>
-      <EmailInput
-        placeholder="Email"
-        autoCapitalize="none"
-        autoCorrect={false}
-        keyboardType="email-address"
-        value={email}
-        returnKeyType="next"
-        onChangeText={(text) => setEmail(text)}
-        onSubmitEditing={onSubmitEmailEditing}
-        placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
-      />
-      <PWInput
-        autoCapitalize="none"
-        ref={passwordInput}
-        placeholder="Password"
-        secureTextEntry
-        value={password}
-        returnKeyType="done"
-        onChangeText={(text) => setPassword(text)}
-        placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
-        onSubmitEditing={onSubmitPasswordEditing}
-      />
-      <PWInput
-        secureTextEntry
-        placeholder="Password"
-        onChangeText={(text) => setCheckPW(text)}
-      />
-      {password !== checkPW && (
-        <View>
-          <Text>비밀번호가 일치하지 않습니다.</Text>
-        </View>
-      )}
-      {/* 여기서 checkPW와 password가 같으면 아래에 빨간줄로 경고뜨게 하고 싶은데요.그리고 createAccount 버튼을 비활성화한다. */}
-      {password !== checkPW ? (
-        <CreateBtn>
-          <Text style={{ fontSize: "17px" }}>Create Account</Text>
-        </CreateBtn>
-      ) : (
-        <CreateBtn onPress={onSubmitPasswordEditing}>
-          <Text style={{ fontSize: "17px" }}>Create Account</Text>
-        </CreateBtn>
-      )}
-    </EmailJoinBG>
+    <Layout>
+      <ButtonContainer>
+        <EmailInput
+          placeholder="Email"
+          autoCapitalize="none"
+          autoCorrect={false}
+          keyboardType="email-address"
+          value={email}
+          returnKeyType="next"
+          onChangeText={(text) => setEmail(text)}
+          onSubmitEditing={onSubmitEmailEditing}
+          placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
+        />
+        <PWInput
+          autoCapitalize="none"
+          ref={passwordInput}
+          placeholder="Password"
+          secureTextEntry
+          value={password}
+          returnKeyType="done"
+          onChangeText={(text) => setPassword(text)}
+          placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
+          onSubmitEditing={onSubmitPasswordEditing}
+        />
+        <PWInput
+          secureTextEntry
+          placeholder="Password"
+          onChangeText={(text) => setCheckPW(text)}
+        />
+        {password !== checkPW && (
+          <View>
+            <Text>비밀번호가 일치하지 않습니다.</Text>
+          </View>
+        )}
+        {password !== checkPW ? (
+          <BigBlackButton text="Create Account" />
+        ) : (
+          <BigBlackButton
+            text="Create Account"
+            onPress={onSubmitPasswordEditing}
+          />
+        )}
+      </ButtonContainer>
+      <ContentContainer>
+        <CheckBoxes />
+      </ContentContainer>
+    </Layout>
   );
 };
-
-const EmailJoinBG = styled.View`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${(props) => props.theme.n100};
-  flex: 1;
-`;
 
 const EmailInput = styled.TextInput`
   background-color: ${(props) => props.theme.n100};
   padding: 10px;
-  width: 80%;
   height: 40px;
   border: 1px solid grey;
-  border-radius: 15px;
-  margin: 20px;
+  border-radius: 10px;
 `;
 
 const PWInput = styled.TextInput`
   background-color: ${(props) => props.theme.n100};
   padding: 10px;
-  width: 80%;
   height: 40px;
   border: 1px solid grey;
-  border-radius: 15px;
-  margin: 2px;
+  border-radius: 10px;
 `;
 
-const CreateBtn = styled.TouchableOpacity`
-  margin: 50px;
-  //여기에 sass쓸  수 있다면 참 편할 텐데요.
+const ContentContainer = styled.View`
+  justify-content: center;
+  flex: 1;
+`;
+const ButtonContainer = styled.View`
+  justify-content: center;
+  flex: 1;
 `;
 export default EmailJoin;

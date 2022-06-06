@@ -10,32 +10,25 @@ import {
 } from "react-native";
 import styled from "styled-components";
 import { policyText } from "../../constants/PrivatePolicyText";
+import { Layout } from "../components";
 
 const PolicyDetail = ({ navigation: { navigate } }) => {
   return (
-    <Container>
-      <SafeAreaView style={{ flex: 1 }}>
-        <ArrowContainer>
-          <Pressable onPress={() => navigate("PrivacyPolicy")}>
-            <Image
-              source={require("/Users/a12/teamCero/cero/left-arrow.png")}
-            ></Image>
-          </Pressable>
-        </ArrowContainer>
-        <QuestionText>이용약관 동의</QuestionText>
-        <TextScrollView>
-          <SubQuestionText>{policyText.text}</SubQuestionText>
-        </TextScrollView>
-      </SafeAreaView>
-    </Container>
+    <Layout>
+      <ArrowContainer>
+        <Pressable onPress={() => navigate("PrivacyPolicy")}>
+          <Image
+            source={require("/Users/a12/teamCero/cero/left-arrow.png")}
+          ></Image>
+        </Pressable>
+      </ArrowContainer>
+      <QuestionText>이용약관 동의</QuestionText>
+      <TextScrollView>
+        <SubQuestionText>{policyText.text}</SubQuestionText>
+      </TextScrollView>
+    </Layout>
   );
 };
-
-const Container = styled.View`
-  flex: 1;
-  background-color: ${(props) => props.theme.n100};
-  padding: 32px;
-`;
 
 const ArrowContainer = styled.View`
   justify-content: center;

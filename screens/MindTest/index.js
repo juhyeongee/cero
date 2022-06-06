@@ -50,6 +50,7 @@ const MindTest = (props) => {
         ref={(swiper) => {
           this._swiper = swiper;
         }}
+        showsPagination={false}
       >
         {Object.keys(questionObj).map((item, index) => (
           <MindTestPage

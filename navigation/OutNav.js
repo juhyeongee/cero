@@ -4,6 +4,7 @@ import Intro from "../screens/Intro";
 import SignIn from "../screens/SignIn";
 import PrivacyPolicy from "../screens/SignIn/PrivacyPolicy";
 import PolicyDetail from "../screens/SignIn/PolicyDetail";
+import EmailJoin from "../screens/SignIn/EmailJoin";
 
 const Nav = createStackNavigator();
 
@@ -19,6 +20,7 @@ const OutNav = () => {
       <Nav.Screen name="SignIn" component={SignIn} />
       <Nav.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
       <Nav.Screen name="PolicyDetail" component={PolicyDetail} />
+      <Nav.Screen name="EmailJoin" component={EmailJoin} />
     </Nav.Navigator>
   );
 };

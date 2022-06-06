@@ -37,7 +37,6 @@ export default function App() {
     useState(false);
   const [isMindTestOverInAsyncStorage, setIsMindTestOverInAsyncStorage] =
     useState(false);
-  const [day, setDay] = useState(1);
   let [fontsLoaded] = useFonts({
     NotoSansKR_100Thin,
     NotoSansKR_300Light,
@@ -47,8 +46,7 @@ export default function App() {
     NotoSansKR_900Black,
   });
 
-  const count = useStore((state) => state.count);
-  const { increaseCount, decreaseCount } = useStore();
+  const { increaseCount, decreaseCount, count } = useStore();
 
   const finishTakeUserInfo = () => {
     setIsUserInfoInAsyncStorage(true);
@@ -118,24 +116,7 @@ export default function App() {
         </View>
       </AppLoading>
     );
-  }
-
-  // else if (!isLoggedIn) {
-  //   return (
-  //     <ThemeProvider theme={mainTheme}>
-  //       <View style={{ flex: 1, justifyContent: "center" }}>
-  //         <Text>{count}</Text>
-  //         <TouchableOpacity onPress={increaseCount}>
-  //           <Text> increseCount Btn</Text>
-  //         </TouchableOpacity>
-  //         <TouchableOpacity onPress={decreaseCount}>
-  //           <Text> increseCount Btn</Text>
-  //         </TouchableOpacity>
-  //       </View>
-  //     </ThemeProvider>
-  //   );
-  // }
-  else if (!isLoggedIn) {
+  } else if (!isLoggedIn) {
     return (
       <ThemeProvider theme={mainTheme}>
         <NavigationContainer>
@@ -159,7 +140,7 @@ export default function App() {
   return (
     <ThemeProvider theme={mainTheme}>
       <NavigationContainer>
-        <BottomTabNav day={day} />
+        <BottomTabNav />
       </NavigationContainer>
     </ThemeProvider>
   );

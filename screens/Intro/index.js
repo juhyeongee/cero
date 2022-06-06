@@ -13,6 +13,8 @@ import styled from "styled-components";
 import { useNavigation } from "@react-navigation/native";
 
 const Intro = () => {
+  const [nowPage, setNowPage] = useState();
+  console.log();
   return (
     <Swiper
       ref={(swiper) => {
@@ -38,7 +40,7 @@ const ThirdIntro = () => {
   const navigation = useNavigation();
   const navigateToLogin = () => {
     //console.log(this._swiper.scrollBy(-1));
-    setTimeout(() => navigation.navigate("SignIn"), 1500);
+    setTimeout(() => navigation.navigate("SignIn"), 100);
   };
 
   return (

@@ -21,7 +21,7 @@ const AnswerBtn = ({
     border-radius: 10px;
     height: 48px;
     padding: 10px 20px;
-    margin: 10px;
+    margin-bottom: 10px;
   `;
 
   const AnswerBtnText = styled.Text`

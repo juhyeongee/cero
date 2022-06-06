@@ -2,45 +2,47 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
+import { Layout, MainText, SubText, BigBlackButton } from "../components";
 
 const Confirm = (props) => {
   return (
-    <BG>
-      <Text>당신의 현재 정보가 이게 맞을까요? </Text>
-      <Text>
-        생일 : {props.birthdayYear}년 {props.birthdayMonth}월
-        {props.birthdayDay}일
-      </Text>
-      <Text>나이 : {props.age}</Text>
+    <Layout>
+      <ContentContainer>
+        <MainText>당신의 현재 정보가 이게 맞을까요? </MainText>
+        <SubText>이름: {props.nickname}</SubText>
+        <SubText>
+          생일 : {props.birthdayYear}년 {props.birthdayMonth}월
+          {props.birthdayDay}일
+        </SubText>
+        <SubText>나이 : {props.age}</SubText>
 
-      <Text>{props.gender}</Text>
-      <Text>{props.nickname}</Text>
-
-      <TouchableOpacity
-        onPress={() => {
-          props.finishTakeUserInfo();
-        }}
-      >
-        <Text>예 맞아요!</Text>
-        {/* 여기서 App.js로 정보를 보내서 setLoggedIn을 구현하고 싶은데요..  */}
-      </TouchableOpacity>
-      <Button
-        title="AsyncStorage비우기"
-        onPress={() => {
-          AsyncStorage.clear();
-          console.log("🥡 asyncStorge 비우기 완료 ");
-        }}
-      />
-    </BG>
+        <SubText>성별: {props.gender}</SubText>
+      </ContentContainer>
+      <ButtonContainer>
+        <BigBlackButton
+          text="예, 맞아요!"
+          onPress={() => {
+            props.finishTakeUserInfo();
+          }}
+        ></BigBlackButton>
+        <Button
+          title="AsyncStorage비우기"
+          onPress={() => { 
+            AsyncStorage.clear();
+            console.log("🥡 asyncStorge 비우기 완료 ");
+          }}
+        />
+      </ButtonContainer>
+    </Layout>
   );
 };
 
-const BG = styled.View`
-  background-color: ${(props) => props.theme.n100};
-  flex: 1;
-  display: flex;
-  align-items: center;
+const ContentContainer = styled.View`
   justify-content: center;
+  flex: 2;
 `;
-
+const ButtonContainer = styled.View`
+  justify-content: center;
+  flex: 1;
+`;
 export default Confirm;
