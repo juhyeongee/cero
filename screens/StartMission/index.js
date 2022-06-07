@@ -9,6 +9,9 @@ import Camera from "./Camera";
 import { Layout, MainText, SubText, BigBlackButton } from "../components";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
+import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+
+console.log(launchCamera, "||||", launchImageLibrary);
 
 const StartMission = (props) => {
   const navigation = useNavigation();
@@ -46,7 +49,10 @@ const StartMission = (props) => {
             setLetter(text);
           }}
         />
-
+        <BigBlackButton
+          text="연습용"
+          onPress={() => launchImageLibrary({}, (res) => console.log(res))}
+        />
         <BigBlackButton text="제출" onPress={submitTextMission} />
       </SubmitContentsContainer>
     </Layout>
