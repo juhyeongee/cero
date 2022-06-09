@@ -45,7 +45,7 @@ const ThirdIntro = () => {
 
   return (
     <ThirdIntroBG>
-      <Image source={require("/Users/a12/teamCero/cero/logo.png")}></Image>
+      <Image source={require("cero_/assets/logo.png")}></Image>
       <View style={{ alignItems: "center" }}>
         <ServiceTitle>새로</ServiceTitle>
         <Text> 더 나은 당신으로</Text>

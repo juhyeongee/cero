@@ -19,9 +19,7 @@ const CheckPrivacyPolicy = (props) => {
         <CheckBoxText>{props.text}</CheckBoxText>
       </View>
       <ArrowBtn onPress={() => navigation.navigate("PolicyDetail")}>
-        <Image
-          source={require("/Users/a12/teamCero/cero/right-arrow.png")}
-        ></Image>
+        <Image source={require("cero_/assets/right-arrow.png")}></Image>
       </ArrowBtn>
     </CheckBoxContainer>
   );

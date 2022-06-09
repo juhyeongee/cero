@@ -17,9 +17,7 @@ const PolicyDetail = ({ navigation: { navigate } }) => {
     <Layout>
       <ArrowContainer>
         <Pressable onPress={() => navigate("PrivacyPolicy")}>
-          <Image
-            source={require("/Users/a12/teamCero/cero/left-arrow.png")}
-          ></Image>
+          <Image source={require("cero_/assets/left-arrow.png")}></Image>
         </Pressable>
       </ArrowContainer>
       <QuestionText>이용약관 동의</QuestionText>

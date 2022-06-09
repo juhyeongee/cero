@@ -32,7 +32,7 @@ const BottomTabNav = (props) => {
           tabBarLabel: "drawer",
           tabBarIcon: ({ color, size }) => (
             <Image
-              source={require("/Users/a12/teamCero/cero/file.png")}
+              source={require("cero_/assets/file.png")}
               color={color}
               size={size}
             />
@@ -48,7 +48,7 @@ const BottomTabNav = (props) => {
 
           tabBarIcon: ({ color, size }) => (
             <Image
-              source={require("/Users/a12/teamCero/cero/home.png")}
+              source={require("cero_/assets/home.png")}
               color={color}
               size={size}
             />
@@ -64,7 +64,7 @@ const BottomTabNav = (props) => {
 
           tabBarIcon: ({ color, size }) => (
             <Image
-              source={require("/Users/a12/teamCero/cero/setting.png")}
+              source={require("cero_/assets/setting.png")}
               color={color}
               size={size}
             />

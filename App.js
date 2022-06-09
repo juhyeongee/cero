@@ -76,7 +76,7 @@ export default function App() {
   const startLoading = async () => {
     await SplashScreen.preventAutoHideAsync();
     await Font.loadAsync(Ionicons.font);
-    await Asset.loadAsync(require("./title.png"));
+    await Asset.loadAsync(require("cero_/assets/title.png"));
     await Font.loadAsync({
       NotoSansKR_100Thin,
       NotoSansKR_300Light,

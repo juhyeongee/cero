@@ -53,7 +53,7 @@ const SignIn = ({ navigation: { navigate } }) => {
   return (
     <Layout>
       <ContentContainer>
-        <Image source={require("/Users/a12/teamCero/cero/logo.png")}></Image>
+        <Image source={require("cero_/assets/logo.png")}></Image>
         <ServiceTitle>새로</ServiceTitle>
         <LoginInput
           autoCapitalize="none"

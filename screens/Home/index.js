@@ -17,9 +17,7 @@ const Home = (props) => {
           </StartMissionBtn>
         </ToDoContainer>
         <PlantContainer>
-          <PlantImage
-            source={require("/Users/a12/teamCero/cero/plant3.png")}
-          ></PlantImage>
+          <PlantImage source={require("cero_/assets/plant3.png")}></PlantImage>
         </PlantContainer>
       </SafeAreaView>
     </Container>

@@ -52,7 +52,7 @@ const LoadingAnimation = () => {
     <BG>
       <TouchableOpacity onPress={async () => handleAnimation()}>
         <Animated.Image
-          //   source={require("/Users/a12/teamCero/cero/temp_logo.png")}
+          //   source={require("cero_/assets/temp_logo.png")}
           style={[styles.logo, animatedStyle]}
         ></Animated.Image>
       </TouchableOpacity>

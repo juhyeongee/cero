@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
-import DatePicker from "react-native-date-picker";
+// import DatePicker from "react-native-date-picker";
 import { BigBlackButton, Layout, MainText, SubText } from "../components";
 
 const Birthday = (props) => {
@@ -17,12 +17,12 @@ const Birthday = (props) => {
       <ContentContainer>
         <MainText>{props.nickname}님의 나이를 알려주세요. </MainText>
         <SubText>연령대 별 추천을 드리기 위함이예요.</SubText>
-        <DatePicker
+        {/* <DatePicker
           maximumDate={new Date("2022-12-31")}
           mode="date"
           date={birthday}
           onDateChange={setBirthday}
-        />
+        /> */}
         <GrayBox>
           <AgeText>만 {age}세</AgeText>
         </GrayBox>

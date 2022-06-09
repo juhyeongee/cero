@@ -12,7 +12,7 @@ const PrivacyPolicy = ({ navigation: { navigate } }) => {
   return (
     <Layout>
       <LogoContainer>
-        <Image source={require("/Users/a12/teamCero/cero/logo.png")}></Image>
+        <Image source={require("cero_/assets/logo.png")}></Image>
         <ServiceTitle>새로</ServiceTitle>
         <Pressable onPress={() => navigate("SignIn")}>
           <Text>버튼</Text>
