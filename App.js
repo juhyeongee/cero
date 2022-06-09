@@ -85,6 +85,9 @@ export default function App() {
       NotoSansKR_700Bold,
       NotoSansKR_900Black,
     });
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+    //오 로딩 완료되는거 늦춰지게 했음. 신기하네;;; 그러면 어떻게 하는거지?
+    //TODO, await SplashScreen.hideAsync() 언제 쓸지 체크할 것
     //웹 이미지 가져오는 법: await Image.prefetch ("https://..")
   };
 
