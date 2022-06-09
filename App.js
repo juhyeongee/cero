@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import AppLoading from "expo-app-loading";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
@@ -29,6 +28,8 @@ import {
   NotoSansKR_900Black,
 } from "@expo-google-fonts/noto-sans-kr";
 import useStore from "./lib/store";
+import AppLoading from "expo-app-loading";
+import * as SplashScreen from "expo-splash-screen";
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
@@ -37,14 +38,6 @@ export default function App() {
     useState(false);
   const [isMindTestOverInAsyncStorage, setIsMindTestOverInAsyncStorage] =
     useState(false);
-  let [fontsLoaded] = useFonts({
-    NotoSansKR_100Thin,
-    NotoSansKR_300Light,
-    NotoSansKR_400Regular,
-    NotoSansKR_500Medium,
-    NotoSansKR_700Bold,
-    NotoSansKR_900Black,
-  });
 
   const { increaseCount, decreaseCount, count } = useStore();
 
@@ -53,13 +46,11 @@ export default function App() {
     AsyncStorage.setItem("checkUserInfofinished", "finished");
     console.log("유저 정보 체크끝!");
   };
-
   const finishMindTest = () => {
     setIsMindTestOverInAsyncStorage(true);
     AsyncStorage.setItem("checkMindTestOver", "finished");
     console.log("1차 심리검사 끝!");
   };
-  //좋은 습관이다. 변수 많아지면 헷갈리니까. 파라미터 없다는거 얘기하는거임 -> takeuserinfo.js -> confirm.js
   const checkUserInfoInAsyncStorage = () => {
     AsyncStorage.getItem("checkUserInfofinished").then((text) => {
       if (text === "finished") {
@@ -70,7 +61,6 @@ export default function App() {
       }
     });
   };
-
   const checkMindTestFinishedInAsyncStorage = () => {
     AsyncStorage.getItem("checkMindTestOver").then((text) => {
       if (text === "finished") {
@@ -84,8 +74,17 @@ export default function App() {
 
   const loadingComplete = () => setLoaded(true);
   const startLoading = async () => {
+    await SplashScreen.preventAutoHideAsync();
     await Font.loadAsync(Ionicons.font);
     await Asset.loadAsync(require("./title.png"));
+    await Font.loadAsync({
+      NotoSansKR_100Thin,
+      NotoSansKR_300Light,
+      NotoSansKR_400Regular,
+      NotoSansKR_500Medium,
+      NotoSansKR_700Bold,
+      NotoSansKR_900Black,
+    });
     //웹 이미지 가져오는 법: await Image.prefetch ("https://..")
   };
 
@@ -102,9 +101,8 @@ export default function App() {
     checkUserInfoInAsyncStorage();
     checkMindTestFinishedInAsyncStorage();
   }, []);
-  // AsyncStorage.getItem("birthday").then((text) => console.log(text));
-  if (loaded === false && fontsLoaded) {
-    // check
+
+  if (!loaded) {
     return (
       <AppLoading
         startAsync={startLoading}
