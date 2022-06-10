@@ -32,7 +32,7 @@ import AppLoading from "expo-app-loading";
 import * as SplashScreen from "expo-splash-screen";
 
 export default function App() {
-  const [loaded, setLoaded] = useState(false);
+  const [appIsReady, setAppIsReady] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isUserInfoInAsyncStorage, setIsUserInfoInAsyncStorage] =
     useState(false);
@@ -72,11 +72,9 @@ export default function App() {
     });
   };
 
-  const loadingComplete = () => setLoaded(true);
   const startLoading = async () => {
     await SplashScreen.preventAutoHideAsync();
-    await Font.loadAsync(Ionicons.font);
-    await Asset.loadAsync(require("cero_/assets/title.png"));
+
     await Font.loadAsync({
       NotoSansKR_100Thin,
       NotoSansKR_300Light,
@@ -85,7 +83,7 @@ export default function App() {
       NotoSansKR_700Bold,
       NotoSansKR_900Black,
     });
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+
     //오 로딩 완료되는거 늦춰지게 했음. 신기하네;;; 그러면 어떻게 하는거지?
     //TODO, await SplashScreen.hideAsync() 언제 쓸지 체크할 것
     //웹 이미지 가져오는 법: await Image.prefetch ("https://..")
@@ -105,17 +103,20 @@ export default function App() {
     checkMindTestFinishedInAsyncStorage();
   }, []);
 
-  if (!loaded) {
+  useEffect(() => {
+    startLoading().then(() => setAppIsReady(true));
+    //TODO.
+    setTimeout(() => {
+      console.log("가림막");
+      SplashScreen.hideAsync();
+    }, 3000);
+  }, []);
+
+  if (!appIsReady) {
     return (
-      <AppLoading
-        startAsync={startLoading}
-        onFinish={loadingComplete}
-        onError={console.error}
-      >
-        <View>
-          <Text> loading......</Text>
-        </View>
-      </AppLoading>
+      <View>
+        <Text> loading......</Text>
+      </View>
     );
   } else if (!isLoggedIn) {
     return (
