@@ -7,7 +7,6 @@ import DoneTaskModal from "./DoneTaskModal";
 import useStore from "../../lib/store";
 
 const DoneTask = () => {
-  const { day } = useStore();
   const [visible, setVisible] = useState(false);
 
   return (
@@ -16,7 +15,6 @@ const DoneTask = () => {
         <View style={{ flex: 1, justifyContent: "center" }}>
           <TitleText>지난 할 일</TitleText>
           <SubTitleText>지금까지의 여정을 살펴보세요.</SubTitleText>
-          <Text>{day}일 차</Text>
         </View>
         <View style={{ flex: 3 }}>
           <Row>

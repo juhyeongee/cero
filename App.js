@@ -107,7 +107,7 @@ export default function App() {
     startLoading().then(() => setAppIsReady(true));
     //TODO.
     setTimeout(() => {
-      console.log("가림막");
+      // console.log("가림막");
       SplashScreen.hideAsync();
     }, 3000);
   }, []);
