@@ -1048,7 +1048,7 @@ PODS:
     - Firebase/Firestore (= 8.15.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.4.2):
+  - RNGestureHandler (2.1.3):
     - React-Core
   - RNScreens (3.10.2):
     - React-Core
@@ -1295,7 +1295,7 @@ SPEC CHECKSUMS:
   RNFBApp: fd23737680ed2bdde41ca27d8bfb171b6d668c6b
   RNFBAuth: 4cfeb48367f81b135aced4bb9800df5488bc9660
   RNFBFirestore: a760c82871d98daf2009a882b38436a446d95f17
-  RNGestureHandler: 61628a2c859172551aa2100d3e73d1e57878392f
+  RNGestureHandler: e1099204721a17a89c81fcd1cc2e92143dc040fb
   RNScreens: d6da2b9e29cf523832c2542f47bf1287318b1868
   RNVectorIcons: 7923e585eaeb139b9f4531d25a125a1500162a0b
   Yoga: e6ecf3fa25af9d4c87e94ad7d5d292eedef49749
