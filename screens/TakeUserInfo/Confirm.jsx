@@ -9,14 +9,17 @@ const Confirm = (props) => {
     <Layout>
       <ContentContainer>
         <MainText>당신의 현재 정보가 이게 맞을까요? </MainText>
-        <SubText>이름: {props.nickname}</SubText>
-        <SubText>
-          생일 : {props.birthdayYear}년 {props.birthdayMonth}월
-          {props.birthdayDay}일
-        </SubText>
-        <SubText>나이 : {props.age}</SubText>
+        <SubText>대답해주신 내용을 확인해주세요.</SubText>
+        <AnswerContainer>
+          <GreyBar />
+          <View>
+            <BigFont>{props.nickname}</BigFont>
 
-        <SubText>성별: {props.gender}</SubText>
+            <BigFont>만 {props.age}세</BigFont>
+
+            <BigFont>{props.gender}</BigFont>
+          </View>
+        </AnswerContainer>
       </ContentContainer>
       <ButtonContainer>
         <BigGreenButton
@@ -37,6 +40,12 @@ const Confirm = (props) => {
   );
 };
 
+const BigFont = styled.Text`
+  font-family: ${(props) => props.theme.mainFont};
+  font-size: 20px;
+  margin-bottom: 10px; ;
+`;
+
 const ContentContainer = styled.View`
   justify-content: center;
   flex: 2;
@@ -44,5 +53,16 @@ const ContentContainer = styled.View`
 const ButtonContainer = styled.View`
   justify-content: center;
   flex: 1;
+`;
+
+const AnswerContainer = styled.View`
+  flex-direction: row;
+`;
+
+const GreyBar = styled.View`
+  background-color: grey;
+  width: 2px;
+  height: 100%;
+  margin-right: 15px;
 `;
 export default Confirm;
