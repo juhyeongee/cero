@@ -3,7 +3,7 @@ import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
 // import DatePicker from "react-native-date-picker";
-import { BigBlackButton, Layout, MainText, SubText } from "../components";
+import { BigGreenButton, Layout, MainText, SubText } from "../components";
 
 const Birthday = (props) => {
   const [birthday, setBirthday] = useState(new Date());
@@ -28,7 +28,7 @@ const Birthday = (props) => {
         </GrayBox>
       </ContentContainer>
       <ButtonContainer>
-        <BigBlackButton
+        <BigGreenButton
           onPress={() => {
             props.saveBirthdayToAsyncStorage(birthday.toString());
             props.setAge(age);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
-import { BigBlackButton, Layout, MainText, SubText } from "../components";
+import { BigGreenButton, Layout, MainText, SubText } from "../components";
 
 const Nickname = (props) => {
   const [nickname, setNickname] = useState();
@@ -17,7 +17,7 @@ const Nickname = (props) => {
         ></AnswerText>
       </ContentContainer>
       <ButtonContainer>
-        <BigBlackButton
+        <BigGreenButton
           text="다음"
           onPress={() => {
             props.saveNicknameToAsyncStorage(nickname);

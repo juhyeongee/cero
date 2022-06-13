@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import questionObj from "../../constants/Qustions";
-import { Layout, MainText, SubText, BigBlackButton } from "../components";
+import { Layout, MainText, SubText, BigGreenButton } from "../components";
 
 const MindTestIntroduce = (props) => {
   return (
@@ -13,7 +13,7 @@ const MindTestIntroduce = (props) => {
         질문을 준비했어요.
       </SubText>
       <View style={{ height: "30%" }}></View>
-      <BigBlackButton text="다음" onPress={props.setIntroduceBtn} />
+      <BigGreenButton text="다음" onPress={props.setIntroduceBtn} />
     </Layout>
   );
 };

@@ -11,7 +11,7 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 import auth from "@react-native-firebase/auth";
 import CheckPrivacyPolicy from "./CheckPrivacyPolicy";
-import { Container, BigBlackButton, Layout } from "../components";
+import { Container, BigGreenButton, Layout } from "../components";
 import CheckBoxes from "./CheckBoxes";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -86,9 +86,9 @@ const EmailJoin = () => {
           </View>
         )}
         {password !== checkPW ? (
-          <BigBlackButton text="Create Account" />
+          <BigGreenButton text="Create Account" />
         ) : (
-          <BigBlackButton
+          <BigGreenButton
             text="Create Account"
             onPress={onSubmitPasswordEditing}
           />

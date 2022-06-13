@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
-import { Layout, MainText, SubText, BigBlackButton } from "../components";
+import { Layout, MainText, SubText, BigGreenButton } from "../components";
 
 const Confirm = (props) => {
   return (
@@ -19,15 +19,15 @@ const Confirm = (props) => {
         <SubText>성별: {props.gender}</SubText>
       </ContentContainer>
       <ButtonContainer>
-        <BigBlackButton
+        <BigGreenButton
           text="예, 맞아요!"
           onPress={() => {
             props.finishTakeUserInfo();
           }}
-        ></BigBlackButton>
+        ></BigGreenButton>
         <Button
           title="AsyncStorage비우기"
-          onPress={() => { 
+          onPress={() => {
             AsyncStorage.clear();
             console.log("🥡 asyncStorge 비우기 완료 ");
           }}
