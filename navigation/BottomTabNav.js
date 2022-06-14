@@ -5,7 +5,6 @@ import Home from "../screens/Home";
 import { View, Image } from "react-native";
 import Setting from "../screens/Setting";
 import styled from "styled-components/native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import MissionNav from "./MissionNav";
 import { mainTheme } from "../constants/theme";
 
@@ -16,11 +15,15 @@ const BottomTabNav = (props) => {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
+        tabBarBadgeStyle: {
+          color: "black",
+        },
+        tabBarActiveTintColor: "brown",
+        tabBarShowLabel: false,
         headerShown: false,
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: mainTheme.n100,
-          borderTopWidth: 0,
+          backgroundColor: mainTheme.n400,
         },
       }}
     >
@@ -28,13 +31,13 @@ const BottomTabNav = (props) => {
         name="DoneTask"
         children={() => <DoneTask />}
         options={{
-          tabBarShowLabel: false,
           tabBarLabel: "drawer",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ focused, color }) => (
             <Image
+              style={{
+                tintColor: color,
+              }}
               source={require("cero_/assets/file.png")}
-              color={color}
-              size={size}
             />
           ),
         }}
@@ -44,13 +47,12 @@ const BottomTabNav = (props) => {
         children={() => <MissionNav />}
         options={{
           tabBarLabel: "My room",
-          tabBarShowLabel: false,
-
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: (focused, color) => (
             <Image
+              style={{
+                tintColor: color,
+              }}
               source={require("cero_/assets/home.png")}
-              color={color}
-              size={size}
             />
           ),
         }}
@@ -60,14 +62,8 @@ const BottomTabNav = (props) => {
         component={Setting}
         options={{
           tabBarLabel: "setting",
-          tabBarShowLabel: false,
-
-          tabBarIcon: ({ color, size }) => (
-            <Image
-              source={require("cero_/assets/setting.png")}
-              color={color}
-              size={size}
-            />
+          tabBarIcon: ({ focused, color }) => (
+            <Image source={require("cero_/assets/setting.png")} color={color} />
           ),
         }}
       />
