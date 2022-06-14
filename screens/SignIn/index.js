@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import styled from "styled-components";
 import auth from "@react-native-firebase/auth";
-import { Layout, BigBlackButton, OutlineButton } from "../components";
+import { Layout, BigGreenButton, OutlineButton } from "../components";
 
 const SignIn = ({ navigation: { navigate } }) => {
   const [joinModalVisible, setJoinModalVisible] = useState(false);
@@ -54,7 +54,6 @@ const SignIn = ({ navigation: { navigate } }) => {
     <Layout>
       <ContentContainer>
         <Image source={require("cero_/assets/logo.png")}></Image>
-        <ServiceTitle>새로</ServiceTitle>
         <LoginInput
           autoCapitalize="none"
           autoCorrect={false}
@@ -78,7 +77,7 @@ const SignIn = ({ navigation: { navigate } }) => {
             setPassword(text);
           }}
         />
-        <BigBlackButton text="로그인 하기" onPress={onSubmitPasswordEditing} />
+        <BigGreenButton text="로그인 하기" onPress={onSubmitPasswordEditing} />
       </ContentContainer>
       <ButtonContainer>
         <OutlineButton
