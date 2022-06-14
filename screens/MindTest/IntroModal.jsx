@@ -6,17 +6,17 @@ const IntroModal = (props) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   //그냥 갑자기 이렇게도 쓰고싶어서..
-  const text = {
-    0: "좋아요, 지금부터 효준님의 마음을 살펴보겠습니다.",
-    1: "다음 질문에 답변해주시면, 효준님의 마음이 씨앗이 되어 화분에 심어지게 됩니다.",
-    2: "앞으로 14일간,  이 씨앗을 멋지게 키워주세요.",
-    3: "씨앗이 움을 틔울수록, 효준님의 마음도 점점 근사하게 성장하게 될 거예요.",
-  };
+  const text = [
+    "좋아요, 지금부터 효준님의 마음을 살펴보겠습니다.",
+    "다음 질문에 답변해주시면, 효준님의 마음이 씨앗이 되어 화분에 심어지게 됩니다.",
+    "앞으로 14일간,  이 씨앗을 멋지게 키워주세요.",
+    "씨앗이 움을 틔울수록, 효준님의 마음도 점점 근사하게 성장하게 될 거예요.",
+  ];
   console.log("페이지넘버 :" + pageNumber);
   return (
     <ShortModal>
       <ModalText>{text[pageNumber]}</ModalText>
-      {pageNumber !== 3 ? (
+      {pageNumber !== text.length - 1 ? (
         <NextButton onPress={() => setPageNumber(pageNumber + 1)}>
           <ButtonText>클릭하여 다음으로</ButtonText>
         </NextButton>
