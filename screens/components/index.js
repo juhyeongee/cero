@@ -11,7 +11,9 @@ export const Layout = (props) => {
 
   return (
     <Container>
-      <SafeArea center={props.center}>{props.children}</SafeArea>
+      <SafeArea center={props.center} alignCenter={props.alignCenter}>
+        {props.children}
+      </SafeArea>
     </Container>
   );
 };
@@ -25,18 +27,19 @@ const Container = styled.View`
 
 let SafeArea = styled.SafeAreaView`
   justify-content: ${(props) => (props.center ? "center" : "flex-start")};
+  align-items: ${(props) => (props.center ? "center" : "flex-start")};
   flex: 1;
 `;
 
 export const MainText = styled.Text`
-  color: ${(props) => props.theme.n900};
+  color: ${(props) => (props.color ? props.color : props.theme.n900)};
   font-family: ${(props) => props.theme.thickFont};
   margin-bottom: 32px;
   font-size: 20px;
 `;
 
 export const SubText = styled.Text`
-  color: ${(props) => props.theme.n900};
+  color: ${(props) => (props.color ? props.color : props.theme.n900)};
   font-family: ${(props) => props.theme.mainFont};
   margin-bottom: 32px;
   font-size: 14px;
