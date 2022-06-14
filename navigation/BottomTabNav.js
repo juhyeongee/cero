@@ -15,10 +15,8 @@ const BottomTabNav = (props) => {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-        tabBarBadgeStyle: {
-          color: "black",
-        },
-        tabBarActiveTintColor: "brown",
+        tabBarInactiveTintColor: mainTheme.n700,
+        tabBarActiveTintColor: "teal",
         tabBarShowLabel: false,
         headerShown: false,
         tabBarStyle: {
@@ -32,7 +30,7 @@ const BottomTabNav = (props) => {
         children={() => <DoneTask />}
         options={{
           tabBarLabel: "drawer",
-          tabBarIcon: ({ focused, color }) => (
+          tabBarIcon: ({ color }) => (
             <Image
               style={{
                 tintColor: color,
@@ -47,7 +45,7 @@ const BottomTabNav = (props) => {
         children={() => <MissionNav />}
         options={{
           tabBarLabel: "My room",
-          tabBarIcon: (focused, color) => (
+          tabBarIcon: ({ color }) => (
             <Image
               style={{
                 tintColor: color,
@@ -62,8 +60,13 @@ const BottomTabNav = (props) => {
         component={Setting}
         options={{
           tabBarLabel: "setting",
-          tabBarIcon: ({ focused, color }) => (
-            <Image source={require("cero_/assets/setting.png")} color={color} />
+          tabBarIcon: ({ color }) => (
+            <Image
+              style={{
+                tintColor: color,
+              }}
+              source={require("cero_/assets/setting.png")}
+            />
           ),
         }}
       />
