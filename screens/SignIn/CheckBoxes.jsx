@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Image, Pressable, TouchableOpacity } from "react-native";
 import styled from "styled-components";
 import CheckPrivacyPolicy from "./CheckPrivacyPolicy";
-import { BigBlackButton } from "../components";
+import { BigGreenButton } from "../components";
 
 const CheckBoxes = (props) => {
   return (
@@ -24,7 +24,7 @@ const CheckBoxes = (props) => {
         moveToDetail={props.moveToDetail}
         text="(선택) 이벤트 및 광고 수신동의"
       />
-      <BigBlackButton text="시작하기" />
+      <BigGreenButton text="시작하기" />
     </BG>
   );
 };

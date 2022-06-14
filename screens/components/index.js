@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, SafeAreaView } from "react-native";
 import styled from "styled-components";
 
-export { default as BigBlackButton } from "./BigBlackButton";
+export { default as BigGreenButton } from "./BigGreenButton";
 export { default as OutlineButton } from "./OutlineButton";
 export { default as OnOffButton } from "./OnOffButton";
 

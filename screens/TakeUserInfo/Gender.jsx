@@ -17,7 +17,7 @@ const Gender = (props) => {
     <Layout>
       <ContentContainer>
         <QuestionText>{props.nickname}님의 성별을 알려주세요 </QuestionText>
-        <SubQuestionText>민감하다면 알려주지 않아도 괜찮아요</SubQuestionText>
+        {/* <SubQuestionText>민감하다면 알려주지 않아도 괜찮아요</SubQuestionText> */}
       </ContentContainer>
       <ButtonContainer>
         <OnOffButton

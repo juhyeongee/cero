@@ -6,7 +6,7 @@ import Precautious from "./Precautious";
 import missionObj from "../../constants/Missions";
 import useStore from "../../lib/store";
 import Camera from "./Camera";
-import { Layout, MainText, SubText, BigBlackButton } from "../components";
+import { Layout, MainText, SubText, BigGreenButton } from "../components";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
@@ -49,11 +49,11 @@ const StartMission = (props) => {
             setLetter(text);
           }}
         />
-        <BigBlackButton
+        <BigGreenButton
           text="연습용"
           onPress={() => launchImageLibrary({}, (res) => console.log(res))}
         />
-        <BigBlackButton text="제출" onPress={submitTextMission} />
+        <BigGreenButton text="제출" onPress={submitTextMission} />
       </SubmitContentsContainer>
     </Layout>
   );

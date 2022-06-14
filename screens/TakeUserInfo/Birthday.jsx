@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import styled from "styled-components";
-// import DatePicker from "react-native-date-picker";
-import { BigBlackButton, Layout, MainText, SubText } from "../components";
+import DatePicker from "react-native-date-picker";
+import { BigGreenButton, Layout, MainText, SubText } from "../components";
 
 const Birthday = (props) => {
   const [birthday, setBirthday] = useState(new Date());
@@ -16,19 +16,19 @@ const Birthday = (props) => {
     <Layout>
       <ContentContainer>
         <MainText>{props.nickname}님의 나이를 알려주세요. </MainText>
-        <SubText>연령대 별 추천을 드리기 위함이예요.</SubText>
-        {/* <DatePicker
+        <SubText>더 알맞은 씨앗을 추천해드릴게요.</SubText>
+        <DatePicker
           maximumDate={new Date("2022-12-31")}
           mode="date"
           date={birthday}
           onDateChange={setBirthday}
-        /> */}
+        />
         <GrayBox>
           <AgeText>만 {age}세</AgeText>
         </GrayBox>
       </ContentContainer>
       <ButtonContainer>
-        <BigBlackButton
+        <BigGreenButton
           onPress={() => {
             props.saveBirthdayToAsyncStorage(birthday.toString());
             props.setAge(age);
