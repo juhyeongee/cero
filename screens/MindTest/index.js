@@ -9,13 +9,16 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import LoadingScreen from "./LoadingScreen";
 
 const MindTest = (props) => {
-  const [introduceBtn, setIntroduceBtn] = useState(false);
-  const [showLoadingScreen, setShowLoadingScreen] = useState(false);
+  const [showIntroduceScreen, setShowIntroduceScreen] = useState(true);
+  const [showLoadingScreen, setShowLoadingScreen] = useState(true);
 
   const showLoadingScreenThenSubmitMindText = async () => {
     setShowLoadingScreen(true);
     //TODO: 확인 필요
-    setTimeout(setShowLoadingScreen(false), 3000).then(submitMindTest());
+    setTimeout(() => {
+      setShowLoadingScreen(false);
+      submitMindTest();
+    }, 3000);
   };
 
   const submitMindTest = async () => {
@@ -49,33 +52,41 @@ const MindTest = (props) => {
     return -1;
   };
 
-  // AsyncStorage.getAllKeys().then((text) => console.log(text));
-  // if (!introduceBtn) {
-  //   console.log(introduceBtn);
-  //   return <MindTestIntroduce setIntroduceBtn={setIntroduceBtn} />;
-  // } else if (introduceBtn && showLoadingScreen) {
-  //   console.log(introduceBtn);
-  //   return <LoadingScreen />;
-  // } else {
+  AsyncStorage.getAllKeys().then((text) => console.log(text));
+
+  //로딩스크린이 우선순위의 상위조건이므로 그 조건을 삼항연산자에서도 먼저걸어주는 것이 좋아보엿음
+
   return (
     <>
-      <Swiper
-        loop={false}
-        ref={(swiper) => {
-          this._swiper = swiper;
-        }}
-        showsPagination={false}
-      >
-        {Object.keys(questionObj).map((item, index) => (
-          <MindTestPage
-            showLoadingScreenThenSubmitMindText={
-              showLoadingScreenThenSubmitMindText
-            }
-            pageNumber={item}
-            key={index}
-          />
-        ))}
-      </Swiper>
+      {showLoadingScreen ? (
+        <LoadingScreen />
+      ) : (
+        <>
+          {showIntroduceScreen ? (
+            <MindTestIntroduce
+              setShowIntroduceScreen={setShowIntroduceScreen}
+            />
+          ) : (
+            <Swiper
+              loop={false}
+              ref={(swiper) => {
+                this._swiper = swiper;
+              }}
+              showsPagination={false}
+            >
+              {Object.keys(questionObj).map((item, index) => (
+                <MindTestPage
+                  showLoadingScreenThenSubmitMindText={
+                    showLoadingScreenThenSubmitMindText
+                  }
+                  pageNumber={item}
+                  key={index}
+                />
+              ))}
+            </Swiper>
+          )}
+        </>
+      )}
     </>
   );
 };

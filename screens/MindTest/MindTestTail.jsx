@@ -5,7 +5,7 @@ import { BigGreenButton } from "../components";
 const Tail = (props) => {
   if (props.pageNumber === "20") {
     return (
-      <BigBlackButton
+      <BigGreenButton
         text="제출하기"
         onPress={props.showLoadingScreenThenSubmitMindText}
       />
