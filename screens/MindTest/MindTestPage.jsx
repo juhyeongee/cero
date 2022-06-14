@@ -11,7 +11,9 @@ const MindTestPage = (props) => {
     <Layout>
       <Body pageNumber={props.pageNumber} />
       <Tail
-        submitMindtest={props.submitMindtest}
+        showLoadingScreenThenSubmitMindText={
+          props.showLoadingScreenThenSubmitMindText
+        }
         pageNumber={props.pageNumber}
       />
     </Layout>

@@ -6,10 +6,19 @@ import MindTestIntroduce from "./MindTestIntroduce";
 import questionObj from "../../constants/Qustions";
 import MindTestPage from "./MindTestPage";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import LoadingScreen from "./LoadingScreen";
 
 const MindTest = (props) => {
   const [introduceBtn, setIntroduceBtn] = useState(false);
-  const submitMindtest = async () => {
+  const [showLoadingScreen, setShowLoadingScreen] = useState(false);
+
+  const showLoadingScreenThenSubmitMindText = async () => {
+    setShowLoadingScreen(true);
+    //TODO: 확인 필요
+    setTimeout(setShowLoadingScreen(false), 3000).then(submitMindTest());
+  };
+
+  const submitMindTest = async () => {
     const number = await findNotAnsweredQuestion();
     if (number < 0) {
       props.finishMindTest();
@@ -26,9 +35,9 @@ const MindTest = (props) => {
   // props.findNotAnsweredQuestion();
   // if (props.allAnswerResponsed) {
   //   props.finishMindTest();
-  //   firestore().collection("Users").add({ submitMindTest: true });
+  //   firestore().collection("Users").add({ showLoadingScreenThenSubmitMindText: true });
   // } else {
-  //   Alert.alert("응답하지 않은 답변이있습니다ㅠ");
+  //   Alert.alert ("응답하지 않은 답변이있습니다ㅠ");
   const findNotAnsweredQuestion = async () => {
     AsyncStorage.getAllKeys().then((text) => console.log(text));
     const arr = await AsyncStorage.getAllKeys();
@@ -41,10 +50,15 @@ const MindTest = (props) => {
   };
 
   // AsyncStorage.getAllKeys().then((text) => console.log(text));
-  if (!introduceBtn) {
-    return <MindTestIntroduce setIntroduceBtn={setIntroduceBtn} />;
-  } else {
-    return (
+  // if (!introduceBtn) {
+  //   console.log(introduceBtn);
+  //   return <MindTestIntroduce setIntroduceBtn={setIntroduceBtn} />;
+  // } else if (introduceBtn && showLoadingScreen) {
+  //   console.log(introduceBtn);
+  //   return <LoadingScreen />;
+  // } else {
+  return (
+    <>
       <Swiper
         loop={false}
         ref={(swiper) => {
@@ -54,14 +68,17 @@ const MindTest = (props) => {
       >
         {Object.keys(questionObj).map((item, index) => (
           <MindTestPage
-            submitMindtest={submitMindtest}
+            showLoadingScreenThenSubmitMindText={
+              showLoadingScreenThenSubmitMindText
+            }
             pageNumber={item}
             key={index}
           />
         ))}
       </Swiper>
-    );
-  }
+    </>
+  );
 };
+// };
 
 export default MindTest;
