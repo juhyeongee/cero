@@ -6,7 +6,6 @@ import MindTestIntroduce from "./MindTestIntroduce";
 import questionObj from "../../constants/Qustions";
 import MindTestPage from "./MindTestPage";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import LoadingScreen from "./LoadingScreen";
 
 const MindTest = (props) => {
   const [showIntroduceScreen, setShowIntroduceScreen] = useState(true);
