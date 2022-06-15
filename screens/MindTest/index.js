@@ -10,16 +10,6 @@ import LoadingScreen from "./LoadingScreen";
 
 const MindTest = (props) => {
   const [showIntroduceScreen, setShowIntroduceScreen] = useState(true);
-  const [showLoadingScreen, setShowLoadingScreen] = useState(true);
-
-  const showLoadingScreenThenSubmitMindText = async () => {
-    setShowLoadingScreen(true);
-    //TODO: 확인 필요
-    setTimeout(() => {
-      setShowLoadingScreen(false);
-      submitMindTest();
-    }, 3000);
-  };
 
   const submitMindTest = async () => {
     const number = await findNotAnsweredQuestion();
@@ -38,7 +28,7 @@ const MindTest = (props) => {
   // props.findNotAnsweredQuestion();
   // if (props.allAnswerResponsed) {
   //   props.finishMindTest();
-  //   firestore().collection("Users").add({ showLoadingScreenThenSubmitMindText: true });
+  //   firestore().collection("Users").add({ submitMindTest: true });
   // } else {
   //   Alert.alert ("응답하지 않은 답변이있습니다ㅠ");
   const findNotAnsweredQuestion = async () => {
@@ -58,34 +48,24 @@ const MindTest = (props) => {
 
   return (
     <>
-      {showLoadingScreen ? (
-        <LoadingScreen />
+      {showIntroduceScreen ? (
+        <MindTestIntroduce setShowIntroduceScreen={setShowIntroduceScreen} />
       ) : (
-        <>
-          {showIntroduceScreen ? (
-            <MindTestIntroduce
-              setShowIntroduceScreen={setShowIntroduceScreen}
+        <Swiper
+          loop={false}
+          ref={(swiper) => {
+            this._swiper = swiper;
+          }}
+          showsPagination={false}
+        >
+          {Object.keys(questionObj).map((item, index) => (
+            <MindTestPage
+              submitMindTest={submitMindTest}
+              pageNumber={item}
+              key={index}
             />
-          ) : (
-            <Swiper
-              loop={false}
-              ref={(swiper) => {
-                this._swiper = swiper;
-              }}
-              showsPagination={false}
-            >
-              {Object.keys(questionObj).map((item, index) => (
-                <MindTestPage
-                  showLoadingScreenThenSubmitMindText={
-                    showLoadingScreenThenSubmitMindText
-                  }
-                  pageNumber={item}
-                  key={index}
-                />
-              ))}
-            </Swiper>
-          )}
-        </>
+          ))}
+        </Swiper>
       )}
     </>
   );

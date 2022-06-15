@@ -37,7 +37,10 @@ const MindTestIntroduce = (props) => {
             환경에서 함께해시길 추천해요.
           </SubText>
 
-          <BigGreenButton text="계속하기" onPress={props.setIntroduceBtn} />
+          <BigGreenButton
+            text="계속하기"
+            onPress={() => props.setShowIntroduceScreen(false)}
+          />
         </Container>
       </Modal>
     </>
