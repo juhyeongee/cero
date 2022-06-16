@@ -39,8 +39,8 @@ export default function App() {
   const [isMindTestOverInAsyncStorage, setIsMindTestOverInAsyncStorage] =
     useState(false);
 
-  const { increaseCount, decreaseCount, count } = useStore();
-
+  const { missionCompleteDate, decreaseCount, count } = useStore();
+  console.log("useStore에서 날짜가져오기:", missionCompleteDate);
   const finishTakeUserInfo = () => {
     setIsUserInfoInAsyncStorage(true);
     AsyncStorage.setItem("checkUserInfofinished", "finished");
