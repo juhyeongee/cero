@@ -30,8 +30,10 @@ import {
 import useStore from "./lib/store";
 import AppLoading from "expo-app-loading";
 import * as SplashScreen from "expo-splash-screen";
+import { getMissionCompleteDateFromAsyncStorage } from "./lib/storage";
 
 export default function App() {
+  const { setMissionCompleteDate, missionCompleteDate } = useStore();
   const [appIsReady, setAppIsReady] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isUserInfoInAsyncStorage, setIsUserInfoInAsyncStorage] =
@@ -39,8 +41,31 @@ export default function App() {
   const [isMindTestOverInAsyncStorage, setIsMindTestOverInAsyncStorage] =
     useState(false);
 
-  const { missionCompleteDate, decreaseCount, count } = useStore();
-  console.log("useStore에서 날짜가져오기:", missionCompleteDate);
+  ////
+  // 1. useStore초기화 => missionCompletedDate값이 null로 초기화
+  // 2. AsyncStorage 에서 get
+  // 3. App.js 파일이 실행 set함수 통해 2번의 결과값으로 데이터 상태값 바꿔줌
+  // 4. 그 이후에 출력을 하고싶음  (결과 바뀌었는지확인위해서)
+
+  useEffect(() => {
+    loadMissionCompleteDateFromAsyncStorage();
+    // setMissionCompleteDateFromAsyncStorageToStore();
+  }, []);
+
+  const loadMissionCompleteDateFromAsyncStorage = async () => {
+    const missionCompleteDateFromAsyncStorage =
+      await getMissionCompleteDateFromAsyncStorage();
+    console.log(missionCompleteDateFromAsyncStorage);
+    setMissionCompleteDate(missionCompleteDateFromAsyncStorage);
+    console.log("set함수 이후에 값변화는?: ", missionCompleteDate);
+  };
+
+  useEffect(() => {
+    console.log("딜링", missionCompleteDate);
+  }, [missionCompleteDate]);
+
+  //호출과 선언
+  ////
   const finishTakeUserInfo = () => {
     setIsUserInfoInAsyncStorage(true);
     AsyncStorage.setItem("checkUserInfofinished", "finished");
