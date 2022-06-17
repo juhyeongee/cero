@@ -30,8 +30,18 @@ import {
 import useStore from "./lib/store";
 import AppLoading from "expo-app-loading";
 import * as SplashScreen from "expo-splash-screen";
+import {
+  getMissionCompleteDateFromAsyncStorage,
+  getCompletedMissionNumberFromAsyncStorage,
+} from "./lib/storage";
 
 export default function App() {
+  const {
+    setMissionCompleteDate,
+    setCompletedMissionNumber,
+    missionCompleteDate,
+    completedMissionNumber,
+  } = useStore();
   const [appIsReady, setAppIsReady] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isUserInfoInAsyncStorage, setIsUserInfoInAsyncStorage] =
@@ -39,8 +49,59 @@ export default function App() {
   const [isMindTestOverInAsyncStorage, setIsMindTestOverInAsyncStorage] =
     useState(false);
 
-  const { increaseCount, decreaseCount, count } = useStore();
+  ////
+  // 1. useStore초기화 => missionCompletedDate값이 null로 초기화
+  // 2. AsyncStorage 에서 get
+  // 3. App.js 파일이 실행 set함수 통해 2번의 결과값으로 데이터 상태값 바꿔줌
+  // 4. 그 이후에 출력을 하고싶음  (결과 바뀌었는지확인위해서)
 
+  useEffect(() => {
+    loadMissionCompleteDateFromAsyncStorage();
+    loadCompletedMissionNumberFromAsyncStorage();
+  }, []);
+
+  const loadMissionCompleteDateFromAsyncStorage = async () => {
+    const missionCompleteDateFromAsyncStorage =
+      await getMissionCompleteDateFromAsyncStorage();
+
+    if (missionCompleteDateFromAsyncStorage === null) {
+      setMissionCompleteDate("000000");
+      console.log(
+        `<<초기화>> 마지막 미션날짜가 "000000"으로 초기화되었습니다.`
+      );
+    } else {
+      setMissionCompleteDate(missionCompleteDateFromAsyncStorage);
+      console.log(
+        `<<초기화>> 마지막 미션날짜가 ${missionCompleteDateFromAsyncStorage}로 설정되었습니다.`
+      );
+    }
+  };
+
+  const loadCompletedMissionNumberFromAsyncStorage = async () => {
+    const completedMissionNumberFromAsyncStorage =
+      await getCompletedMissionNumberFromAsyncStorage();
+
+    if (completedMissionNumberFromAsyncStorage === null) {
+      setCompletedMissionNumber(1);
+      console.log(`<<초기화>>미션넘버가 1로 초기화 되었습니다.`);
+    } else {
+      setCompletedMissionNumber(completedMissionNumberFromAsyncStorage);
+      console.log(
+        `<<초기화>> 미션넘버가 ${completedMissionNumberFromAsyncStorage}로 설정되었습니다 `
+      );
+    }
+  };
+
+  useEffect(() => {
+    console.log("<Changed> missionCompleteDate ", missionCompleteDate);
+  }, [missionCompleteDate]);
+
+  useEffect(() => {
+    console.log("<Changed> missionCompleteDate ", completedMissionNumber);
+  }, [completedMissionNumber]);
+
+  //호출과 선언
+  ////
   const finishTakeUserInfo = () => {
     setIsUserInfoInAsyncStorage(true);
     AsyncStorage.setItem("checkUserInfofinished", "finished");

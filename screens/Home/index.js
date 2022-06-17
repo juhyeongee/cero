@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Pressable, Image, SafeAreaView } from "react-native";
 import styled from "styled-components";
 import { useNavigation } from "@react-navigation/native";
 import missionObj from "../../constants/Missions";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import useStore from "../../lib/store";
 
 const Home = (props) => {
+  const [aaa, setAaa] = useState("before");
+  const loadMissionContent = async () => {
+    const missionContent = await AsyncStorage.getItem("Mission1Submit");
+    setAaa(missionContent);
+  };
   const navigation = useNavigation();
+
+  useEffect(() => {
+    loadMissionContent();
+  }, []);
   return (
     <Container>
       <SafeAreaView style={{ flex: 1 }}>
         <ToDoContainer>
           <ToDoText>오늘의 할 일</ToDoText>
-          <SubToDoText>{missionObj.day1.version1.subtitle}</SubToDoText>
+          <SubToDoText>{missionObj[1].version1.subtitle}</SubToDoText>
           <StartMissionBtn onPress={() => navigation.navigate("StartMission")}>
             <SubToDoText>하러가기</SubToDoText>
           </StartMissionBtn>

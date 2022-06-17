@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 import missionObj from "../../constants/Missions";
 import Precautious from "./Precautious";
 import { SubText, MainText } from "../components";
+import useStore from "../../lib/store";
 
-const TodaysMission = (props) => {
+const TodaysMission = () => {
+  const { completedMissionNumber } = useStore();
+
+  useEffect(
+    () => console.log("투데이 미션에서 번호 출력: ", completedMissionNumber),
+    [completedMissionNumber]
+  );
   return (
     <View>
-      <SubText>Q.{missionObj.day1.version1.subtitle}</SubText>
-      <SubText>{missionObj.day1.version1.contents}</SubText>
+      <SubText>Q.{missionObj[1].version1.subtitle}</SubText>
+      <SubText>{missionObj[1].version1.contents}</SubText>
     </View>
   );
 };
