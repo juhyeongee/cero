@@ -19,7 +19,7 @@ const AnswerBtn = ({
     background-color: ${(props) =>
       props.checked ? props.theme.n900 : props.theme.n400};
     border-radius: 10px;
-    height: 48px;
+    height: 56px;
     padding: 10px 20px;
     margin-bottom: 10px;
   `;

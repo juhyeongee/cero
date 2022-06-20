@@ -19,7 +19,7 @@ export const Layout = (props) => {
 };
 
 const Container = styled.View`
-  background-color: ${(props) => props.theme.n100};
+  background-color: ${(props) => props.theme.n50};
   flex: 1;
   justify-content: center;
   padding: 32px;

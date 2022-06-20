@@ -18,23 +18,10 @@ const DoneTaskModal = (props) => {
         <TitleText>텍스트</TitleText>
         <SubTitleText>2022년 6월 1일</SubTitleText>
         <MissionContentBox />
-        <OutlineButton>
-          <Text>다른 사람 할 일 보기</Text>
-        </OutlineButton>
       </Container>
     </Modal>
   );
 };
-
-const OutlineButton = styled.Pressable`
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: ${(props) => props.theme.n900};
-  border-radius: 10px;
-  height: 48px;
-  padding: 10px 20px;
-`;
 
 const MissionContentBox = styled.View`
   border: 1px solid black;
