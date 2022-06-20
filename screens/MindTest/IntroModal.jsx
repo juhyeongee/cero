@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, Pressable, Modal } from "react-native";
+import { View, Text, Pressable, Modal, Image } from "react-native";
 import styled from "styled-components";
 
-const IntroModal = (props) => {
+const IntroMessage = (props) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   //그냥 갑자기 이렇게도 쓰고싶어서..
@@ -14,29 +14,32 @@ const IntroModal = (props) => {
   ];
   console.log("페이지넘버 :" + pageNumber);
   return (
-    <ShortModal>
+    <Container>
       <ModalText>{text[pageNumber]}</ModalText>
       {pageNumber !== text.length - 1 ? (
         <NextButton onPress={() => setPageNumber(pageNumber + 1)}>
-          <ButtonText>클릭하여 다음으로</ButtonText>
+          <Image source={require("cero_/assets/arrowTriangle.png")} />
         </NextButton>
       ) : (
         <NextButton onPress={() => props.setMindSeedModalVisible(true)}>
-          <ButtonText>클릭해서 다음으로</ButtonText>
+          <ButtonText> 다음으로</ButtonText>
         </NextButton>
       )}
-    </ShortModal>
+    </Container>
   );
 };
 
-const ShortModal = styled.View`
-  justify-content: space-between;
-  background-color: ${(props) => props.theme.n300};
+const Container = styled.View`
+  border-radius: 10px;
   position: absolute;
-  bottom: 0px;
-  height: 27%;
-  width: 100%;
+  bottom: 60%;
+  flex: 0.3;
+  justify-content: space-between;
+  background-color: ${(props) => props.theme.n50};
+  height: 20%;
+  width: 80%;
   padding: 10%;
+  box-shadow: 0.01px 0.01px 10px grey;
 `;
 
 const ModalText = styled.Text`
@@ -54,4 +57,4 @@ const ButtonText = styled.Text`
   color: ${(props) => props.theme.mainGreen};
 `;
 
-export default IntroModal;
+export default IntroMessage;

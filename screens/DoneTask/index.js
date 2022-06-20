@@ -1,50 +1,67 @@
 import React, { useState } from "react";
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components";
-import DailyBox from "./DailyBox";
+import DailyTaskBox from "./DailyTaskBox";
 import DoneTaskModal from "./DoneTaskModal";
 import useStore from "../../lib/store";
+import { MainText, SubText } from "../components";
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../../constants/property";
 
 const DoneTask = () => {
   const { day } = useStore();
   const [visible, setVisible] = useState(false);
-
+  const ModalClickedBG = styled.View`
+    height: ${WINDOW_HEIGHT};
+    width: ${WINDOW_WIDTH};
+    position: absolute;
+    background-color: ${(props) => props.theme.n400};
+  `;
   return (
     <Container>
       <SafeAreaView style={{ flex: 1 }}>
-        <View style={{ flex: 1, justifyContent: "center" }}>
-          <TitleText>지난 할 일</TitleText>
-          <SubTitleText>지금까지의 여정을 살펴보세요.</SubTitleText>
-          <Text>{day}일 차</Text>
-        </View>
-        <View style={{ flex: 3 }}>
+        <TitleContainer>
+          <View style={{ flex: 1, justifyContent: "center" }}>
+            <Image source={require("cero_/assets/flag.png")} />
+            <MainText>지난 할 일</MainText>
+            <SubText>지금까지의 여정을 살펴보세요.</SubText>
+            <Text>{day}일 차</Text>
+          </View>
+        </TitleContainer>
+        <View style={{ flex: 5 }}>
           <Row>
-            <DailyBox setVisible={setVisible} />
-            <DailyBox setVisible={setVisible} />
-            <DailyBox setVisible={setVisible} />
+            <DailyTaskBox setVisible={setVisible} />
+            <DailyTaskBox setVisible={setVisible} />
+            <DailyTaskBox setVisible={setVisible} />
           </Row>
           <Row>
-            <DailyBox setVisible={setVisible} />
-            <DailyBox setVisible={setVisible} />
-            <DailyBox setVisible={setVisible} />
+            <DailyTaskBox setVisible={setVisible} />
+            <DailyTaskBox setVisible={setVisible} />
+            <DailyTaskBox setVisible={setVisible} />
           </Row>
           <Row>
-            <DailyBox setVisible={setVisible} />
-            <DailyBox setVisible={setVisible} />
-            <DailyBox setVisible={setVisible} />
+            <DailyTaskBox setVisible={setVisible} />
+            <DailyTaskBox setVisible={setVisible} />
+            <DailyTaskBox setVisible={setVisible} />
           </Row>
         </View>
         <DoneTaskModal
           visible={visible}
           setVisible={setVisible}
         ></DoneTaskModal>
+        {visible && <ModalClickedBG />}
       </SafeAreaView>
     </Container>
   );
 };
 
 const Container = styled.View`
+  background-color: ${(props) => props.theme.n100};
+  flex: 1;
+  justify-content: center;
+`;
+
+const TitleContainer = styled.View`
   background-color: ${(props) => props.theme.n100};
   flex: 1;
   justify-content: center;
@@ -55,20 +72,6 @@ const Row = styled.View`
   justify-content: space-between;
   flex-direction: row;
   width: 100%;
-  height: 70px;
-  margin: 3px;
-`;
-
-const TitleText = styled.Text`
-  color: ${(props) => props.theme.n900};
-  font-family: ${(props) => props.theme.thickFont};
-  font-size: 20px;
-`;
-
-const SubTitleText = styled.Text`
-  color: ${(props) => props.theme.n900};
-  font-family: ${(props) => props.theme.mainFont};
-  font-size: 14px;
 `;
 
 export default DoneTask;

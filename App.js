@@ -2,8 +2,6 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
-import { Ionicons } from "@expo/vector-icons";
-import { Asset } from "expo-asset";
 import { NavigationContainer } from "@react-navigation/native";
 import BottomTabNav from "./navigation/BottomTabNav";
 import styled from "styled-components/native";
@@ -16,9 +14,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import TakeUserInfo from "./screens/TakeUserInfo";
 import LoadingAnimation from "./screens/components/LoadingAnimation";
 import MindTest from "./screens/MindTest";
-import { SafeAreaView } from "react-native-safe-area-context";
-import HomeNav from "./navigation/MissionNav";
-import { useFonts } from "@expo-google-fonts/inter";
 import {
   NotoSansKR_100Thin,
   NotoSansKR_300Light,
@@ -34,6 +29,7 @@ import {
   getMissionCompleteDateFromAsyncStorage,
   getCompletedMissionNumberFromAsyncStorage,
 } from "./lib/storage";
+import MindTestResult from "./screens/MindTestResult";
 
 export default function App() {
   const {
@@ -48,6 +44,7 @@ export default function App() {
     useState(false);
   const [isMindTestOverInAsyncStorage, setIsMindTestOverInAsyncStorage] =
     useState(false);
+  const [isSeedIntroduced, setIsSeedIntroduced] = useState(false);
 
   ////
   // 1. useStore초기화 => missionCompletedDate값이 null로 초기화
@@ -199,12 +196,19 @@ export default function App() {
         <MindTest finishMindTest={finishMindTest} />
       </ThemeProvider>
     );
+  } else if (!isSeedIntroduced) {
+    return (
+      <ThemeProvider theme={mainTheme}>
+        <MindTestResult setIsSeedIntroduced={setIsSeedIntroduced} />
+      </ThemeProvider>
+    );
+  } else {
+    return (
+      <ThemeProvider theme={mainTheme}>
+        <NavigationContainer>
+          <BottomTabNav />
+        </NavigationContainer>
+      </ThemeProvider>
+    );
   }
-  return (
-    <ThemeProvider theme={mainTheme}>
-      <NavigationContainer>
-        <BottomTabNav />
-      </NavigationContainer>
-    </ThemeProvider>
-  );
 }
