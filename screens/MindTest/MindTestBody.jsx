@@ -5,6 +5,7 @@ import questionObj from "../../constants/Qustions";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import AnswerBtn from "./AnswerBtn";
 import { Layout, OnOffButton } from "../components";
+import { SubText, MainText } from "../components";
 
 const Body = (props) => {
   const [clickedBtnNumber, setClickedBtnNumber] = useState(0);
@@ -23,10 +24,12 @@ const Body = (props) => {
 
   return (
     <>
-      <ContentContainer>
-        <LastWeekText>최근 일주일 동안...</LastWeekText>
-        <Question>{questionObj[props.pageNumber]}</Question>
-      </ContentContainer>
+      <LastWeekTextContainer>
+        <SubText>최근 일주일 동안...</SubText>
+      </LastWeekTextContainer>
+      <QuestionContainer>
+        <MainText>{questionObj[props.pageNumber]}</MainText>
+      </QuestionContainer>
       <ButtonContainer>
         <AnswerBtn
           clickedBtnNumber={clickedBtnNumber}
@@ -57,33 +60,18 @@ const Body = (props) => {
   );
 };
 
-const ContentContainer = styled.View`
-  justify-content: flex-end;
-  flex: 1;
+const QuestionContainer = styled.View`
+  width: 100%;
+  flex: 1.5;
 `;
 const ButtonContainer = styled.View`
-  flex: 2;
+  flex: 8;
+  width: 100%;
 `;
 
-const BodyBG = styled.View`
+const LastWeekTextContainer = styled.View`
   width: 100%;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  flex: 1.5;
 `;
-const Question = styled.Text`
-  width: 100%;
-  font-size: 22px;
-  margin-bottom: 90px;
-  font-family: ${(props) => props.theme.thickFont};
-`;
-
-const LastWeekText = styled.Text`
-  width: 100%;
-  font-size: 16px;
-  margin-bottom: 20px;
-  font-family: ${(props) => props.theme.mainFont};
-`;
-
 export default Body;
