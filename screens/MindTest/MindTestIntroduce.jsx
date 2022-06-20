@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Pressable, Modal, Image } from "react-native";
 import styled from "styled-components";
-import questionObj from "../../constants/Qustions";
+import { questionObj } from "../../constants/property";
 import { Layout, MainText, SubText, BigGreenButton } from "../components";
 import IntroMessage from "./IntroModal";
 import AutoHeightImage from "react-native-auto-height-image";

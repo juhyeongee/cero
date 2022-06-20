@@ -34,7 +34,7 @@ export default function App() {
     useState(false);
   const [isMindTestOverInAsyncStorage, setIsMindTestOverInAsyncStorage] =
     useState(false);
-  const [introduceSeed, setIntroduceSeed] = useState(false);
+  const [isSeedIntroduced, setIsSeedIntroduced] = useState(false);
 
   const { increaseCount, decreaseCount, count } = useStore();
 
@@ -135,10 +135,10 @@ export default function App() {
         <MindTest finishMindTest={finishMindTest} />
       </ThemeProvider>
     );
-  } else if (!introduceSeed) {
+  } else if (!isSeedIntroduced) {
     return (
       <ThemeProvider theme={mainTheme}>
-        <MindTestResult setIntroduceSeed={setIntroduceSeed} />
+        <MindTestResult setIsSeedIntroduced={setIsSeedIntroduced} />
       </ThemeProvider>
     );
   } else {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styled from "styled-components";
-import questionObj from "../../constants/Qustions";
+import { questionObj } from "../../constants/property";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import AnswerBtn from "./AnswerBtn";
 import { Layout, OnOffButton } from "../components";

@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import Swiper from "react-native-swiper";
 import styled from "styled-components";
 import MindTestIntroduce from "./MindTestIntroduce";
-import questionObj from "../../constants/Qustions";
+import { questionObj } from "../../constants/property";
 import MindTestPage from "./MindTestPage";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
