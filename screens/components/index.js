@@ -34,13 +34,13 @@ let SafeArea = styled.SafeAreaView`
 export const MainText = styled.Text`
   color: ${(props) => (props.color ? props.color : props.theme.n900)};
   font-family: ${(props) => props.theme.thickFont};
-  margin-bottom: 32px;
+  margin-bottom: 26px;
   font-size: 20px;
 `;
 
 export const SubText = styled.Text`
   color: ${(props) => (props.color ? props.color : props.theme.n900)};
   font-family: ${(props) => props.theme.mainFont};
-  margin-bottom: 32px;
+  margin-bottom: 10px;
   font-size: 14px;
 `;

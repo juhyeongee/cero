@@ -32,11 +32,11 @@ const DailyTaskBox = (props) => {
       <Box
         onPress={() => {
           setDone(!done);
-          props.setVisible(true);
+          props.setIsModalActive(true);
         }}
       >
-        <DayTitle>01</DayTitle>
-        <DaySubTitle>하늘 사진 찍기</DaySubTitle>
+        <DayTitle>{props.missionNumber}</DayTitle>
+        {done && <DaySubTitle>하늘 사진 찍기</DaySubTitle>}
       </Box>
     </Container>
   );

@@ -34,10 +34,10 @@ const MindTestIntroduce = (props) => {
       <Modal
         animationType="slide"
         transparent={true}
-        visible={mindSeedModalVisible}
+        isModalActive={mindSeedModalVisible}
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
-          props.setVisible(!visible);
+          props.setIsModalActive(!isModalActive);
         }}
       >
         <EmptyContainer />

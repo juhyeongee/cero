@@ -4,22 +4,27 @@ import styled from "styled-components";
 
 const DoneTaskModal = (props) => {
   return (
-    <Modal
-      animationType="slide"
-      transparent={true}
-      visible={props.visible}
-      onRequestClose={() => {
-        Alert.alert("Modal has been closed.");
-        props.setVisible(!visible);
-      }}
-    >
-      <EmptyContainer onPress={() => props.setVisible(false)} />
-      <Container>
-        <TitleText>텍스트</TitleText>
-        <SubTitleText>2022년 6월 1일</SubTitleText>
-        <MissionContentBox />
-      </Container>
-    </Modal>
+    <>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={props.isModalActive}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          props.setIsModalActive(!isModalActive);
+        }}
+      >
+        <EmptyContainer onPress={() => props.setIsModalActive(false)} />
+        <Container>
+          <GrayBar></GrayBar>
+          <View style={{ width: "100%" }}>
+            <TitleText>텍스트</TitleText>
+            <SubTitleText>2022년 6월 1일</SubTitleText>
+          </View>
+          <MissionContentBox />
+        </Container>
+      </Modal>
+    </>
   );
 };
 
@@ -30,16 +35,23 @@ const MissionContentBox = styled.View`
 `;
 
 const EmptyContainer = styled.Pressable`
-  flex: 0.5;
+  flex: 1;
   width: 100%;
   height: 100%;
+  opacity: 0.5;
 `;
 
 const Container = styled.View`
-  padding: 32px;
+  align-items: center;
+  flex: 1;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  padding-top: 16px;
+  padding-right: 32px;
+  padding-left: 32px;
   border-radius: 20px;
   border: 1px solid black;
-  flex: 0.5;
   background-color: ${(props) => props.theme.n100};
 `;
 
@@ -53,5 +65,13 @@ const SubTitleText = styled.Text`
   color: ${(props) => props.theme.n900};
   font-family: ${(props) => props.theme.mainFont};
   font-size: 14px;
+`;
+
+const GrayBar = styled.View`
+  flex: 1;
+  background-color: ${(props) => props.theme.n700};
+  width: 60px;
+  border-radius: 3px;
+  height: 5px;
 `;
 export default DoneTaskModal;

@@ -7,10 +7,11 @@ import DoneTaskModal from "./DoneTaskModal";
 import useStore from "../../lib/store";
 import { MainText, SubText } from "../components";
 import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../../constants/property";
+import TaskBoxes from "./TaskBoxes";
 
 const DoneTask = () => {
   const { day } = useStore();
-  const [visible, setVisible] = useState(false);
+  const [isModalActive, setIsModalActive] = useState(false);
   const ModalClickedBG = styled.View`
     height: ${WINDOW_HEIGHT};
     width: ${WINDOW_WIDTH};
@@ -28,28 +29,12 @@ const DoneTask = () => {
             <Text>{day}일 차</Text>
           </View>
         </TitleContainer>
-        <View style={{ flex: 5 }}>
-          <Row>
-            <DailyTaskBox setVisible={setVisible} />
-            <DailyTaskBox setVisible={setVisible} />
-            <DailyTaskBox setVisible={setVisible} />
-          </Row>
-          <Row>
-            <DailyTaskBox setVisible={setVisible} />
-            <DailyTaskBox setVisible={setVisible} />
-            <DailyTaskBox setVisible={setVisible} />
-          </Row>
-          <Row>
-            <DailyTaskBox setVisible={setVisible} />
-            <DailyTaskBox setVisible={setVisible} />
-            <DailyTaskBox setVisible={setVisible} />
-          </Row>
-        </View>
+        <TaskBoxes setIsModalActive={setIsModalActive} />
         <DoneTaskModal
-          visible={visible}
-          setVisible={setVisible}
+          isModalActive={isModalActive}
+          setIsModalActive={setIsModalActive}
         ></DoneTaskModal>
-        {visible && <ModalClickedBG />}
+        {isModalActive && <ModalClickedBG />}
       </SafeAreaView>
     </Container>
   );
