@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import styled from "styled-components/native";
 import TodaysMission from "./TodaysMission";
-import Precautious from "./Precautious";
 import missionObj from "../../constants/Missions";
 import useStore from "../../lib/store";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -42,7 +41,9 @@ const StartMission = (props) => {
 
   return (
     <Container>
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView
+        style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+      >
         <Header submitTextMission={submitTextMission} />
         <TodaysMission />
         {isWriteScreen ? (
@@ -54,6 +55,7 @@ const StartMission = (props) => {
     </Container>
   );
 };
+
 const Container = styled.View`
   flex: 1;
   background-color: ${(props) => props.theme.n200};

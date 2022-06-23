@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, Image, Pressable } from "react-native";
 import styled from "styled-components";
-import { useNavigation } from "@react-navigation/native";
 
 const WriteMission = (props) => {
   return (

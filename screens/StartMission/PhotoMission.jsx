@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, Image, Pressable } from "react-native";
 import styled from "styled-components";
-import { useNavigation } from "@react-navigation/native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+import Precautious from "./Precautious";
 
 const PhotoMission = () => {
   const options = {
@@ -32,6 +32,7 @@ const PhotoMission = () => {
         <IconContainer>
           <Image source={require("cero_/assets/camera.png")} />
         </IconContainer>
+        <Precautious />
       </OpenGalleryBtn>
     </PhotoContentContainer>
   );
@@ -46,6 +47,8 @@ const PhotoContentContainer = styled.View`
 `;
 
 const OpenGalleryBtn = styled.Pressable`
+  justify-content: center;
+  align-items: center;
   flex: 1;
 `;
 
