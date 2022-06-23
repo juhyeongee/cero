@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { ImageBackground, View, Text, StyleSheet } from "react-native";
+import {
+  ImageBackground,
+  View,
+  Text,
+  Image,
+  SafeAreaView,
+  Pressable,
+} from "react-native";
 import styled from "styled-components/native";
 import TodaysMission from "./TodaysMission";
 import Precautious from "./Precautious";
@@ -10,12 +17,14 @@ import { Layout, MainText, SubText, BigGreenButton } from "../components";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import { launchCamera, launchImageLibrary } from "react-native-image-picker";
+import Header from "./Header";
 
-console.log(launchCamera, "||||", launchImageLibrary);
+// console.log(launchCamera, "||||", launchImageLibrary);
 
 const StartMission = (props) => {
   const navigation = useNavigation();
   const [letter, setLetter] = useState("");
+  const [isWriteScreen, setIsWriteScreen] = useState(false);
   const { day } = useStore();
   // const result = await launchImageLibrary(options?)
   //visibleMissionScreen 으로 boolean은 변수명을 보자마자 알 수있게 해주는게 좋습니다. 카멜케이스로 씁시다~ is has visible hidden을 사용한다.
@@ -31,53 +40,76 @@ const StartMission = (props) => {
     );
     navigation.navigate("MissionHome");
   };
+
+  const options = {
+    title: "Load Photo",
+  };
   return (
-    <Layout>
-      <TitleContainer>
-        <MainText>미션 1: {missionObj[days].version1.subtitle}</MainText>
+    <Container>
+      <SafeAreaView style={{ flex: 1 }}>
+        <Header submitTextMission={submitTextMission} />
         <TodaysMission />
-      </TitleContainer>
-      <SubmitContentsContainer>
-        <SubmitTextInput
-          placeholder="당신의 이야기를 적어주세요"
-          autoCapitalize="none"
-          autoCorrect={false}
-          returnKeyType="next"
-          value={letter}
-          placeholderTextColor={"rgba(0, 0, 0, 0.7)"}
-          onChangeText={(text) => {
-            setLetter(text);
-          }}
-        />
-        <BigGreenButton
-          text="연습용"
-          onPress={() => launchImageLibrary({}, (res) => console.log(res))}
-        />
-        <BigGreenButton text="제출" onPress={submitTextMission} />
-      </SubmitContentsContainer>
-    </Layout>
+        <SubmitContentsContainer>
+          <SubmitTextInput
+            placeholder="여기에 적어주세요"
+            autoCapitalize="none"
+            autoCorrect={false}
+            returnKeyType="next"
+            value={letter}
+            placeholderTextColor={"rgba(0, 0, 0, 0.3)"}
+            onChangeText={(text) => {
+              setLetter(text);
+            }}
+          />
+          {isWriteScreen && (
+            <BigGreenButton
+              text="사진 가져오기"
+              onPress={() =>
+                launchImageLibrary(options, (response) => {
+                  if (response.didCancel) {
+                    return;
+                  } else if (response.errorCode == "camera_unavailable") {
+                    console.log("<error> camera_unavailable");
+                    return;
+                  } else if (response.errorCode == "permission") {
+                    console.log("<error> permission");
+                    return;
+                  } else if (response.errorCode == "others") {
+                    console.log("<error> others");
+                    return;
+                  }
+                  console.log(response.assets);
+                })
+              }
+            />
+          )}
+        </SubmitContentsContainer>
+      </SafeAreaView>
+    </Container>
   );
 };
-
-const TitleContainer = styled.View`
+const Container = styled.View`
   flex: 1;
-  width: 100%;
-  justify-content: center;
+  background-color: ${(props) => props.theme.n200};
 `;
 
 const SubmitContentsContainer = styled.View`
-  flex: 2;
+  flex: 1;
+  padding: 32px;
   width: 100%;
-  justify-content: space-around;
+  border: 1px solid;
+  border-color: ${(props) => props.theme.n200};
+  background-color: ${(props) => props.theme.n0};
+  flex: 4;
+  height: 80%;
 `;
 
 const SubmitTextInput = styled.TextInput`
   font-family: ${(props) => props.theme.mainFont};
-  border: 1px solid black;
   width: 100%;
-  height: 60%;
-  padding: 32px;
   font-size: 16px;
 `;
+
+const ButtonContainer = styled.View``;
 
 export default StartMission;

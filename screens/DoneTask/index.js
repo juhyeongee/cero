@@ -53,10 +53,4 @@ const TitleContainer = styled.View`
   padding: 32px;
 `;
 
-const Row = styled.View`
-  justify-content: space-between;
-  flex-direction: row;
-  width: 100%;
-`;
-
 export default DoneTask;
