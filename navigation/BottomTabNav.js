@@ -6,7 +6,7 @@ import { View, Image } from "react-native";
 import Setting from "../screens/Setting";
 import styled from "styled-components/native";
 import MissionNav from "./MissionNav";
-import { mainTheme } from "../constants/theme";
+import { mainTheme } from "../properties/theme";
 
 const Tab = createBottomTabNavigator();
 

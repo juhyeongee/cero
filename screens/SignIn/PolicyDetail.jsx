@@ -9,7 +9,7 @@ import {
   Image,
 } from "react-native";
 import styled from "styled-components";
-import { policyText } from "../../constants/PrivatePolicyText";
+import { policyText } from "../../properties/PrivatePolicyText";
 import { Layout } from "../components";
 
 const PolicyDetail = ({ navigation: { navigate } }) => {

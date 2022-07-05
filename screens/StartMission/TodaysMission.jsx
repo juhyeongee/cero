@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
-import missionObj from "../../constants/Missions";
+import missionObj from "../../properties/Missions";
 
 const TodaysMission = (props) => {
   return (
     <TitleContainer>
-      <Title>Q.{missionObj.day1.version1.subtitle}</Title>
-      <SubTitle>{missionObj.day1.version1.contents}</SubTitle>
+      <Title>Q.{missionObj[1].version1.subtitle}</Title>
+      <SubTitle>{missionObj[1].version1.contents}</SubTitle>
     </TitleContainer>
   );
 };

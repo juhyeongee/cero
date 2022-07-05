@@ -7,7 +7,7 @@ import BottomTabNav from "./navigation/BottomTabNav";
 import styled from "styled-components/native";
 import OutNav from "./navigation/OutNav";
 import { ThemeProvider } from "styled-components";
-import { mainTheme, darkTheme } from "./constants/theme";
+import { mainTheme, darkTheme } from "./properties/theme";
 import firestore from "@react-native-firebase/firestore";
 import auth from "@react-native-firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";

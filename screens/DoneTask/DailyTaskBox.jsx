@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Pressable, SafeAreaView } from "react-native";
 import styled from "styled-components";
-import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../../constants/property";
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../../properties/property";
 
 const DailyTaskBox = (props) => {
   const [done, setDone] = useState(false); //흠 근데, 이건 전체 커리큘럼에 따른 전체 상태로 처리해줘야할 것 같은데요?

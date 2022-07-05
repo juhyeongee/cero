@@ -6,7 +6,7 @@ import DailyTaskBox from "./DailyTaskBox";
 import DoneTaskModal from "./DoneTaskModal";
 import useStore from "../../lib/store";
 import { MainText, SubText } from "../components";
-import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../../constants/property";
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../../properties/property";
 import TaskBoxes from "./TaskBoxes";
 
 const DoneTask = () => {

@@ -1,4 +1,4 @@
-import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../constants/property";
+import { WINDOW_WIDTH, WINDOW_HEIGHT } from "../properties/property";
 
 export const mainTheme = {
   windowWidth: WINDOW_WIDTH,

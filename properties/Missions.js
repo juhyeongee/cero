@@ -1,11 +1,11 @@
 const missionObj = {
-  day1: {
+  1: {
     version1: {
       subtitle: "보내지 않을 편지쓰기 📨",
       contents: `그 사람에게 하고 싶은 말씀, 남김없이 털어놓으세요. 어차피 보내지 않을 편지이니 속 시원히 적어보세요.`,
     },
   },
-  day2: {
+  2: {
     version1: {
       subtitle: "이별 영화 감상하기 🎥",
       contents: `오늘은 영화 한 편 어떠세요? 이별을 극복한 사람들이 추천하는 영화, 베스트 5입니다. `,
@@ -15,7 +15,7 @@ const missionObj = {
       contents: `OO님을 위해 노래를 골랐어요. 내 맘 같은 노래 들으면서 오늘은 마음껏 슬퍼하셔도 괜찮아요.`,
     },
   },
-  day3: {
+  3: {
     version1: {
       subtitle: `지난 연애 장면 소설로 써보기 ✍🏻`,
       contents: `지난 연애에서 가장 좋았던 추억을 하나 적어보세요. 관찰하듯 담담하게 3인칭으로 써보시길 추천드려요.`,
@@ -25,7 +25,7 @@ const missionObj = {
       contents: `그래도 그 사람을 만나서 다행이었다 싶은 점이 있다면 말씀해주세요. 좋은 건 잠시 남겨두자고요.`,
     },
   },
-  day4: {
+  4: {
     version1: {
       subtitle: `목청 높여 노래부르기 🎤`,
       contents: `오늘 기분은 어떠세요? 노래방이라도 가셔서 속이 뻥 뚫리도록 맘껏 소리 지르고 오세요! `,
@@ -39,7 +39,7 @@ const missionObj = {
       contents: `그 사람이 준 상처가 있다면 남김 없이 적어보세요. ‘헤어지길 잘했다’ 싶은 일이라면 뭐든 좋아요.`,
     },
   },
-  day5: {
+  5: {
     version1: {
       subtitle: `찬물로 샤워하기 🚿`,
       contents: `찬물로 딱 30초만 샤워해 보세요. 숨이 차고 아드레날린이 솟아오르며 기분이 아주 상쾌해질 거예요!`,
@@ -57,7 +57,7 @@ const missionObj = {
       contents: `자자, 바로 맨몸 스쿼트 100개만 같이 해봐요! 딱 10분이면 근육이 불끈거리는 걸 느낄 수 있을 거예요!`,
     },
   },
-  day6: {
+  6: {
     version1: {
       subtitle: `처음 가보는 길 걸어보기 🚶🏻‍♀️`,
       contents: `세상은 넓고, 좋은 곳도 참 많죠. 오늘은 한 번도 가보지 않았던 길로 걸어보세요.`,
@@ -71,7 +71,7 @@ const missionObj = {
       contents: `지난 연애가 끝날 수 밖에 없었던 결정적인 이유는 무엇인가요? 차분하게 정리하는 시간을 가져보세요.`,
     },
   },
-  day7: {
+  7: {
     version1: {
       subtitle: `해묵은 물건 중고 거래하기 🏷`,
       contents: `오랫동안 자리만 차지했던 물건 하나 골라서 중고 마켓에 올려보세요! 의외로 후련한 기분이 드실걸요?`,
@@ -85,7 +85,7 @@ const missionObj = {
       contents: `OO님, 지난 연애에서 우린 무엇을 배웠을까요? 작은 것이라도 좋으니 한번 정리해보시죠.`,
     },
   },
-  day8: {
+  8: {
     version1: {
       subtitle: `지난 추억 정리하기 📦`,
       contents: `그 사람의 편지와 사진, 아직 가지고 계신다고요? 좋아요, 남김 없이 모아서 박스 하나에 모아보세요.`,
@@ -99,7 +99,7 @@ const missionObj = {
       contents: `아직 침대에 누워 계시다면 바로 이불을 정리하세요! 깔끔히 정돈한 후 기지개 쭉 펴고 하루 시작하기!`,
     },
   },
-  day9: {
+  9: {
     version1: {
       subtitle: `미래의 나에게 안부 묻기 👋🏻`,
       contents: `나중에 OO님은 지금을 어떻게 기억할까요? 미래의 나에게 하고 싶은 말을 영상이나 글로 남겨보세요.`,
@@ -113,7 +113,7 @@ const missionObj = {
       contents: `오늘은 우주 다큐멘터리 한 편 보시죠. 드넓은 우주 속에선 우리의 아픔이 아주 작게 보일 거예요.`,
     },
   },
-  day10: {
+  10: {
     version1: {
       subtitle: `나를 위한 저녁 식사 차리기 🥘`,
       contents: `OO님을 위한 저녁 식사를 차려보세요. 기름지고 맛있는 음식이라면 완벽합니다.`,
@@ -127,7 +127,7 @@ const missionObj = {
       contents: `오늘은 극장에 가서 심야 영화 한 편 보기! 여유롭게 OO님만을 위한 시간을 가져보세요.`,
     },
   },
-  day11: {
+  11: {
     version1: {
       subtitle: `‘혼자여서 괜찮은’ 5가지 이유 적기 😌`,
       contents: `다시 혼자가 돼서 좋은 점은 무엇인가요? 아주 많겠지만, 딱 5가지만 말씀해주세요.`,
@@ -141,7 +141,7 @@ const missionObj = {
       contents: `기분 좋은 웃음을 머금고 사진 한 장 남겨보세요! 나중의 OO님이 그리워할 만큼 멋진 얼굴로요!`,
     },
   },
-  day12: {
+  12: {
     version1: {
       subtitle: `새로운 취미 시작하기 👩🏻‍🎨`,
       contents: `새로운 취미에 도전해볼까요? 뭐든 좋아요! 미뤄왔던 취미가 있다면 과감하게 시작해보세요!`,
@@ -155,7 +155,7 @@ const missionObj = {
       contents: `슬슬 머리 할 때 되지 않으셨어요? 평소 하고 싶었던 스타일이 있다면 오늘이 바로 변신의 날이이에요!`,
     },
   },
-  day13: {
+  13: {
     version1: {
       subtitle: `1년 버킷리스트 작성하기 📋 `,
       contents: `OO님의 내일이 기대돼요. 앞으로 1년 안에 이룰 버킷리스트 5개만 알려주세요.`,
@@ -165,7 +165,7 @@ const missionObj = {
       contents: `OO님을 아끼고 사랑하는 분들께 안부 전화 한 통 해보세요. 다들 기다리고 계실 거예요.`,
     },
   },
-  day14: {
+  14: {
     version1: {
       subtitle: `내 마음 확인하기 👍🏻`,
       contents: `첫날과 비교해서 보여주기`,
@@ -176,116 +176,116 @@ const missionObj = {
     },
   },
 };
-// let day_3 = {
-//   day: 3,
+// let _3 = {
+//   : 3,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_4 = {
-//   day: 4 ,
+// let _4 = {
+//   : 4 ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_5 = {
-//   day: 5,
+// let _5 = {
+//   : 5,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };
 
-// let day_ = {
-//   day: ,
+// let _ = {
+//   : ,
 //   subTitle: ,
 //   contents: ,
 // };

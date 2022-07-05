@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Pressable, Image, SafeAreaView } from "react-native";
 import styled from "styled-components";
 import { useNavigation } from "@react-navigation/native";
-import missionObj from "../../constants/Missions";
+import missionObj from "../../properties/Missions";
 
 const Home = (props) => {
   const navigation = useNavigation();

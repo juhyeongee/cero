@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import styled from "styled-components/native";
 import TodaysMission from "./TodaysMission";
-import missionObj from "../../constants/Missions";
+import missionObj from "../../properties/Missions";
 import useStore from "../../lib/store";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";

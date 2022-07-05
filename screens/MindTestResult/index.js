@@ -3,7 +3,7 @@ import { View, Text, Image } from "react-native";
 import styled from "styled-components";
 import { Layout } from "../components";
 import LoadingScreen from "./LoadingScreen";
-import { MindTextIntroductionText } from "../../constants/property";
+import { MindTextIntroductionText } from "../../properties/property";
 const MindTestResult = (props) => {
   const [pageNumber, setPageNumber] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
